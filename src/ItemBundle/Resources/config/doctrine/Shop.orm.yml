@@ -1,0 +1,22 @@
+ItemBundle\Entity\Shop:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\ShopRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToMany:
+        items:
+            targetEntity: ItemBundle\Entity\SpecifiedItem
+            joinTable:
+                name: shop_items
+                joinColumns:
+                    shop_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    item_id:
+                        referencedColumnName: id
+    lifecycleCallbacks: {  }

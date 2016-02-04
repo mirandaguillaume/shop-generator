@@ -80,6 +80,7 @@ easy_admin:
               children: ['SpeAnimal', 'SpeItem']
             - Common
             - Herb
+            - SpecifiedItem
     entities:
         Weapon:
             class: ItemBundle\Entity\Weapon
@@ -97,7 +98,7 @@ easy_admin:
                     - { property: name, label: 'admin.item.name' }
                     - { property: price, label: 'admin.item.price' }
                     - { property: location, label: 'admin.equipment.location' }
-                    - { property: defense_points, label: 'admin.armor.defense_points' }
+                    - { property: defense_points, label: 'admin.armor.defense_points', sortable: true }
                     - { property: penality, label: 'admin.armor.penality' }
         Shield:
             class: ItemBundle\Entity\Shield
@@ -106,9 +107,9 @@ easy_admin:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
                     - { property: 'location', label: 'admin.equipment.location' }
-                    - { property: 'defense_points', label: 'admin.shield.defense_points' }
+                    - { property: 'defense_points', label: 'admin.shield.defense_points', sortable: true }
                     - { property: 'penality', label: 'admin.shield.penality' }
-                    - { property: 'dodge_value', label: 'admin.shield.dodge_value' }
+                    - { property: 'dodge_value', label: 'admin.shield.dodge_value', sortable: true }
         Clothing:
             class: ItemBundle\Entity\Clothing
             list:
@@ -148,3 +149,5 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
+        SpecifiedItem:
+            class: ItemBundle\Entity\SpecifiedItem

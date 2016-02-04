@@ -27,6 +27,10 @@ abstract class Item
      */
     private $description;
 
+    /**
+     * @var ArrayCollection
+     */
+    private $instances;
 
     /**
      * Get id
@@ -109,5 +113,49 @@ abstract class Item
     {
         return $this->description;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->instances = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add instance
+     *
+     * @param \ItemBundle\Entity\SpecifiedItem $instance
+     *
+     * @return Item
+     */
+    public function addInstance(\ItemBundle\Entity\SpecifiedItem $instance)
+    {
+        $this->instances[] = $instance;
+
+        return $this;
+    }
+
+    /**
+     * Remove instance
+     *
+     * @param \ItemBundle\Entity\SpecifiedItem $instance
+     */
+    public function removeInstance(\ItemBundle\Entity\SpecifiedItem $instance)
+    {
+        $this->instances->removeElement($instance);
+    }
+
+    /**
+     * Get instances
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInstances()
+    {
+        return $this->instances;
+    }
+
+    public function __toString(){
+        return $this->getName();
+    }
+}

@@ -1,0 +1,34 @@
+ItemBundle\Entity\SpecifiedItem:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\SpecifiedItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        quantity:
+            type: integer
+    manyToOne:
+        item:
+            targetEntity: ItemBundle\Entity\Item
+            inversedBy: instances
+            joinColumn: item_id
+            referencedColumnName: id
+    manyToMany:
+        features:
+            targetEntity: ItemBundle\Entity\Spe
+            joinTable:
+                name: instance_features
+                joinColumns:
+                    instance_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    feature_id:
+                        referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -11,7 +11,10 @@ ItemBundle\Entity\Item:
         common: ItemBundle\Entity\Common
         container: ItemBundle\Entity\Container
         herb: ItemBundle\Entity\Herb
-        equipment: ItemBundle\Entity\Equipment
+        shield: ItemBundle\Entity\Shield
+        armor: ItemBundle\Entity\Armor
+        weapon: ItemBundle\Entity\Weapon
+        clothing: ItemBundle\Entity\Clothing
     id:
         id:
             type: integer
@@ -22,9 +25,12 @@ ItemBundle\Entity\Item:
         name:
             type: string
             length: 255
-            unique: true
         price:
             type: integer
         description:
             type: text
+    oneToMany:
+        instances:
+            targetEntity: ItemBundle\Entity\SpecifiedItem
+            mappedBy: item
     lifecycleCallbacks: {  }

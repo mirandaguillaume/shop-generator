@@ -20,7 +20,6 @@ ItemBundle\Entity\Spe:
         feature:
             type: string
             length: 255
-            unique: true
         amount:
             type: float
         description:
