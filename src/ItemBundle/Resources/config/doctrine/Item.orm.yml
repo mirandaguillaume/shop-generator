@@ -33,4 +33,5 @@ ItemBundle\Entity\Item:
         instances:
             targetEntity: ItemBundle\Entity\SpecifiedItem
             mappedBy: item
+            cascade: ['remove']
     lifecycleCallbacks: {  }
