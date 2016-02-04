@@ -1,0 +1,20 @@
+ItemBundle\Entity\Item:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\ItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        price:
+            type: integer
+        description:
+            type: text
+    lifecycleCallbacks: {  }
