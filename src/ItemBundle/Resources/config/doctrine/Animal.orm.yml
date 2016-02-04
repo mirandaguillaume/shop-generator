@@ -1,0 +1,20 @@
+ItemBundle\Entity\Animal:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\AnimalRepository
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: type
+        type: string
+        length: 255
+    discriminatorMap:
+        carrier: ItemBundle\Entity\Carrier
+        mount: ItemBundle\Entity\Mount
+        pet: ItemBundle\Entity\Pet
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

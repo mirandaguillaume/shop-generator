@@ -1,0 +1,8 @@
+ItemBundle\Entity\Mount:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\MountRepository
+    fields:
+        capacity:
+            type: integer
+    lifecycleCallbacks: {  }

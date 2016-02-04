@@ -1,17 +1,15 @@
-ItemBundle\Entity\Item:
+ItemBundle\Entity\Spe:
     type: entity
     table: null
-    repositoryClass: ItemBundle\Repository\ItemRepository
+    repositoryClass: ItemBundle\Repository\SpeRepository
     inheritanceType: JOINED
     discriminatorColumn:
         name: type
         type: string
         length: 255
     discriminatorMap:
-        common: ItemBundle\Entity\Common
-        container: ItemBundle\Entity\Container
-        herb: ItemBundle\Entity\Herb
-        equipment: ItemBundle\Entity\Equipment
+        animal: ItemBundle\Entity\SpeAnimal
+        item: ItemBundle\Entity\SpeItem
     id:
         id:
             type: integer
@@ -19,12 +17,15 @@ ItemBundle\Entity\Item:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        feature:
             type: string
             length: 255
             unique: true
-        price:
-            type: integer
+        amount:
+            type: float
         description:
             type: text
+        operation:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

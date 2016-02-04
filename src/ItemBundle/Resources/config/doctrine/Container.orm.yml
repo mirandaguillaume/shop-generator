@@ -1,0 +1,8 @@
+ItemBundle\Entity\Container:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\ContainerRepository
+    fields:
+        capacity:
+            type: integer
+    lifecycleCallbacks: {  }

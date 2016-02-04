@@ -1,0 +1,5 @@
+ItemBundle\Entity\SpeItem:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\SpeItemRepository
+    lifecycleCallbacks: {  }

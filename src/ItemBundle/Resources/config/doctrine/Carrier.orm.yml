@@ -1,0 +1,8 @@
+ItemBundle\Entity\Carrier:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\CarrierRepository
+    fields:
+        capacity:
+            type: integer
+    lifecycleCallbacks: {  }

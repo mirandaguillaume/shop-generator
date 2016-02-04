@@ -1,0 +1,5 @@
+ItemBundle\Entity\Pet:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\PetRepository
+    lifecycleCallbacks: {  }

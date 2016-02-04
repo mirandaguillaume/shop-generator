@@ -29,7 +29,7 @@ framework:
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
-        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        save_path:   "/tmp/sessions/%kernel.environment%"
     fragments:       ~
     http_method_override: true
     assets: ~
@@ -68,3 +68,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+easy_admin:
+    entities:
+        - ItemBundle\Entity\Item

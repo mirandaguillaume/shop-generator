@@ -1,0 +1,12 @@
+ItemBundle\Entity\Weapon:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\WeaponRepository
+    fields:
+        accuracy:
+            type: string
+            length: 255
+        damage:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

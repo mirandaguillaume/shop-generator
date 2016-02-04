@@ -1,0 +1,8 @@
+ItemBundle\Entity\Herb:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\HerbRepository
+    fields:
+        effect:
+            type: text
+    lifecycleCallbacks: {  }

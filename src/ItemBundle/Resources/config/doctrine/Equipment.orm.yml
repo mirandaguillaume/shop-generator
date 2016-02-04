@@ -1,0 +1,19 @@
+ItemBundle\Entity\Equipment:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\EquipmentRepository
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: type
+        type: string
+        length: 255
+    discriminatorMap:
+        weapon: ItemBundle\Entity\Weapon
+        shield: ItemBundle\Entity\Shield
+        armor: ItemBundle\Entity\Armor
+        clothing: ItemBundle\Entity\Clothing
+    fields:
+        location:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

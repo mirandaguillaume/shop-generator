@@ -1,0 +1,12 @@
+ItemBundle\Entity\Armor:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\ArmorRepository
+    fields:
+        defensePoints:
+            type: integer
+            column: defense_points
+        penality:
+            type: integer
+            nullable: true
+    lifecycleCallbacks: {  }

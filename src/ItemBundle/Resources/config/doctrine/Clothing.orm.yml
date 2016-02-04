@@ -1,0 +1,5 @@
+ItemBundle\Entity\Clothing:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\ClothingRepository
+    lifecycleCallbacks: {  }

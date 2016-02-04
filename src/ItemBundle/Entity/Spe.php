@@ -3,9 +3,9 @@
 namespace ItemBundle\Entity;
 
 /**
- * Item
+ * Spe
  */
-abstract class Item
+abstract class Spe
 {
     /**
      * @var int
@@ -15,18 +15,22 @@ abstract class Item
     /**
      * @var string
      */
-    private $name;
+    private $feature;
 
     /**
-     * @var int
+     * @var float
      */
-    private $price;
+    private $amount;
 
     /**
      * @var string
      */
     private $description;
 
+    /**
+     * @var string
+     */
+    private $operation;
 
     /**
      * Get id
@@ -39,51 +43,51 @@ abstract class Item
     }
 
     /**
-     * Set name
+     * Set feature
      *
-     * @param string $name
+     * @param string $feature
      *
-     * @return Item
+     * @return Spe
      */
-    public function setName($name)
+    public function setFeature($feature)
     {
-        $this->name = $name;
+        $this->feature = $feature;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get feature
      *
      * @return string
      */
-    public function getName()
+    public function getFeature()
     {
-        return $this->name;
+        return $this->feature;
     }
 
     /**
-     * Set price
+     * Set amount
      *
-     * @param integer $price
+     * @param float $amount
      *
-     * @return Item
+     * @return Spe
      */
-    public function setPrice($price)
+    public function setAmount($amount)
     {
-        $this->price = $price;
+        $this->amount = $amount;
 
         return $this;
     }
 
     /**
-     * Get price
+     * Get amount
      *
-     * @return int
+     * @return float
      */
-    public function getPrice()
+    public function getAmount()
     {
-        return $this->price;
+        return $this->amount;
     }
 
     /**
@@ -91,7 +95,7 @@ abstract class Item
      *
      * @param string $description
      *
-     * @return Item
+     * @return Spe
      */
     public function setDescription($description)
     {
@@ -108,6 +112,22 @@ abstract class Item
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * @param mixed $operation
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
     }
 }
 

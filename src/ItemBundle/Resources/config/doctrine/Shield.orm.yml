@@ -1,0 +1,15 @@
+ItemBundle\Entity\Shield:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\ShieldRepository
+    fields:
+        defensePoints:
+            type: integer
+            column: defense_points
+        penality:
+            type: integer
+            nullable: true
+        dodgeValue:
+            type: integer
+            column: dodge_value
+    lifecycleCallbacks: {  }

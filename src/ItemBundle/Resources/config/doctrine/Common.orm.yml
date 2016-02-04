@@ -1,0 +1,5 @@
+ItemBundle\Entity\Common:
+    type: entity
+    table: null
+    repositoryClass: ItemBundle\Repository\CommonRepository
+    lifecycleCallbacks: {  }
