@@ -1,0 +1,37 @@
+admin:
+    spe:
+        feature: Caractéristique
+        amount: Bonus
+        operation: Type
+    item:
+        name: Nom
+        price: Prix
+    weapon:
+        accuracy: Précision
+        damage: Dégâts
+    armor:
+        defense_points: 'Points de défense'
+        penality: Pénalité
+    shield:
+        defense_points: 'Points de défense'
+        penality: Pénalité
+        dodge_value: "Valeur d'évitement"
+    equipment:
+        location: Localisation
+    menu:
+        equipment: Equipement
+        animal: Animal
+        spe: Caractéristiques
+Clothing: Vêtements
+Weapon: Arme
+Shield: Bouclier
+Armor: Armure
+Carrier: Animal de bât
+Mount: Monture
+Pet: Animal de compagnie
+SpeAnimal: Caractéristique animale
+SpeItem: Caractéristique d'objet
+Herb: Plante
+Common: Objet commun
+
+
