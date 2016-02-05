@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-12">
+        {{ form_start(form,{'class': 'form'}) }}
+
+        <div class="form-group col-md-12">
+            <div class="col-md-4">
+                {{ form_widget(form.total_items,{'attr':{'class': 'form-control'}}) }}
+            </div>
+        </div>
+        {% for category in form.category_list %}
+            <div class="form-inline form-group">
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            {{ category.category_name.vars.label }}
+                            {{ form_widget(category.category_name,{'attr':{'class': 'checkbox'}}) }}
+                        </span>
+                        {{ form_widget(category.qte,{'attr':{'class': 'form-control'}}) }}
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="form-group col-md-12">
+            <button class="btn btn-default" type="submit">{{ 'form.submit.generate'|trans }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
