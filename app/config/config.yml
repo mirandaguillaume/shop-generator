@@ -79,6 +79,7 @@ easy_admin:
             - label: 'admin.menu.spe'
               children: ['SpeAnimal', 'SpeItem']
             - Common
+            - Container
             - Herb
             - SpecifiedItem
     entities:
@@ -149,5 +150,12 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
+        Container:
+            class: ItemBundle\Entity\Container
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'capacity', label: 'admin.container.capacity' }
         SpecifiedItem:
             class: ItemBundle\Entity\SpecifiedItem

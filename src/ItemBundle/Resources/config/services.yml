@@ -1,4 +1,10 @@
+parameters:
+    item.factory.class: ItemBundle\Services\ItemFactory
+
 services:
+    item.factory:
+        class: %item.factory.class%
+        arguments: ["@form.factory"]
 #    item.example:
 #        class: ItemBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]

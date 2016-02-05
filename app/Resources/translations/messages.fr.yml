@@ -1,3 +1,22 @@
+form:
+    label:
+        total_items: Nombres d'objets au total
+        weapon:
+            qte: Quantité
+        armor:
+            qte: Quantité
+        shield:
+            qte: Quantité
+        clothing:
+            qte: Quantité
+        common:
+            qte: Quantité
+        herb:
+            qte: Quantité
+        container:
+            qte: Quantité
+
+    submit: Valider
 admin:
     spe:
         feature: Caractéristique
@@ -16,6 +35,8 @@ admin:
         defense_points: 'Points de défense'
         penality: Pénalité
         dodge_value: "Valeur d'évitement"
+    container:
+        capacity: Capacité
     equipment:
         location: Localisation
     menu:
@@ -33,5 +54,5 @@ SpeAnimal: Caractéristique animale
 SpeItem: Caractéristique d'objet
 Herb: Plante
 Common: Objet commun
-
-
+Container: Conteneur
+SpecifiedItem: Objets instanciés
