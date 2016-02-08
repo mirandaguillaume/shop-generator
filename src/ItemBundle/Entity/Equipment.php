@@ -12,7 +12,11 @@ abstract class Equipment extends Item
     const ONE_HAND = '1 hand';
     const TWO_HANDS = '2 hands';
     const HEAD = 'Head';
-    const SHOES = 'Chaussures';
+    const SHOES = 'Shoes';
+    const CAPES = 'Capes';
+    const STAFF = 'Staff';
+    const HATS = 'Hats';
+    const ACCESSORIES = 'Accessories';
 
 
     /**

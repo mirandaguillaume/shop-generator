@@ -108,7 +108,7 @@ easy_admin:
                 fields:
                     - { property: name, label: 'admin.item.name' }
                     - { property: price, label: 'admin.item.price' }
-                    - { property: location, label: 'admin.equipment.location', type: choice, type_options: { choices: {"Une main": "1 hand", "Deux mains": "2 hands"}}  }
+                    - { property: location, label: 'admin.equipment.location', type: choice, type_options: { choices: {"Une main": "1 hand", "Deux mains": "2 hands"}}}
                     - { property: accuracy, label: 'admin.weapon.accuracy' }
                     - { property: damage, label: 'admin.weapon.damage' }
                     - { property: description, label: 'admin.item.description' }
@@ -147,7 +147,7 @@ easy_admin:
                     - { property: 'defensePoints', label: 'admin.shield.defense_points', sortable: true }
                     - { property: 'penality', label: 'admin.shield.penality' }
                     - { property: 'dodgeValue', label: 'admin.shield.dodge_value', sortable: true }
-                    - { property: description, label: 'admin.item.description' }
+                    - { property: 'description', label: 'admin.item.description' }
         Clothing:
             class: ItemBundle\Entity\Clothing
             list:
@@ -155,6 +155,13 @@ easy_admin:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
                     - { property: 'location', label: 'admin.equipment.location' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'location', label: 'admin.equipment.location', type: choice, type_options: { choices: {"Chaussures": "Shoes", "Capes": "Capes", "Bâton": "Staff", "Chapeau": "Hats", "Accessoires": "Accessories"}}}
+                    - { property: 'description', label: 'admin.item.description' }
+
         Carrier:
             class: ItemBundle\Entity\Carrier
         Mount:
