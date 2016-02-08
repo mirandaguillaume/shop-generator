@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Composer;
+namespace ItemBundle\Composer;
 
 use Composer\Script\Event;
 
