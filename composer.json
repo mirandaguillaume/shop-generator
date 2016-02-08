@@ -36,6 +36,9 @@
         "symfony/phpunit-bridge": "^2.7"
     },
     "scripts": {
+        "pre-install-cmd": [
+            "AppBundle\\Composer\\HerokuEnvironment::populateEnvironment"
+        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -50,8 +53,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "ItemBundle\\Composer\\HerokuEnvironment::populateEnvironment"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
     },
     "config": {
