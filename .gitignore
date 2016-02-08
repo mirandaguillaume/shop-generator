@@ -9,7 +9,6 @@ puphpet/config-custom.yaml
 /app/phpunit.xml
 /build/
 /vendor/
-/bin/
 /composer.phar
 .idea/
 .vagrant/
