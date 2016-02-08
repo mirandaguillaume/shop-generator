@@ -1,12 +1,12 @@
 puphpet/config-custom.yaml
 /web/bundles/
-/app/bootstrap.php.cache
+/var/bootstrap.php.cache
 /var/cache/*
 /app/config/parameters.yml
 /var/logs/*
 !var/cache/.gitkeep
 !var/logs/.gitkeep
-/app/phpunit.xml
+/var/phpunit.xml
 /build/
 /vendor/
 /composer.phar
