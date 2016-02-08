@@ -36,6 +36,10 @@
         "symfony/phpunit-bridge": "^2.7"
     },
     "scripts": {
+        "warmup": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache"
+        ],
         "pre-install-cmd": [
             "ItemBundle\\Composer\\HerokuEnvironment::populateEnvironment"
         ],
