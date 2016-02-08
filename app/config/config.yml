@@ -229,4 +229,6 @@ easy_admin:
 monolog:
     handlers:
         nested:
-            path: "php://stderr"
+            type:  stream
+            path:  "php://stderr"
+            level: debug
