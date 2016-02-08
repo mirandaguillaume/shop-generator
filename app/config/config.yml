@@ -226,3 +226,7 @@ easy_admin:
                     - { property: 'description', label: 'admin.item.description' }
         SpecifiedItem:
             class: ItemBundle\Entity\SpecifiedItem
+monolog:
+    handlers:
+        nested:
+            path: "php://stderr"
