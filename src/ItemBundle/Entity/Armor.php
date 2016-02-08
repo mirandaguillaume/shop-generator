@@ -19,6 +19,14 @@ class Armor extends Equipment
     private $penality;
 
     /**
+     *
+     */
+    public function __construct(){
+        parent::setLocation(Equipment::CHEST);
+        parent::__construct();
+    }
+
+    /**
      * Set defensePoints
      *
      * @param integer $defensePoints

@@ -11,7 +11,7 @@ vagrantfile:
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                vflnp_hzw53wc0rnky:
+                vflnp_4uxy64q2lf8q:
                     host: '6350'
                     guest: '22'
         post_up_message: ''
@@ -34,7 +34,7 @@ vagrantfile:
                     - '--verbose'
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
         synced_folder:
-            vflsf_ea90cgbmmo95:
+            vflsf_xhqecdbqfoo5:
                 source: ./
                 target: /var/www/shop-generator
                 sync_type: default
@@ -114,7 +114,7 @@ nginx:
         names_hash_bucket_size: 128
     upstreams: {  }
     vhosts:
-        nxv_3tpld6543cpi:
+        nxv_khg784xlhmdz:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -134,7 +134,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_hkv0sfjtpdsz:
+                nxvl_95jsibg0uott:
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -147,7 +147,7 @@ nginx:
                     fastcgi_split_path: ''
                     proxy: ''
                     proxy_redirect: ''
-                nxvl_sfbw2uczjx4a:
+                nxvl_wl07vhgkq13b:
                     location: '~ \.php$'
                     autoindex: 'off'
                     internal: 'false'
@@ -180,7 +180,7 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_edxq5fpvkp8b:
+        av_rmee7ka3jg50:
             servername: shop-generator.dev
             serveraliases:
                 - www.shop-generator.dev
@@ -199,7 +199,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_0lvd9lewsoo7:
+                avd_nfuzp33p2mib:
                     path: /var/www/shop-generator/web/
                     options:
                         - Indexes
@@ -211,7 +211,7 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_lb5ak0cz13yi:
+                        avdfm_1cjbmggxctzd:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
@@ -235,7 +235,7 @@ php:
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_ha6zlk116i3j:
+        phpfp_tn4lnqml46c2:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -278,10 +278,12 @@ drush:
 ruby:
     install: '1'
     versions:
-        rv_vxsf5se36dj3:
+        rv_epydnd24cn52:
             default: '1'
             bundler: '1'
-            version: 1.9.3
+            version: 2.0.0-p481
+            gems:
+                - compass
 python:
     install: '1'
     packages: {  }
@@ -315,15 +317,15 @@ mariadb:
         override_options: {  }
     adminer: 0
     users:
-        mariadbnu_du3zwld9jszb:
+        mariadbnu_iwk2e1j05gn7:
             name: dbuser
             password: '123'
     databases:
-        mariadbnd_omd57iiqrk8w:
+        mariadbnd_exqftuzrlrh1:
             name: dbname
             sql: ''
     grants:
-        mariadbng_rcaf9c2s0dbj:
+        mariadbng_klv7b05xy6yl:
             user: dbuser
             table: '*.*'
             privileges:
@@ -336,15 +338,15 @@ mysql:
         override_options: {  }
     adminer: 0
     users:
-        mysqlnu_qz5w27qdeea7:
+        mysqlnu_8r1tzatxbxsa:
             name: admin
             password: admin
     databases:
-        mysqlnd_j1minemxlprh:
+        mysqlnd_cmm0hmebauve:
             name: shop-generator
             sql: ''
     grants:
-        mysqlng_h62gfjiyz613:
+        mysqlng_kfs3mdqgjbox:
             user: admin
             table: '*.*'
             privileges:
@@ -364,7 +366,6 @@ postgresql:
 mongodb:
     install: '0'
     settings:
-        auth: 1
         bind_ip: 127.0.0.1
         port: '27017'
     globals:
@@ -410,7 +411,7 @@ elastic_search:
         version: 2.1.0
         java_install: true
     instances:
-        esi_zhy4tegziarz:
+        esi_218d1cb2hpw2:
             name: es-01
 solr:
     install: '0'

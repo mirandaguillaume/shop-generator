@@ -7,6 +7,7 @@ namespace ItemBundle\Entity;
  */
 class Shield extends Equipment
 {
+
     /**
      * @var int
      */
@@ -21,6 +22,11 @@ class Shield extends Equipment
      * @var int
      */
     private $dodgeValue;
+
+    public function __construct(){
+        parent::setLocation(Equipment::ONE_HAND);
+        parent::__construct();
+    }
 
     /**
      * Set defensePoints

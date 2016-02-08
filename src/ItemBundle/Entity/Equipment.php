@@ -8,6 +8,13 @@ namespace ItemBundle\Entity;
 abstract class Equipment extends Item
 {
 
+    const CHEST = 'Chest';
+    const ONE_HAND = '1 hand';
+    const TWO_HANDS = '2 hands';
+    const HEAD = 'Head';
+    const SHOES = 'Chaussures';
+
+
     /**
      * @var string
      */

@@ -29,7 +29,7 @@ class ItemFactory
         $this->entityManager = $entityManager;
     }
 
-    public function getClassName($category){
+    public function getRepository($category){
         switch($category) {
             case 'weapon':
                 return 'ItemBundle:Weapon';
@@ -45,6 +45,25 @@ class ItemFactory
                 return 'ItemBundle:Container';
             case 'herb':
                 return 'ItemBundle:Herb';
+        }
+    }
+
+    public function getClassName($category){
+        switch($category) {
+            case 'weapon':
+                return 'ItemBundle\Entity\Weapon';
+            case 'armor':
+                return 'ItemBundle\Entity\Armor';
+            case 'shield':
+                return 'ItemBundle\Entity\Shield';
+            case 'clothing':
+                return 'ItemBundle\Entity\Clothing';
+            case 'common':
+                return 'ItemBundle\Entity\Common';
+            case 'container':
+                return 'ItemBundle\Entity\Container';
+            case 'herb':
+                return 'ItemBundle\Entity\Herb';
         }
     }
 
@@ -90,52 +109,62 @@ class ItemFactory
         $items_amount = $total_items;
 
         foreach($categories as $key => $category){
-            if (isset($category['category_name'])){
-                if ($category['qte'] != ""){
-                    $amount = $category['qte'];
-                } else {
-                    if ($key != count($categories)){
-                        $amount = rand(0,$items_amount);
-                    } else {
-                        $amount = $items_amount;
-                    }
-                }
-
-                $items = array_merge($items,$this->getRandomItem($key,$amount));
-                $items_amount-=$amount;
-            } else {
+            if (!isset($category['category_name'])){
                 unset($categories[$key]);
             }
+        }
+
+        $i = 1;
+
+        foreach($categories as $key => $category){
+            if ($category['qte'] != ""){
+                $amount = $category['qte'];
+            } else {
+                if ($i != count($categories)){
+                    $amount = rand(0,$items_amount);
+                } else {
+                    $amount = $items_amount;
+                }
+            }
+
+            $items[$key] = $this->getRandomItem($key,$amount);
+            $items_amount = $items_amount - $amount;
+            $i++;
         }
 
         return $items;
     }
 
     private function getCategoryAllItems($category){
-        $items = $this->entityManager->getRepository($this->getClassName($category))->findAll();
+        $items = $this->entityManager->getRepository($this->getRepository($category))->findAll();
 
         return $items;
     }
 
     private function getRandomItem($category,$amount){
-        $items = array();
+        $qtes = array();
 
         $all_items = $this->getCategoryAllItems($category);
 
         $category_all_keys = array_keys($all_items);
 
-        var_dump($category_all_keys);
-
         for($i = 0; $i < $amount; $i++){
             $rand_key = array_rand($category_all_keys);
-            if (array_key_exists($rand_key,$items)){
-                $items[$rand_key]++;
+            if (array_key_exists($rand_key,$qtes)){
+                $qtes[$rand_key] = $qtes[$rand_key]+1;
             } else {
-                $items[$rand_key]=1;
+                $qtes[$rand_key]=1;
             }
         }
 
-        var_dump($items);
+        $items = array();
+
+        foreach($qtes as $key => $qte) {
+            $items[] = array(
+                'item' => $all_items[$key],
+                'qte' => $qte
+            );
+        }
 
         return $items;
     }

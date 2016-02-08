@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+    {% stylesheets filter="compass" output="css/all.css"
+    "@ItemBundle/Resources/css/style.scss" %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+{% endblock %}
+
+{% block body %}
+    {% for key, category in items %}
+        {% if category|length > 0 %}
+            <table class="table table-bordered">
+                {% include 'ItemBundle:Item:view_' ~ key ~ '_shop_headers.html.twig' with { 'name' : key } %}
+                <tbody>
+                {% for item in category %}
+                    {% include 'ItemBundle:Item:view_' ~ key ~ '_shop.html.twig' with { 'item' : item.item, 'qte' : item.qte } %}
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endfor %}
+
+    <a class="btn btn-default" href="{{ path('item_default_askshop') }}">Retour à la sélection</a>
+    <a class="btn btn-default" onclick="window.location.reload();">Re-générer</a>
+
+{% endblock %}

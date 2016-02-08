@@ -158,4 +158,8 @@ abstract class Item
     public function __toString(){
         return $this->getName();
     }
+
+    public function getClassName(){
+        return get_class($this);
+    }
 }

@@ -16,13 +16,20 @@ class DefaultController extends Controller
     {
         $parameters = $request->request->all();
 
-        $parameters = $parameters['ask_shop'];
+        if (!isset($parameters['ask_shop'])) {
+            return $this->redirect($this->generateUrl('item_default_askshop'));
+        } else {
+            $parameters = $parameters['ask_shop'];
 
-        $items = $this->get('item.factory')->getRandomItems($parameters['total_items'],$parameters['category_list']);
+            $item_factory = $this->get('item.factory');
 
-        return $this->render('ItemBundle:Default:index.html.twig',array(
-            'items' => $items
-        ));
+            $items = $item_factory->getRandomItems($parameters['total_items'], $parameters['category_list']);
+
+            return $this->render('ItemBundle:Shop:view_shop.html.twig', array(
+                'categories' => $item_factory->getCategoryList(),
+                'items' => $items
+            ));
+        }
     }
 
     /**

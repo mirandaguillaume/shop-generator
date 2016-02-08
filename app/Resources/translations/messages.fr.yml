@@ -26,6 +26,7 @@ admin:
     item:
         name: Nom
         price: Prix
+        description: Description
     weapon:
         accuracy: Précision
         damage: Dégâts

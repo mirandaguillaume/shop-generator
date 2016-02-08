@@ -34,6 +34,18 @@ framework:
     http_method_override: true
     assets: ~
 
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        ['ItemBundle']
+    ruby: /usr/local/rvm/rubies/ruby-2.0.0-p481/bin/ruby
+    filters:
+        cssrewrite: ~
+        sass:
+            bin: /usr/local/rvm/gems/ruby-2.0.0-p481/bin/sass
+        compass:
+            bin: /usr/local/rvm/gems/ruby-2.0.0-p481/bin/compass
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
@@ -92,6 +104,14 @@ easy_admin:
                     - { property: location, label: 'admin.equipment.location' }
                     - { property: accuracy, label: 'admin.weapon.accuracy' }
                     - { property: damage, label: 'admin.weapon.damage' }
+            form:
+                fields:
+                    - { property: name, label: 'admin.item.name' }
+                    - { property: price, label: 'admin.item.price' }
+                    - { property: location, label: 'admin.equipment.location', type: choice, type_options: { choices: {"Une main": "1 hand", "Deux mains": "2 hands"}}  }
+                    - { property: accuracy, label: 'admin.weapon.accuracy' }
+                    - { property: damage, label: 'admin.weapon.damage' }
+                    - { property: description, label: 'admin.item.description' }
         Armor:
             class: ItemBundle\Entity\Armor
             list:
@@ -101,6 +121,14 @@ easy_admin:
                     - { property: location, label: 'admin.equipment.location' }
                     - { property: defense_points, label: 'admin.armor.defense_points', sortable: true }
                     - { property: penality, label: 'admin.armor.penality' }
+            form:
+                fields:
+                    - { property: name, label: 'admin.item.name' }
+                    - { property: price, label: 'admin.item.price' }
+                    - { property: location, label: 'admin.equipment.location', type_options: { attr: { readonly: true }}}
+                    - { property: defensePoints, label: 'admin.armor.defense_points', sortable: true }
+                    - { property: penality, label: 'admin.armor.penality' }
+                    - { property: description, label: 'admin.item.description' }
         Shield:
             class: ItemBundle\Entity\Shield
             list:
@@ -108,9 +136,18 @@ easy_admin:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
                     - { property: 'location', label: 'admin.equipment.location' }
-                    - { property: 'defense_points', label: 'admin.shield.defense_points', sortable: true }
+                    - { property: 'defensePoints', label: 'admin.shield.defense_points', sortable: true }
                     - { property: 'penality', label: 'admin.shield.penality' }
-                    - { property: 'dodge_value', label: 'admin.shield.dodge_value', sortable: true }
+                    - { property: 'dodgeValue', label: 'admin.shield.dodge_value', sortable: true }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'location', label: 'admin.equipment.location', type_options: { attr: { readonly: true }}}
+                    - { property: 'defensePoints', label: 'admin.shield.defense_points', sortable: true }
+                    - { property: 'penality', label: 'admin.shield.penality' }
+                    - { property: 'dodgeValue', label: 'admin.shield.dodge_value', sortable: true }
+                    - { property: description, label: 'admin.item.description' }
         Clothing:
             class: ItemBundle\Entity\Clothing
             list:
