@@ -114,20 +114,32 @@ class ItemFactory
             }
         }
 
+        if (count($categories) == 0){
+            return -1;
+        }
+
         $i = 1;
+
+        $rand_qtes = array();
 
         foreach($categories as $key => $category){
             if ($category['qte'] != ""){
                 $amount = $category['qte'];
+                $items[$key] = $this->getRandomItem($key,$amount);
+                $items_amount = $items_amount - $amount;
+                $i++;
             } else {
-                if ($i != count($categories)){
-                    $amount = rand(0,$items_amount);
-                } else {
-                    $amount = $items_amount;
-                }
+                $rand_qtes[] = $key;
             }
+        }
 
-            $items[$key] = $this->getRandomItem($key,$amount);
+        foreach ($rand_qtes as $rand_qte){
+            if ($i != count($categories)){
+                $amount = rand(0,$items_amount);
+            } else {
+                $amount = $items_amount;
+            }
+            $items[$rand_qte] = $this->getRandomItem($rand_qte,$amount);
             $items_amount = $items_amount - $amount;
             $i++;
         }

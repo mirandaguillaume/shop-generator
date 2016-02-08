@@ -188,12 +188,29 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'part', label: 'admin.herb.part' }
+                    - { property: 'level', label: 'admin.herb.level' }
+                    - { property: 'terrain', label: 'admin.herb.terrain' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'effect', label: 'admin.herb.effect' }
+                    - { property: 'part', label: 'admin.herb.part' }
+                    - { property: 'level', label: 'admin.herb.level' }
+                    - { property: 'terrain', label: 'admin.herb.terrain' }
+                    - { property: 'description', label: 'admin.item.description' }
         Common:
             class: ItemBundle\Entity\Common
             list:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'description', label: 'admin.item.description' }
         Container:
             class: ItemBundle\Entity\Container
             list:
@@ -201,5 +218,11 @@ easy_admin:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
                     - { property: 'capacity', label: 'admin.container.capacity' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'capacity', label: 'admin.container.capacity' }
+                    - { property: 'description', label: 'admin.item.description' }
         SpecifiedItem:
             class: ItemBundle\Entity\SpecifiedItem

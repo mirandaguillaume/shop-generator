@@ -5,4 +5,10 @@ ItemBundle\Entity\Herb:
     fields:
         effect:
             type: text
+        part:
+            type: string
+        level:
+            type: integer
+        terrain:
+            type: string
     lifecycleCallbacks: {  }

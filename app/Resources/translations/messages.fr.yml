@@ -39,6 +39,11 @@ admin:
         dodge_value: "Valeur d'évitement"
     container:
         capacity: Capacité
+    herb:
+        level: Niveau
+        effect: Effet
+        terrain: Terrain
+        part: Partie
     equipment:
         location: Localisation
     menu:
