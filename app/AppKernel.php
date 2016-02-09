@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new \Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new ItemBundle\ItemBundle(),
         ];
 

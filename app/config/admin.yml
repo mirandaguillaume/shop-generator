@@ -1,0 +1,146 @@
+easy_admin:
+    site_name: 'Ryuutama Compendium'
+    design:
+        menu:
+            - label: 'admin.menu.equipment'
+              children: [ 'Weapon', 'Armor', 'Shield', 'Clothing' ]
+            - label: 'admin.menu.animal'
+              children: ['Carrier', 'Mount', 'Pet']
+            - label: 'admin.menu.spe'
+              children: ['SpeAnimal', 'SpeItem']
+            - Common
+            - Container
+            - Herb
+            - SpecifiedItem
+    entities:
+        Weapon:
+            class: ItemBundle\Entity\Weapon
+            list:
+                fields:
+                    - { property: name, label: 'admin.item.name' }
+                    - { property: price, label: 'admin.item.price' }
+                    - { property: location, label: 'admin.equipment.location' }
+                    - { property: accuracy, label: 'admin.weapon.accuracy' }
+                    - { property: damage, label: 'admin.weapon.damage' }
+            form:
+                fields:
+                    - { property: name, label: 'admin.item.name' }
+                    - { property: price, label: 'admin.item.price' }
+                    - { property: location, label: 'admin.equipment.location', type: choice, type_options: { choices: {"Une main": "1 hand", "Deux mains": "2 hands"}}}
+                    - { property: accuracy, label: 'admin.weapon.accuracy' }
+                    - { property: damage, label: 'admin.weapon.damage' }
+                    - { property: description, label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        Armor:
+            class: ItemBundle\Entity\Armor
+            list:
+                fields:
+                    - { property: name, label: 'admin.item.name' }
+                    - { property: price, label: 'admin.item.price' }
+                    - { property: location, label: 'admin.equipment.location' }
+                    - { property: defense_points, label: 'admin.armor.defense_points', sortable: true }
+                    - { property: penality, label: 'admin.armor.penality' }
+            form:
+                fields:
+                    - { property: name, label: 'admin.item.name' }
+                    - { property: price, label: 'admin.item.price' }
+                    - { property: location, label: 'admin.equipment.location', type_options: { attr: { readonly: true }}}
+                    - { property: defensePoints, label: 'admin.armor.defense_points', sortable: true }
+                    - { property: penality, label: 'admin.armor.penality' }
+                    - { property: description, label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        Shield:
+            class: ItemBundle\Entity\Shield
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'location', label: 'admin.equipment.location' }
+                    - { property: 'defensePoints', label: 'admin.shield.defense_points', sortable: true }
+                    - { property: 'penality', label: 'admin.shield.penality' }
+                    - { property: 'dodgeValue', label: 'admin.shield.dodge_value', sortable: true }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'location', label: 'admin.equipment.location', type_options: { attr: { readonly: true }}}
+                    - { property: 'defensePoints', label: 'admin.shield.defense_points', sortable: true }
+                    - { property: 'penality', label: 'admin.shield.penality' }
+                    - { property: 'dodgeValue', label: 'admin.shield.dodge_value', sortable: true }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        Clothing:
+            class: ItemBundle\Entity\Clothing
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'location', label: 'admin.equipment.location' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'location', label: 'admin.equipment.location', type: choice, type_options: { choices: {"Chaussures": "Shoes", "Capes": "Capes", "Bâton": "Staff", "Chapeau": "Hats", "Accessoires": "Accessories"}}}
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+
+        Carrier:
+            class: ItemBundle\Entity\Carrier
+        Mount:
+            class: ItemBundle\Entity\Mount
+        Pet:
+            class: ItemBundle\Entity\Pet
+        SpeAnimal:
+            class: ItemBundle\Entity\SpeAnimal
+            list:
+                fields:
+                    - { property: 'feature', label: 'admin.spe.feature' }
+                    - { property: 'amount', label: 'admin.spe.amount' }
+                    - { property: 'operation', label: 'admin.spe.operation' }
+        SpeItem:
+            class: ItemBundle\Entity\SpeItem
+            list:
+                fields:
+                    - { property: 'feature', label: 'admin.spe.feature' }
+                    - { property: 'amount', label: 'admin.spe.amount' }
+                    - { property: 'operation', label: 'admin.spe.operation' }
+        Herb:
+            class: ItemBundle\Entity\Herb
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'part', label: 'admin.herb.part' }
+                    - { property: 'level', label: 'admin.herb.level' }
+                    - { property: 'terrain', label: 'admin.herb.terrain' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'effect', label: 'admin.herb.effect' }
+                    - { property: 'part', label: 'admin.herb.part' }
+                    - { property: 'level', label: 'admin.herb.level' }
+                    - { property: 'terrain', label: 'admin.herb.terrain' }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        Common:
+            class: ItemBundle\Entity\Common
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        Container:
+            class: ItemBundle\Entity\Container
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'capacity', label: 'admin.container.capacity' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'capacity', label: 'admin.container.capacity' }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        SpecifiedItem:
+            class: ItemBundle\Entity\SpecifiedItem
