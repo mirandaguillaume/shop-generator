@@ -1,4 +1,4 @@
-puphpet/config-custom.yaml
+puphpet/
 /web/bundles/
 /var/bootstrap.php.cache
 /var/cache/*
