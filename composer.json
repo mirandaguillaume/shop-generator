@@ -2,6 +2,7 @@
     "name": "guillaume/shop-generator",
     "license": "proprietary",
     "type": "project",
+    "description": "Project for Ryuutama shop-generation",
     "autoload": {
         "psr-4": {
             "": "src/"
