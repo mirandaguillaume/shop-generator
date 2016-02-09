@@ -12,8 +12,7 @@ ItemBundle\Entity\SpecifiedItem:
         name:
             type: string
             length: 255
-        quantity:
-            type: integer
+            nullable: true
     manyToOne:
         item:
             targetEntity: ItemBundle\Entity\Item
@@ -22,6 +21,7 @@ ItemBundle\Entity\SpecifiedItem:
             referencedColumnName: id
     manyToMany:
         features:
+            orderBy: {'operation': 'ASC'}
             targetEntity: ItemBundle\Entity\Spe
             joinTable:
                 name: instance_features

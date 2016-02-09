@@ -144,3 +144,6 @@ easy_admin:
                     - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         SpecifiedItem:
             class: ItemBundle\Entity\SpecifiedItem
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }

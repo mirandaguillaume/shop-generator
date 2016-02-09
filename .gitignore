@@ -12,5 +12,3 @@ puphpet/
 /composer.phar
 .idea/
 .vagrant/
-/web/app_dev.php
-/web/config.php

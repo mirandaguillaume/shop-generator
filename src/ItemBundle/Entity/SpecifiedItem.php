@@ -45,30 +45,6 @@ class SpecifiedItem
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return SpecifiedItem
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-//    /**
-//     * Get name
-//     *
-//     * @return string
-//     */
-//    public function getName()
-//    {
-//        return $this->name;
-//    }
-
-    /**
      * Set item
      *
      * @param \ItemBundle\Entity\Item $item
@@ -125,42 +101,27 @@ class SpecifiedItem
     {
         return $this->features;
     }
-    /**
-     * @var integer
-     */
-    private $quantity;
 
+    public function getName(){
+        if ($this->name != NULL) {
+            $result = $this->name;
+        } else {
+            $result = $this->item->getName();
+            foreach ($this->features as $feature) {
+                $result = $result . ' ' . $feature->getFeature();
+            }
+        }
+        return $result;
+    }
 
-    /**
-     * Set quantity
-     *
-     * @param integer $quantity
-     *
-     * @return SpecifiedItem
-     */
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
+    public function setName($name){
+        $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * Get quantity
-     *
-     * @return integer
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    public function getPrice(){
 
-    public function getName(){
-        $result = $this->item->getName();
-        foreach($this->features as $feature){
-            $result = $result.' '.$feature->getFeature();
-        }
-        return $result;
     }
 
     public function __toString(){
