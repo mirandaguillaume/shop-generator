@@ -4,7 +4,7 @@ namespace ItemBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use ItemBundle\Form\AskShopType;
+use ItemBundle\Form\Type\AskShopType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller

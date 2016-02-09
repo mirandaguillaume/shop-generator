@@ -12,3 +12,5 @@ puphpet/config-custom.yaml
 /composer.phar
 .idea/
 .vagrant/
+/web/app_dev.php
+/web/config.php
