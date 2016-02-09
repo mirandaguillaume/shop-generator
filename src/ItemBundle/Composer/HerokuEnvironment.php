@@ -24,10 +24,9 @@ class HerokuEnvironment
 
                 $db = substr($url['path'], 1);
                 putenv("SYMFONY__DATABASE_NAME={$db}");
+                $io = $event->getIO();
+                $io->write('CLEARDB_DATABASE_URL=' . getenv('CLEARDB_DATABASE_URL'));
             }
-
-            $io = $event->getIO();
-            $io->write('CLEARDB_DATABASE_URL=' . getenv('CLEARDB_DATABASE_URL'));
         }
     }
 }
