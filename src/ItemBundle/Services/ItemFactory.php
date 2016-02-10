@@ -2,7 +2,7 @@
 
 namespace ItemBundle\Services;
 use Doctrine\ORM\EntityManager;
-use ItemBundle\Form\CategoryShopType;
+use ItemBundle\Form\Type\CategoryShopType;
 use Symfony\Component\Form\FormFactory;
 
 /**
@@ -24,82 +24,43 @@ class ItemFactory
      */
     private $entityManager;
 
+    /**
+     * @var array
+     */
+    private $list_categories;
+
+    /**
+     * @param FormFactory $formFactory
+     * @param EntityManager $entityManager
+     */
     public function __construct(FormFactory $formFactory, EntityManager $entityManager){
         $this->formFactory = $formFactory;
         $this->entityManager = $entityManager;
+        $this->list_categories = $this->entityManager->getRepository('ItemBundle:Item')->getAllCategories();
     }
 
     public function getRepository($category){
-        switch($category) {
-            case 'weapon':
-                return 'ItemBundle:Weapon';
-            case 'armor':
-                return 'ItemBundle:Armor';
-            case 'shield':
-                return 'ItemBundle:Shield';
-            case 'clothing':
-                return 'ItemBundle:Clothing';
-            case 'common':
-                return 'ItemBundle:Common';
-            case 'container':
-                return 'ItemBundle:Container';
-            case 'herb':
-                return 'ItemBundle:Herb';
-        }
+        return $this->list_categories[$category]['repositoryNaming'];
     }
 
     public function getClassName($category){
-        switch($category) {
-            case 'weapon':
-                return 'ItemBundle\Entity\Weapon';
-            case 'armor':
-                return 'ItemBundle\Entity\Armor';
-            case 'shield':
-                return 'ItemBundle\Entity\Shield';
-            case 'clothing':
-                return 'ItemBundle\Entity\Clothing';
-            case 'common':
-                return 'ItemBundle\Entity\Common';
-            case 'container':
-                return 'ItemBundle\Entity\Container';
-            case 'herb':
-                return 'ItemBundle\Entity\Herb';
-        }
+        return $this->list_categories[$category]['className'];
     }
 
     /**
      * @return array
      */
     public function getCategoryList(){
-        return array(
-            array(
-                'label' => 'weapon'
-            ),array(
-                'label' => 'armor'
-            ),array(
-                'label' => 'shield'
-            ),array(
-                'label' => 'clothing'
-            ), array(
-                'label' => 'common'
-            ),array(
-                'label' => 'container'
-            ),array(
-                'label' => 'herb'
-            )
-        );
+        return $this->list_categories;
     }
 
-    public function getCategoryForms(){
-        $forms = array();
+    public function getFeatureList(){
 
-        foreach($this->getCategoryList() as $category){
-            $forms[] = $this->formFactory->create(CategoryShopType::class,null,array(
-                'name' => $category['label']
-            ));
-        }
+        $all_spes_item = $this->entityManager->getRepository('ItemBundle:SpeItem');
 
-        return $forms;
+        return array(
+
+        );
     }
 
     public function getRandomItems($total_items,array $categories){
@@ -150,7 +111,13 @@ class ItemFactory
         return $items;
     }
 
+    private function getRandomFeatures(){
+        /** TODO Add function to randomise feature adding */
+        return null;
+    }
+
     private function getCategoryAllItems($category){
+
         $items = $this->entityManager->getRepository($this->getRepository($category))->findAll();
 
         return $items;

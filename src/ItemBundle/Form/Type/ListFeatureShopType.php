@@ -2,20 +2,21 @@
 
 namespace ItemBundle\Form\Type;
 
+use ItemBundle\Services\ItemFactory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ListCategoryShopType extends AbstractType
+class ListFeatureShopType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $item_factory = $options['item_factory'];
 
-        foreach($item_factory->getCategoryList() as $key => $category){
+        foreach($item_factory->getFeatureList() as $feature){
             $builder
-                ->add($key,CategoryShopType::class,array(
-                    'name' => $key
+                ->add($feature['label'],FeatureShopType::class,array(
+                    'name' => $feature['label']
                 ))
             ;
         }
@@ -30,6 +31,6 @@ class ListCategoryShopType extends AbstractType
 
     public function getName()
     {
-        return 'item_bundle_list_category_shop_type';
+        return 'item_bundle_list_feature_shop_type';
     }
 }

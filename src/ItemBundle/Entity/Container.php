@@ -36,5 +36,15 @@ class Container extends Item
     {
         return $this->capacity;
     }
+
+    public function getType()
+    {
+        return 'container';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Container';
+    }
 }
 

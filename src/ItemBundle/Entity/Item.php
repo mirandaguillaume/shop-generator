@@ -162,4 +162,8 @@ abstract class Item
     public function getClassName(){
         return get_class($this);
     }
+
+    public abstract function getType();
+
+    public abstract function getRepositoryNaming();
 }

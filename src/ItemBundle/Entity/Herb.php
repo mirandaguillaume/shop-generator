@@ -123,4 +123,14 @@ class Herb extends Item
     {
         return $this->terrain;
     }
+
+    public function getType()
+    {
+        return 'herb';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Herb';
+    }
 }

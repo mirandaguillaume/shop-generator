@@ -99,5 +99,15 @@ class Shield extends Equipment
     {
         return $this->dodgeValue;
     }
+
+    public function getType()
+    {
+        return 'shield';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Shield';
+    }
 }
 

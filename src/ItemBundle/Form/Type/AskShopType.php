@@ -23,6 +23,9 @@ class AskShopType extends AbstractType
             ->add('category_list',ListCategoryShopType::class,array(
                 'item_factory' => $item_factory,
             ))
+            ->add('feature_list',ListFeatureShopType::class,array(
+                'item_factory' => $item_factory,
+            ))
         ;
 
     }

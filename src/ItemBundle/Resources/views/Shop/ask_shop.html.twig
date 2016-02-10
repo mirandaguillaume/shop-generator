@@ -23,6 +23,20 @@
             </div>
         {% endfor %}
 
+        {% for feature in form.feature_list %}
+            <div class="form-inline form-group">
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            {{ feature.feature_name.vars.label }}
+                            {{ form_widget(feature.feature_name,{'attr':{'class': 'checkbox'}}) }}
+                        </span>
+                        {{ form_widget(feature.qte,{'attr':{'class': 'form-control'}}) }}
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        {% endfor %}
+
         <div class="form-group col-md-12">
             <button class="btn btn-default" type="submit">{{ 'form.submit.generate'|trans }}</button>
         </div>

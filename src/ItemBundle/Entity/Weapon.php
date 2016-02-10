@@ -66,5 +66,15 @@ class Weapon extends Equipment
     {
         return $this->damage;
     }
+
+    public function getType()
+    {
+        return 'weapon';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Weapon';
+    }
 }
 

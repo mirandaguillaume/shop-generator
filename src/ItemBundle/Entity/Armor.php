@@ -73,5 +73,15 @@ class Armor extends Equipment
     {
         return $this->penality;
     }
+
+    public function getType()
+    {
+        return 'armor';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Armor';
+    }
 }
 

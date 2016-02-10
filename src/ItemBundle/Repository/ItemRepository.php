@@ -10,4 +10,21 @@ namespace ItemBundle\Repository;
  */
 class ItemRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getAllCategories(){
+        $items = $this->findAll();
+
+        $all_categories = array();
+
+        foreach($items as $item){
+            if(!in_array($item->getType(),$all_categories))
+                $all_categories[$item->getType()] = array(
+                    'className' => $item->getClassName(),
+                    'repositoryNaming' => $item->getRepositoryNaming(),
+                );
+        }
+
+        return $all_categories;
+    }
+
 }
