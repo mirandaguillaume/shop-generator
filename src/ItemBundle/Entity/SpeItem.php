@@ -7,6 +7,5 @@ namespace ItemBundle\Entity;
  */
 class SpeItem extends Spe
 {
-
 }
 

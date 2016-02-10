@@ -1,6 +1,7 @@
 <?php
 
 namespace ItemBundle\Entity;
+use ItemBundle\Exception\OperationNotFound;
 
 /**
  * Spe
@@ -128,6 +129,22 @@ abstract class Spe
     public function setOperation($operation)
     {
         $this->operation = $operation;
+    }
+
+    /**
+     * @param $price
+     * @return mixed
+     * @throws OperationNotFound
+     */
+    public function processPrice($price){
+        switch ($this->getOperation()){
+            case 'addition':
+                return $price+$this->getAmount();
+            case 'multiply':
+                return $price*$this->getAmount();
+            default:
+                throw new OperationNotFound();
+        }
     }
 }
 
