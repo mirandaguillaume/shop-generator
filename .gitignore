@@ -1,4 +1,3 @@
-puphpet/
 /web/bundles/
 /var/bootstrap.php.cache
 /var/cache/*
