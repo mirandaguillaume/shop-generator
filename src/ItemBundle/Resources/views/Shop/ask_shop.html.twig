@@ -5,14 +5,13 @@
         {{ form_start(form,{'class': 'form'}) }}
 
         <div class="form-group col-md-12">
-            <div class="col-md-4">
-                {{ form_widget(form.total_items,{'attr':{'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group col-md-12">
             <div class="col-md-12 h3">
                 {{ form.category_list.vars.label|trans }}
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4">
+                    {{ form_widget(form.total_items,{'attr':{'class': 'form-control'}}) }}
+                </div>
             </div>
         {% for category in form.category_list %}
             <div class="form-inline">
@@ -32,6 +31,11 @@
         <div class="form-group col-md-12">
             <div class="col-md-12 h3">
                 {{ form.feature_list.vars.label|trans }}
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4">
+                    {{ form_widget(form.total_features,{'attr':{'class': 'form-control'}}) }}
+                </div>
             </div>
         {% for feature in form.feature_list %}
             <div class="form-inline">
