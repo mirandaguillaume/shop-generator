@@ -2,6 +2,7 @@
 
 namespace ItemBundle\Services;
 use Doctrine\ORM\EntityManager;
+use ItemBundle\Entity\SpecifiedItem;
 use ItemBundle\Form\Type\CategoryShopType;
 use Symfony\Component\Form\FormFactory;
 
@@ -111,8 +112,13 @@ class ItemFactory
         return $items;
     }
 
-    private function getRandomFeatures(){
-        /** TODO Add function to randomise feature adding */
+    public function getAllFeatures(){
+        return $this->entityManager->getRepository('ItemBundle:SpeItem')->findAll();
+    }
+
+    public function getRandomFeatures($items, $total_features, array $features){
+
+
         return null;
     }
 
@@ -142,8 +148,10 @@ class ItemFactory
         $items = array();
 
         foreach($qtes as $key => $qte) {
+            $item = new SpecifiedItem();
+            $item->setItem($all_items[$key]);
             $items[] = array(
-                'item' => $all_items[$key],
+                'item' => $item,
                 'qte' => $qte
             );
         }

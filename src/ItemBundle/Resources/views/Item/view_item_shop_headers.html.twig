@@ -1,6 +1,6 @@
 <thead>
     <tr>
-        <th class="title text-left" colspan="4">
+        <th class="title text-left" colspan="{{ item.fieldsCount + 1 }}">
         {{ key|capitalize|trans }}
         </th>
     </tr>
@@ -11,6 +11,7 @@
         <th>
             {{ 'admin.item.price'|trans }}
         </th>
+        {% include item.shopViewHeadersFragment %}
         <th class="text-left">
             {{ 'admin.item.description'|trans }}
         </th>

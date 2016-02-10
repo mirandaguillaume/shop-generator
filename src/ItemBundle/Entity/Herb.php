@@ -133,4 +133,14 @@ class Herb extends Item
     {
         return 'ItemBundle:Herb';
     }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Herb:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Herb:shop_fragment_headers.html.twig';
+    }
 }

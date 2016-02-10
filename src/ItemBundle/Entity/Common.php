@@ -16,5 +16,15 @@ class Common extends Item
     {
         return 'ItemBundle:Common';
     }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Common:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Common:shop_fragment_headers.html.twig';
+    }
 }
 

@@ -25,7 +25,9 @@ class DefaultController extends Controller
 
             $items = $item_factory->getRandomItems($parameters['total_items'], $parameters['category_list']);
 
-            if ($items===-1){
+//            $items = $item_factory->getRandomFeatures($items, $parameters['total_features'], $parameters['feature_list']);
+
+            if ($parameters['total_items']==null){
                 $response = $this->redirect($this->generateUrl('item_default_askshop'));
             } else {
                 $response = $this->render('ItemBundle:Shop:view_shop.html.twig', array(

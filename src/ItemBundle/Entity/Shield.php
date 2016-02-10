@@ -109,5 +109,15 @@ class Shield extends Equipment
     {
         return 'ItemBundle:Shield';
     }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Shield:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Shield:shop_fragment_headers.html.twig';
+    }
 }
 

@@ -5,6 +5,7 @@
     <td>
         {{ item.price }}
     </td>
+    {% include item.item.shopViewFragment with { 'item' : item.item } %}
     <td class="text-justify">
         {{ item.description }}
     </td>

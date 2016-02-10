@@ -46,5 +46,15 @@ class Container extends Item
     {
         return 'ItemBundle:Container';
     }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Container:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Container:shop_fragment_headers.html.twig';
+    }
 }
 

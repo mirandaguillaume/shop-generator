@@ -166,4 +166,12 @@ abstract class Item
     public abstract function getType();
 
     public abstract function getRepositoryNaming();
+
+    public abstract function getShopViewFragment();
+
+    public abstract function getShopViewHeadersFragment();
+
+    public function getFieldsCount(){
+        return count(get_object_vars($this));
+    }
 }

@@ -17,5 +17,15 @@ class Clothing extends Equipment
     {
         return 'ItemBundle:Clothing';
     }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Clothing:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Clothing:shop_fragment_headers.html.twig';
+    }
 }
 

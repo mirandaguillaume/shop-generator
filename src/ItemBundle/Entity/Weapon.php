@@ -76,5 +76,15 @@ class Weapon extends Equipment
     {
         return 'ItemBundle:Weapon';
     }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Weapon:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Weapon:shop_fragment_headers.html.twig';
+    }
 }
 
