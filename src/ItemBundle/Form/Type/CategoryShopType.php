@@ -18,10 +18,10 @@ class CategoryShopType extends AbstractType
                 'required' => false,
             ))
             ->add('qte',IntegerType::class,array(
-                'label' => 'form.label.'.$options['name'].'.qte',
+                'label' => 'form.label.qte',
                 'required' => false,
                 'attr' => array(
-                    'placeholder' => 'form.label.'.$options['name'].'.qte',
+                    'placeholder' => 'form.label.qte',
                 )
             ))
         ;

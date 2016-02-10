@@ -1,20 +1,9 @@
 form:
     label:
+        categories: Type d'objets
+        features: Caractéristiques
+        qte: Quantité
         total_items: Nombres d'objets au total
-        weapon:
-            qte: Quantité
-        armor:
-            qte: Quantité
-        shield:
-            qte: Quantité
-        clothing:
-            qte: Quantité
-        common:
-            qte: Quantité
-        herb:
-            qte: Quantité
-        container:
-            qte: Quantité
 
     submit:
         generate: Générer

@@ -57,11 +57,7 @@ class ItemFactory
 
     public function getFeatureList(){
 
-        $all_spes_item = $this->entityManager->getRepository('ItemBundle:SpeItem');
-
-        return array(
-
-        );
+        return $this->entityManager->getRepository('ItemBundle:SpeItem')->findAllNames();
     }
 
     public function getRandomItems($total_items,array $categories){

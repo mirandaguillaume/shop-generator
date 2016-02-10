@@ -15,8 +15,8 @@ class ListFeatureShopType extends AbstractType
 
         foreach($item_factory->getFeatureList() as $feature){
             $builder
-                ->add($feature['label'],FeatureShopType::class,array(
-                    'name' => $feature['label']
+                ->add($feature['feature'],FeatureShopType::class,array(
+                    'name' => $feature['feature']
                 ))
             ;
         }
