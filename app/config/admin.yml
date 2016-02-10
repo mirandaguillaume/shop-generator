@@ -148,3 +148,11 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
+                actions:
+                    - { name: 'show' }
+            show:
+                fields:
+                    - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
+                    - { property: 'description', label: 'admin.item.description' }
+            disabled_actions: ['new', 'edit']
