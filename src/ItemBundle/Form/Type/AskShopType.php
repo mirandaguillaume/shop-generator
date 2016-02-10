@@ -20,6 +20,13 @@ class AskShopType extends AbstractType
                     'placeholder' => 'form.label.total_items'
                 )
             ))
+            ->add('total_features',IntegerType::class,array(
+                'label' => 'form.label.total_features',
+                'attr' => array(
+                    'placeholder' => 'form.label.total_features'
+                ),
+                'required' => false,
+            ))
             ->add('category_list',ListCategoryShopType::class,array(
                 'item_factory' => $item_factory,
                 'label' => 'form.label.categories',
