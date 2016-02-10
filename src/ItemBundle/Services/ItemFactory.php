@@ -108,14 +108,17 @@ class ItemFactory
 
         $items_amount = $total_items;
 
+        $unset_categories = array();
+
         foreach($categories as $key => $category){
             if (!isset($category['category_name'])){
+                $unset_categories[$key] = $categories[$key];
                 unset($categories[$key]);
             }
         }
 
         if (count($categories) == 0){
-            return -1;
+            $categories = $unset_categories;
         }
 
         $i = 1;
