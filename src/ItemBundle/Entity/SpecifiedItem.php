@@ -121,7 +121,11 @@ class SpecifiedItem
     }
 
     public function getPrice(){
-
+        $realPrice = $this->item->getPrice();
+        foreach($this->features as $feature){
+            $realPrice = $feature->processPrice($realPrice);
+        }
+        return $realPrice;
     }
 
     public function __toString(){

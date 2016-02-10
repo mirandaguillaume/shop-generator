@@ -147,3 +147,4 @@ easy_admin:
             list:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
+                    - { property: 'price', label: 'admin.item.price' }
