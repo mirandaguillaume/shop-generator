@@ -1,0 +1,22 @@
+{% extends 'EasyAdminBundle:default:layout.html.twig' %}
+
+{% block head_stylesheets %}
+
+    {{ parent() }}
+    {% stylesheets filter='compass'
+    '@UserBundle/Resources/public/css/easy_admin.scss'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+{% endblock %}
+
+{% block user_menu %}
+    <span class="sr-only">{{ 'user.logged_in_as'|trans }}</span>
+    <i class="hidden-xs fa fa-user"></i>
+    {% if app.user %}
+        {{ app.user.username|default('user.unnamed'|trans)|capitalize }} | <a href="{{ path('fos_user_security_logout') }}" title="logout">{{ 'layout.logout'|trans(domain='FOSUserBundle') }}</a>
+    {% else %}
+        {{ 'user.anonymous'|trans }}
+    {% endif %}
+{% endblock user_menu %}
