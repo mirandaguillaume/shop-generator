@@ -1,0 +1,10 @@
+{% extends 'EasyAdminBundle:default:list.html.twig' %}
+
+{% block item_actions %}
+    {{ include(':easy_admin:_actions.html.twig', {
+        actions: _list_item_actions,
+        request_parameters: _request_parameters,
+        trans_parameters: _trans_parameters,
+        item_id: _item_id
+    }, with_context = false) }}
+{% endblock item_actions %}
