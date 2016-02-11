@@ -1,0 +1,11 @@
+.user-menu {
+  a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: 0 !important;
+    display: inline !important;
+    &:hover {
+      background-color: transparent !important;
+      color: white !important;
+    }
+  }
+}

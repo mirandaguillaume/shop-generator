@@ -33,3 +33,14 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        ['ItemBundle','UserBundle']
+    ruby: /home/vagrant/.rvm/rubies/ruby-2.0.0-p481/bin/ruby
+    filters:
+        cssrewrite: ~
+        sass:
+            bin: /home/vagrant/.rvm/gems/ruby-2.0.0-p481/bin/sass
+        compass:
+            bin: /home/vagrant/.rvm/gems/ruby-2.0.0-p481/bin/compass

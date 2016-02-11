@@ -1,0 +1,11 @@
+/* line 2, assetic_compassstu8bj.scss */
+.user-menu a {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 0 !important;
+  display: inline !important;
+}
+/* line 6, assetic_compassstu8bj.scss */
+.user-menu a:hover {
+  background-color: transparent !important;
+  color: white !important;
+}
