@@ -20,6 +20,11 @@ abstract class Spell
     /**
      * @var string
      */
+    private $duration;
+
+    /**
+     * @var string
+     */
     private $type;
 
     /**
@@ -224,5 +229,29 @@ abstract class Spell
     public function getLevel()
     {
         return $this->level;
+    }
+
+    /**
+     * Set duration
+     *
+     * @param string $duration
+     *
+     * @return Spell
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Get duration
+     *
+     * @return string
+     */
+    public function getDuration()
+    {
+        return $this->duration;
     }
 }

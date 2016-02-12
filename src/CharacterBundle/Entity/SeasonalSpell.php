@@ -36,4 +36,3 @@ class SeasonalSpell extends Spell
         return $this->season;
     }
 }
-

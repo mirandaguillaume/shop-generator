@@ -24,6 +24,9 @@ CharacterBundle\Entity\Spell:
             length: 255
         cost:
             type: integer
+        duration:
+            type: string
+            length: 255
         target:
             type: string
             length: 255

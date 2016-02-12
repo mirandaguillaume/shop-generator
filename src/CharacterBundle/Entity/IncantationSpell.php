@@ -8,4 +8,3 @@ namespace CharacterBundle\Entity;
 class IncantationSpell extends Spell
 {
 }
-

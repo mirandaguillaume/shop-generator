@@ -3,11 +3,13 @@ easy_admin:
     design:
         menu:
             - label: 'admin.menu.equipment'
-              children: [ 'Weapon', 'Armor', 'Shield', 'Clothing' ]
+              children: ['Weapon', 'Armor', 'Shield', 'Clothing']
             - label: 'admin.menu.animal'
               children: ['Carrier', 'Mount', 'Pet']
             - label: 'admin.menu.spe'
               children: ['SpeAnimal', 'SpeItem']
+            - label: 'admin.menu.spell'
+              children: ['SeasonalSpell', 'IncantationSpell']
             - Common
             - Container
             - Herb
@@ -163,3 +165,66 @@ easy_admin:
                     - { property: 'price', label: 'admin.item.price' }
                     - { property: 'description', label: 'admin.item.description' }
             disabled_actions: ['new', 'edit']
+        SeasonalSpell:
+            class: CharacterBundle\Entity\SeasonalSpell
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.spell.name' }
+                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'cost', label: 'admin.spell.cost' }
+                    - { property: 'duration', label: 'admin.spell.duration' }
+                    - { property: 'target', label: 'admin.spell.target' }
+                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'type', label: 'admin.spell.type' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.spell.name' }
+                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'cost', label: 'admin.spell.cost' }
+                    - { property: 'duration', label: 'admin.spell.duration' }
+                    - { property: 'target', label: 'admin.spell.target' }
+                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'effect', label: 'admin.spell.effect' }
+                    - { property: 'type', label: 'admin.spell.type' }
+            show:
+                fields:
+                    - { property: 'name', label: 'admin.spell.name' }
+                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'cost', label: 'admin.spell.cost' }
+                    - { property: 'duration', label: 'admin.spell.duration' }
+                    - { property: 'target', label: 'admin.spell.target' }
+                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'effect', label: 'admin.spell.effect' }
+                    - { property: 'type', label: 'admin.spell.type' }
+        IncantationSpell:
+            class: CharacterBundle\Entity\IncantationSpell
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.spell.name' }
+                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'cost', label: 'admin.spell.cost' }
+                    - { property: 'duration', label: 'admin.spell.duration' }
+                    - { property: 'target', label: 'admin.spell.target' }
+                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'type', label: 'admin.spell.type' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.spell.name' }
+                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'cost', label: 'admin.spell.cost' }
+                    - { property: 'duration', label: 'admin.spell.duration' }
+                    - { property: 'target', label: 'admin.spell.target' }
+                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'effect', label: 'admin.spell.effect' }
+                    - { property: 'type', label: 'admin.spell.type' }
+            show:
+                fields:
+                    - { property: 'name', label: 'admin.spell.name' }
+                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'cost', label: 'admin.spell.cost' }
+                    - { property: 'duration', label: 'admin.spell.duration' }
+                    - { property: 'target', label: 'admin.spell.target' }
+                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'effect', label: 'admin.spell.effect' }
+                    - { property: 'type', label: 'admin.spell.type' }
+
