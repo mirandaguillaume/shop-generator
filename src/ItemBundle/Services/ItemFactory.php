@@ -55,8 +55,10 @@ class ItemFactory
         return $this->list_categories;
     }
 
+    /**
+     * @return array
+     */
     public function getFeatureList(){
-
         return $this->entityManager->getRepository('ItemBundle:SpeItem')->findAllNames();
     }
 
@@ -114,8 +116,48 @@ class ItemFactory
 
     public function getRandomFeatures($items, $total_features, array $features){
 
+        $features_amount = $total_features;
 
-        return null;
+        $unset_features = array();
+
+        foreach($features as $key => $feature){
+            if (!isset($feature['feature_name'])){
+                $unset_features[$key] = $features[$key];
+                unset($features[$key]);
+            }
+        }
+
+        if (count($features) == 0){
+            $features = $unset_features;
+        }
+
+        $i = 1;
+
+        $rand_qtes = array();
+
+        foreach($features as $key => $feature){
+            if ($feature['qte'] != ""){
+                $amount = $feature['qte'];
+                $items[$key] = $this->getRandomItem($key,$amount);
+                $features_amount = $features_amount - $amount;
+                $i++;
+            } else {
+                $rand_qtes[] = $key;
+            }
+        }
+
+        foreach ($rand_qtes as $rand_qte){
+            if ($i != count($features)){
+                $amount = rand(0,$features_amount);
+            } else {
+                $amount = $features_amount;
+            }
+            $features[$rand_qte] = $this->getRandomFeature($rand_qte,$amount);
+            $features_amount = $features_amount - $amount;
+            $i++;
+        }
+
+        return ;
     }
 
     private function getCategoryAllItems($category){

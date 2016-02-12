@@ -14,7 +14,7 @@ item:
     prefix:   /
 
 easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/"
+    resource: "@UserBundle/Controller/AdminController.php"
     type:     annotation
     prefix:   /admin
 
