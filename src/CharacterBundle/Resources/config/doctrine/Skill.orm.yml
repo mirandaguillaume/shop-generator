@@ -1,0 +1,32 @@
+CharacterBundle\Entity\Skill:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\SkillRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        effect:
+            type: string
+            length: 255
+        usedStats:
+            type: string
+            length: 255
+            column: used_stats
+        target:
+            type: string
+            length: 255
+    manyToOne:
+        class:
+            targetEntity: CharacterBundle\Entity\Job
+            inversedBy: skills
+            joinColumn:
+                name: class_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

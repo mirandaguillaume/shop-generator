@@ -1,0 +1,24 @@
+CharacterBundle\Entity\Type:
+    type: entity
+    table: null
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: type
+        type: string
+    discriminatorMap:
+        normal_type: CharacterBundle\Entity\Type
+        magic_type: CharacterBundle\Entity\MagicType
+    repositoryClass: CharacterBundle\Repository\TypeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        bonuses:
+            type: text
+    lifecycleCallbacks: {  }

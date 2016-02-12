@@ -1,0 +1,32 @@
+CharacterBundle\Entity\Spell:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\SpellRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        cost:
+            type: integer
+        target:
+            type: string
+            length: 255
+            nullable: true
+        reach:
+            type: string
+            length: 255
+        effect:
+            type: text
+        level:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

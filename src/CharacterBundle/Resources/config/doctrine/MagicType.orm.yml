@@ -1,0 +1,21 @@
+CharacterBundle\Entity\MagicType:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\MagicTypeRepository
+    fields:
+        season:
+            type: string
+            length: 255
+    manyToMany:
+        spells:
+            targetEntity: CharacterBundle\Entity\Spell
+            joinTable:
+                name: magicType_Spells
+                joinColumns:
+                    magicType_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    spell_id:
+                        referencedColumnName: id
+
+    lifecycleCallbacks: {  }
