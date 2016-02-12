@@ -38,7 +38,7 @@ framework:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['ItemBundle','UserBundle']
+    bundles:        ['ItemBundle','UserBundle', 'FOSUserBundle']
     ruby: /usr/local/rvm/rubies/ruby-2.0.0-p481/bin/ruby
     filters:
         cssrewrite: ~

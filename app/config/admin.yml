@@ -12,6 +12,11 @@ easy_admin:
             - Container
             - Herb
             - SpecifiedItem
+    list:
+        actions:
+            - { name: 'show', label: 'action.show' }
+            - { name: 'edit', label: 'action.edit' }
+            - { name: 'delete', label: 'action.delete' }
     entities:
         Weapon:
             class: ItemBundle\Entity\Weapon
@@ -124,6 +129,7 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
+                actions: ['show', 'edit', 'delete']
             form:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
@@ -149,7 +155,8 @@ easy_admin:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
                 actions:
-                    - { name: 'show' }
+                    - { name: 'show', label: 'action.show' }
+                    - { name: 'delete', label: 'action.delete' }
             show:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }

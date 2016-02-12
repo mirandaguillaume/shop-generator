@@ -5,7 +5,6 @@ form:
         qte: Quantité
         total_items: Nombres d'objets au total
         total_features: Nombres de caractéristiques au total
-
     submit:
         generate: Générer
 admin:

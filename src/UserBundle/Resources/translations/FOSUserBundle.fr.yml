@@ -1,0 +1,4 @@
+fos:
+    login:
+        header:
+            sign_in: Veuillez vous connecter
