@@ -12,10 +12,10 @@ class ListCategoryShopType extends AbstractType
     {
         $item_factory = $options['item_factory'];
 
-        foreach($item_factory->getCategoryList() as $category){
+        foreach($item_factory->getCategoryList() as $key => $category){
             $builder
-                ->add($category['label'],CategoryShopType::class,array(
-                    'name' => $category['label']
+                ->add($key,CategoryShopType::class,array(
+                    'name' => $key
                 ))
             ;
         }

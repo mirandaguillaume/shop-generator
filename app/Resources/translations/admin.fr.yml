@@ -1,0 +1,4 @@
+action:
+    edit: EDIT
+    delete: DELETE
+    show: SHOW

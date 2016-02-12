@@ -66,5 +66,25 @@ class Weapon extends Equipment
     {
         return $this->damage;
     }
+
+    public function getType()
+    {
+        return 'weapon';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Weapon';
+    }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Weapon:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Weapon:shop_fragment_headers.html.twig';
+    }
 }
 

@@ -9,12 +9,17 @@
                 {{ form_widget(form.total_items,{'attr':{'class': 'form-control'}}) }}
             </div>
         </div>
+
+        <div class="form-group col-md-12">
+            <div class="col-md-12 h3">
+                {{ form.category_list.vars.label|trans }}
+            </div>
         {% for category in form.category_list %}
-            <div class="form-inline form-group">
+            <div class="form-inline">
                 <div class="form-group col-md-6">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            {{ category.category_name.vars.label }}
+                            {{ category.category_name.vars.label|trans }}
                             {{ form_widget(category.category_name,{'attr':{'class': 'checkbox'}}) }}
                         </span>
                         {{ form_widget(category.qte,{'attr':{'class': 'form-control'}}) }}
@@ -22,6 +27,26 @@
                 </div>
             </div>
         {% endfor %}
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="col-md-12 h3">
+                {{ form.feature_list.vars.label|trans }}
+            </div>
+        {% for feature in form.feature_list %}
+            <div class="form-inline">
+                <div class="form-group col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            {{ feature.feature_name.vars.label|trans }}
+                            {{ form_widget(feature.feature_name,{'attr':{'class': 'checkbox'}}) }}
+                        </span>
+                        {{ form_widget(feature.qte,{'attr':{'class': 'form-control'}}) }}
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        {% endfor %}
+        </div>
 
         <div class="form-group col-md-12">
             <button class="btn btn-default" type="submit">{{ 'form.submit.generate'|trans }}</button>

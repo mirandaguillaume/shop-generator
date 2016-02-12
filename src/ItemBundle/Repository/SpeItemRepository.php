@@ -10,4 +10,13 @@ namespace ItemBundle\Repository;
  */
 class SpeItemRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findAllNames(){
+        $qb = $this->createQueryBuilder('si');
+
+        $qb->select('si.feature');
+
+        return $qb->getQuery()->getResult();
+    }
+
 }

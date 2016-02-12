@@ -99,5 +99,25 @@ class Shield extends Equipment
     {
         return $this->dodgeValue;
     }
+
+    public function getType()
+    {
+        return 'shield';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Shield';
+    }
+
+    public function getShopViewFragment()
+    {
+        return 'ItemBundle:Shield:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment()
+    {
+        return 'ItemBundle:Shield:shop_fragment_headers.html.twig';
+    }
 }
 

@@ -73,5 +73,23 @@ class Armor extends Equipment
     {
         return $this->penality;
     }
+
+    public function getType()
+    {
+        return 'armor';
+    }
+
+    public function getRepositoryNaming()
+    {
+        return 'ItemBundle:Armor';
+    }
+
+    public function getShopViewFragment(){
+        return 'ItemBundle:Armor:shop_fragment.html.twig';
+    }
+
+    public function getShopViewHeadersFragment(){
+        return 'ItemBundle:Armor:shop_fragment_headers.html.twig';
+    }
 }
 
