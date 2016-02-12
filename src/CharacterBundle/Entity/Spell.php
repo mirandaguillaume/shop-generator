@@ -5,7 +5,7 @@ namespace CharacterBundle\Entity;
 /**
  * Spell
  */
-class Spell
+abstract class Spell
 {
     /**
      * @var int

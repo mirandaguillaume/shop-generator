@@ -1,6 +1,13 @@
 CharacterBundle\Entity\Spell:
     type: entity
     table: null
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: discr
+        type: string
+    discriminatorMap:
+        incantation: CharacterBundle\Entity\IncantationSpell
+        seasonal: CharacterBundle\Entity\SeasonalSpell
     repositoryClass: CharacterBundle\Repository\SpellRepository
     id:
         id:

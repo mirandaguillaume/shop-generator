@@ -1,0 +1,9 @@
+CharacterBundle\Entity\SeasonalSpell:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\SeasonalSpellRepository
+    fields:
+        season:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
