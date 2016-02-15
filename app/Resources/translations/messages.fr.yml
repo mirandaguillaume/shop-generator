@@ -81,3 +81,7 @@ spell:
     type:
         ritual: Cérémonielle
         normal: Brute
+    level:
+        low: Débutant
+        mid: Intermédiaire
+        high: Avancé

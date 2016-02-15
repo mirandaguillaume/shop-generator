@@ -20,3 +20,9 @@ services:
             - '%spell_types%'
         tags:
             - { name: form.type }
+    character.spell.level:
+        class: CharacterBundle\Form\Type\SpellLevelSelectType
+        arguments:
+            - '%spell_levels%'
+        tags:
+            - { name: form.type }

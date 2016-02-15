@@ -13,4 +13,7 @@ parameters:
     spell_types:
         spell.type.ritual: spell.type.ritual
         spell.type.normal: spell.type.normal
-
+    spell_levels:
+        spell.level.low: spell.level.low
+        spell.level.mid: spell.level.mid
+        spell.level.high: spell.level.high
