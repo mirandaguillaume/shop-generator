@@ -1,0 +1,10 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    character.equipement.location:
+        class: ItemBundle\Form\Type\LocationSelectType
+        arguments:
+            - '%locations%'
+        tags:
+            - { name: form.type }

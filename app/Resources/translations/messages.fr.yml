@@ -78,6 +78,15 @@ IncantationSpell: Sort rituel
 Job: Classe
 Skill: Capacités
 
+location:
+    one_hand: Une main
+    two_hands: 2 mains
+    chest: Torse
+    shoes: Chaussures
+    staff: Canne
+    hats: Chapeau
+    accessories: Accessoires
+
 season:
     summer: Eté
     winter: Hiver
