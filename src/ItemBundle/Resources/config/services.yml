@@ -1,3 +1,6 @@
+imports:
+    - { resource: form_services.yml }
+
 parameters:
     item.factory.class: ItemBundle\Services\ItemFactory
 
