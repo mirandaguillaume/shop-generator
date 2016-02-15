@@ -139,32 +139,32 @@ class Skill
         return $this->target;
     }
     /**
-     * @var \CharacterBundle\Entity\Job
+     * @var Job
      */
-    private $class;
+    private $job;
 
 
     /**
-     * Set class
+     * Set job
      *
-     * @param \CharacterBundle\Entity\Job $class
+     * @param Job $job
      *
      * @return Skill
      */
-    public function setClass(\CharacterBundle\Entity\Job $class = null)
+    public function setJob(Job $job = null)
     {
-        $this->class = $class;
+        $this->job = $job;
 
         return $this;
     }
 
     /**
-     * Get class
+     * Get job
      *
-     * @return \CharacterBundle\Entity\Job
+     * @return Job
      */
-    public function getClass()
+    public function getJob()
     {
-        return $this->class;
+        return $this->job;
     }
 }

@@ -17,6 +17,11 @@ class Job
      */
     private $name;
 
+    /**
+     * @var string
+     */
+    private $description;
+
 
     /**
      * Get id
@@ -33,7 +38,7 @@ class Job
      *
      * @param string $name
      *
-     * @return Class
+     * @return Job
      */
     public function setName($name)
     {
@@ -96,5 +101,29 @@ class Job
     public function getSkills()
     {
         return $this->skills;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Job
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

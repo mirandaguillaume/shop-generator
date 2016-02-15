@@ -14,6 +14,8 @@ easy_admin:
             - Container
             - Herb
             - SpecifiedItem
+            - Job
+            - Skill
     list:
         actions:
             - { name: 'show', label: 'action.show' }
@@ -180,7 +182,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'name', label: 'admin.spell.name' }
-                    - { property: 'level', label: 'admin.spell.level' }
+                    - { property: 'level', label: 'admin.spell.level', type: 'CharacterBundle\Form\Type\SpellLevelSelectType' }
                     - { property: 'cost', label: 'admin.spell.cost' }
                     - { property: 'duration', label: 'admin.spell.duration' }
                     - { property: 'target', label: 'admin.spell.target' }
@@ -229,4 +231,26 @@ easy_admin:
                     - { property: 'reach', label: 'admin.spell.reach' }
                     - { property: 'effect', label: 'admin.spell.effect' }
                     - { property: 'type', label: 'admin.spell.type' }
+        Job:
+            class: CharacterBundle\Entity\Job
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.job.name' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.job.name' }
+                    - { property: 'description', label: 'admin.job.description' }
+        Skill:
+            class: CharacterBundle\Entity\Skill
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.skill.name' }
+                    - { property: 'usedStats', label: 'admin.skill.used_stats' }
+                    - { property: 'target', label: 'admin.skill.target' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.skill.name' }
+                    - { property: 'usedStats', label: 'admin.skill.used_stats' }
+                    - { property: 'target', label: 'admin.skill.target' }
+                    - { property: 'effect', label: 'admin.skill.effect' }
 

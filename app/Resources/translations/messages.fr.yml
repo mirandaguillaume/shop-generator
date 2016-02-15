@@ -50,6 +50,15 @@ admin:
         type: Type
         season: Saison
         effect: Effet
+    job:
+        name: Nom
+        description: Description
+    skill:
+        name: Nom
+        effect: Effet
+        used_stats: Dés à lancer
+        target: Cible
+
 Clothing: Vêtement
 Weapon: Arme
 Shield: Boucliers
@@ -65,6 +74,8 @@ Container: Conteneur
 SpecifiedItem: Objets instanciés
 SeasonalSpell: Sort saisonnier
 IncantationSpell: Sort rituel
+Job: Classe
+Skill: Capacités
 
 season:
     summer: Eté

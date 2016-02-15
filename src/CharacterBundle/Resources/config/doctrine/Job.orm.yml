@@ -13,6 +13,8 @@ CharacterBundle\Entity\Job:
             type: string
             length: 255
             unique: true
+        description:
+            type: text
     oneToMany:
         skills:
             targetEntity: CharacterBundle\Entity\Skill
