@@ -29,4 +29,5 @@ CharacterBundle\Entity\Skill:
             joinColumn:
                 name: job_id
                 referencedColumnName: id
+                nullable: false
     lifecycleCallbacks: {  }

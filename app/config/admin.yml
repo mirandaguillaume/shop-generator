@@ -253,4 +253,5 @@ easy_admin:
                     - { property: 'usedStats', label: 'admin.skill.used_stats' }
                     - { property: 'target', label: 'admin.skill.target' }
                     - { property: 'effect', label: 'admin.skill.effect' }
+                    - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}
 
