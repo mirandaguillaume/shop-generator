@@ -1,0 +1,16 @@
+parameters:
+    seasons:
+        season.summer: season.summer
+        season.winter: season.winter
+        season.spring: season.spring
+        season.autumn: season.autumn
+    reaches:
+        reach.contact: reach.contact
+        reach.one_self: reach.one_self
+        reach.close: reache.close
+        reach.far: reach.far
+        reach.in_sight: reach.in_sight
+    spell_types:
+        spell.type.ritual: spell.type.ritual
+        spell.type.normal: spell.type.normal
+

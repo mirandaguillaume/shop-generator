@@ -36,12 +36,23 @@ admin:
     equipment:
         location: Localisation
     menu:
-        equipment: Equipement
-        animal: Animal
+        equipment: Equipements
+        animal: Animaux
         spe: Caractéristiques
-Clothing: Vêtements
+        spell: Sorts
+    spell:
+        name: Nom
+        level: Niveau
+        cost: Coût (en PE)
+        duration: Durée
+        target: Cible
+        reach: Portée
+        type: Type
+        season: Saison
+        effect: Effet
+Clothing: Vêtement
 Weapon: Arme
-Shield: Bouclier
+Shield: Boucliers
 Armor: Armure
 Carrier: Animal de bât
 Mount: Monture
@@ -52,3 +63,21 @@ Herb: Plante
 Common: Objet commun
 Container: Conteneur
 SpecifiedItem: Objets instanciés
+SeasonalSpell: Sort saisonnier
+IncantationSpell: Sort rituel
+
+season:
+    summer: Eté
+    winter: Hiver
+    autumn: Automne
+    spring: Printemps
+reach:
+    contact: Contact
+    one_self: Soi-même
+    close: Proche
+    far: Loin
+    in_sight: A vue
+spell:
+    type:
+        ritual: Cérémonielle
+        normal: Brute

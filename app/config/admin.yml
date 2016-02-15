@@ -176,6 +176,7 @@ easy_admin:
                     - { property: 'target', label: 'admin.spell.target' }
                     - { property: 'reach', label: 'admin.spell.reach' }
                     - { property: 'type', label: 'admin.spell.type' }
+                    - { property: 'type', label: 'admin.spell.season' }
             form:
                 fields:
                     - { property: 'name', label: 'admin.spell.name' }
@@ -183,9 +184,10 @@ easy_admin:
                     - { property: 'cost', label: 'admin.spell.cost' }
                     - { property: 'duration', label: 'admin.spell.duration' }
                     - { property: 'target', label: 'admin.spell.target' }
-                    - { property: 'reach', label: 'admin.spell.reach' }
+                    - { property: 'reach', label: 'admin.spell.reach', type: 'CharacterBundle\Form\Type\ReachSelectType' }
                     - { property: 'effect', label: 'admin.spell.effect' }
-                    - { property: 'type', label: 'admin.spell.type' }
+                    - { property: 'type', label: 'admin.spell.type', type: 'CharacterBundle\Form\Type\SpellTypeSelectType' }
+                    - { property: 'season', label: 'admin.spell.season', type: 'CharacterBundle\Form\Type\SeasonSelectType' }
             show:
                 fields:
                     - { property: 'name', label: 'admin.spell.name' }

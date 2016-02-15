@@ -1,0 +1,22 @@
+imports:
+  - { resource: parameters.yml }
+
+services:
+    character.seasons:
+        class: CharacterBundle\Form\Type\SeasonSelectType
+        arguments:
+            - '%seasons%'
+        tags:
+            - { name: form.type }
+    character.reach:
+        class: CharacterBundle\Form\Type\ReachSelectType
+        arguments:
+            - '%reaches%'
+        tags:
+            - { name: form.type }
+    character.spell.type:
+        class: CharacterBundle\Form\Type\SpellTypeSelectType
+        arguments:
+            - '%spell_types%'
+        tags:
+            - { name: form.type }

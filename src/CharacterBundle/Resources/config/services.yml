@@ -1,3 +1,6 @@
+imports:
+    - { resource: form_services.yml }
+
 services:
 #    character.example:
 #        class: CharacterBundle\Example
