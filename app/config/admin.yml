@@ -1,6 +1,8 @@
 easy_admin:
     site_name: 'Ryuutama Compendium'
     design:
+        templates:
+            field_string: ':easy_admin:field_string.html.twig'
         menu:
             - label: 'admin.menu.equipment'
               children: ['Weapon', 'Armor', 'Shield', 'Clothing']
@@ -100,15 +102,25 @@ easy_admin:
             list:
                 fields:
                     - { property: 'feature', label: 'admin.spe.feature' }
-                    - { property: 'amount', label: 'admin.spe.amount' }
-                    - { property: 'operation', label: 'admin.spe.operation' }
+                    - { property: 'priceModifier', label: 'admin.spe.price_modifier' }
+            form:
+                fields:
+                    - { property: 'feature', label: 'admin.spe.feature' }
+                    - { property: 'priceModifier', label: 'admin.spe.price_modifier', type: 'ItemBundle\Form\Type\ModifierType' }
+                    - { property: 'bonusModifiers', label: 'admin.spe.bonus_modifiers', type: 'collection', type_options: { entry_type: 'ItemBundle\Form\Type\BonusModifierType' } }
+                    - { property: 'description', label: 'admin.item.description' }
         SpeItem:
             class: ItemBundle\Entity\SpeItem
             list:
                 fields:
                     - { property: 'feature', label: 'admin.spe.feature' }
-                    - { property: 'amount', label: 'admin.spe.amount' }
-                    - { property: 'operation', label: 'admin.spe.operation' }
+                    - { property: 'priceModifier', label: 'admin.spe.price_modifier' }
+            form:
+                fields:
+                    - { property: 'feature', label: 'admin.spe.feature' }
+                    - { property: 'priceModifier', label: 'admin.spe.price_modifier', type: 'ItemBundle\Form\Type\ModifierType' }
+                    - { property: 'bonusModifiers', label: 'admin.spe.bonus_modifiers', type: 'collection', type_options: { entry_type: 'ItemBundle\Form\Type\BonusModifierType' } }
+                    - { property: 'description', label: 'admin.item.description' }
         Herb:
             class: ItemBundle\Entity\Herb
             list:
