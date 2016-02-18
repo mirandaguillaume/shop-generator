@@ -135,7 +135,7 @@ class SpecifiedItem
             $bonuses = $bonuses.$feature->getPriceModifier();
         }
 
-        return eval($this->item->getPrice().$bonuses);
+        return eval('return '.$this->item->getPrice().$bonuses.';');
     }
 
     public function getDescription(){
