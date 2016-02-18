@@ -96,15 +96,15 @@ easy_admin:
             list:
                 fields:
                     - { property: 'feature', label: 'admin.spe.feature' }
-                    - { property: 'amount', label: 'admin.spe.amount' }
-                    - { property: 'operation', label: 'admin.spe.operation' }
+                    - { property: 'priceModifier', label: 'admin.spe.price_modifier' }
+                    - { property: 'bonusModifiers', label: 'admin.spe.bonus_modifiers' }
         SpeItem:
             class: ItemBundle\Entity\SpeItem
             list:
                 fields:
                     - { property: 'feature', label: 'admin.spe.feature' }
-                    - { property: 'amount', label: 'admin.spe.amount' }
-                    - { property: 'operation', label: 'admin.spe.operation' }
+                    - { property: 'priceModifier', label: 'admin.spe.price_modifier' }
+                    - { property: 'bonusModifiers', label: 'admin.spe.bonus_modifiers' }
         Herb:
             class: ItemBundle\Entity\Herb
             list:

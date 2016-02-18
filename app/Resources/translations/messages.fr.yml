@@ -10,8 +10,8 @@ form:
 admin:
     spe:
         feature: Caractéristique
-        amount: Bonus
-        operation: Type
+        price_modifier: Modificateur de prix
+        bonus_modifiers: Bonus variés
     item:
         name: Nom
         price: Prix
