@@ -7,7 +7,7 @@ security:
     role_hierarchy:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
         ROLE_ADMIN: [ ROLE_EDIT, ROLE_DELETE, ROLE_USER ]
-        ROLE_USER: [ ROLE_CREATE, ROLE_SHOW, ROLE_LIST ]
+        ROLE_USER: [ ROLE_NEW, ROLE_SHOW, ROLE_LIST ]
 
     providers:
         fos_userbundle:
