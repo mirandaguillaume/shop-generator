@@ -21,7 +21,6 @@ ItemBundle\Entity\SpecifiedItem:
             referencedColumnName: id
     manyToMany:
         features:
-            orderBy: {'operation': 'DESC'}
             targetEntity: ItemBundle\Entity\Spe
             joinTable:
                 name: instance_features

@@ -114,6 +114,24 @@ class ItemFactory
 
     public function getRandomFeatures($items, $total_features, array $features){
 
+        $features = array();
+
+        $features_amount = $total_features;
+
+        $unset_categories = array();
+
+        foreach($features as $key => $feature){
+            if (!isset($feature['category_name'])){
+                $unset_categories[$key] = $features[$key];
+                unset($features[$key]);
+            }
+        }
+
+        if (count($features) == 0){
+            $features = $unset_categories;
+        }
+
+        $i = 1;
 
         return null;
     }

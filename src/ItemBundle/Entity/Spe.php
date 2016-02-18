@@ -19,11 +19,6 @@ abstract class Spe
     private $feature;
 
     /**
-     * @var float
-     */
-    private $amount;
-
-    /**
      * @var string
      */
     private $description;
@@ -31,7 +26,22 @@ abstract class Spe
     /**
      * @var string
      */
+    private $price_modifier;
+
+    /**
+     * @var array
+     */
+    private $bonus_modifiers;
+
+    /**
+     * @var string
+     */
     private $operation;
+
+    /**
+     * @var float
+     */
+    private $amount;
 
     /**
      * Get id
@@ -68,30 +78,6 @@ abstract class Spe
     }
 
     /**
-     * Set amount
-     *
-     * @param float $amount
-     *
-     * @return Spe
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return float
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -115,8 +101,87 @@ abstract class Spe
         return $this->description;
     }
 
+
     /**
-     * @return mixed
+     * Set priceModifier
+     *
+     * @param string $priceModifier
+     *
+     * @return Spe
+     */
+    public function setPriceModifier($priceModifier)
+    {
+        $this->price_modifier = $priceModifier;
+
+        return $this;
+    }
+
+    /**
+     * Get priceModifier
+     *
+     * @return string
+     */
+    public function getPriceModifier()
+    {
+        return $this->price_modifier;
+    }
+
+    /**
+     * Set bonusModifiers
+     *
+     * @param array $bonusModifiers
+     *
+     * @return Spe
+     */
+    public function setBonusModifiers($bonusModifiers)
+    {
+        $this->bonus_modifiers = $bonusModifiers;
+
+        return $this;
+    }
+
+    /**
+     * @param $bonusModifier
+     * @return $this
+     */
+    public function addBonusModifier($bonusModifier){
+        $this->bonus_modifiers[$bonusModifier['name']] = $bonusModifier['calcul'];
+
+        return $this;
+    }
+
+    /**
+     * Get bonusModifiers
+     *
+     * @return array
+     */
+    public function getBonusModifiers()
+    {
+        return $this->bonus_modifiers;
+    }
+
+    public function __construct(){
+        $this->bonus_modifiers = array();
+    }
+
+    /**
+     * Set operation
+     *
+     * @param string $operation
+     *
+     * @return Spe
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Get operation
+     *
+     * @return string
      */
     public function getOperation()
     {
@@ -124,27 +189,26 @@ abstract class Spe
     }
 
     /**
-     * @param mixed $operation
+     * Set amount
+     *
+     * @param float $amount
+     *
+     * @return Spe
      */
-    public function setOperation($operation)
+    public function setAmount($amount)
     {
-        $this->operation = $operation;
+        $this->amount = $amount;
+
+        return $this;
     }
 
     /**
-     * @param $price
-     * @return mixed
-     * @throws OperationNotFound
+     * Get amount
+     *
+     * @return float
      */
-    public function processPrice($price){
-        switch ($this->getOperation()){
-            case 'addition':
-                return $price+$this->getAmount();
-            case 'multiply':
-                return $price*$this->getAmount();
-            default:
-                throw new OperationNotFound();
-        }
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }
-

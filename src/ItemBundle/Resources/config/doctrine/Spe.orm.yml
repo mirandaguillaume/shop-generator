@@ -20,11 +20,18 @@ ItemBundle\Entity\Spe:
         feature:
             type: string
             length: 255
-        amount:
-            type: float
         description:
             type: text
         operation:
             type: string
             length: 255
+        amount:
+            type: float
+        price_modifier:
+            type: string
+            length: 255
+            nullable: true
+        bonus_modifiers:
+            type: array
+            nullable: true
     lifecycleCallbacks: {  }

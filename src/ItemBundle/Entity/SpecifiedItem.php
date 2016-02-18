@@ -1,12 +1,15 @@
 <?php
 
 namespace ItemBundle\Entity;
+use ItemBundle\Traits\MetaTrait;
 
 /**
  * SpecifiedItem
  */
 class SpecifiedItem
 {
+    use MetaTrait;
+
     /**
      * @var int
      */
@@ -54,6 +57,10 @@ class SpecifiedItem
     public function setItem(\ItemBundle\Entity\Item $item = null)
     {
         $this->item = $item;
+
+        foreach(get_class_methods($item) as $methods){
+
+        }
 
         return $this;
     }
@@ -121,11 +128,14 @@ class SpecifiedItem
     }
 
     public function getPrice(){
-        $real_price = $this->item->getPrice();
-        foreach($this->features as $feature){
-            $realPrice = $feature->processPrice($real_price);
+
+        $bonuses = '';
+
+        foreach($this->features as $feature) {
+            $bonuses = $bonuses.$feature->getPriceModifier();
         }
-        return $real_price;
+
+        return eval($this->item->getPrice().$bonuses);
     }
 
     public function getDescription(){
