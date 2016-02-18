@@ -52,3 +52,12 @@ Herb: Plante
 Common: Objet commun
 Container: Conteneur
 SpecifiedItem: Objets instanciés
+
+location:
+    one_hand: Une main
+    two_hands: 2 mains
+    chest: Torse
+    shoes: Chaussures
+    staff: Canne
+    hats: Chapeau
+    accessories: Accessoires

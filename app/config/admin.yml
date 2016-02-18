@@ -31,7 +31,7 @@ easy_admin:
                 fields:
                     - { property: name, label: 'admin.item.name' }
                     - { property: price, label: 'admin.item.price' }
-                    - { property: location, label: 'admin.equipment.location', type: choice, type_options: { choices: {"Une main": "1 hand", "Deux mains": "2 hands"}}}
+                    - { property: location, label: 'admin.equipment.location', type: 'ItemBundle\Form\Type\LocationSelectType' }
                     - { property: accuracy, label: 'admin.weapon.accuracy' }
                     - { property: damage, label: 'admin.weapon.damage' }
                     - { property: description, label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
@@ -48,7 +48,7 @@ easy_admin:
                 fields:
                     - { property: name, label: 'admin.item.name' }
                     - { property: price, label: 'admin.item.price' }
-                    - { property: location, label: 'admin.equipment.location', type_options: { attr: { readonly: true }}}
+                    - { property: location, label: 'admin.equipment.location', type_options: { attr: { readonly: true }}, type: 'ItemBundle\Form\Type\LocationSelectType'}
                     - { property: defensePoints, label: 'admin.armor.defense_points', sortable: true }
                     - { property: penality, label: 'admin.armor.penality' }
                     - { property: description, label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
@@ -66,7 +66,7 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
-                    - { property: 'location', label: 'admin.equipment.location', type_options: { attr: { readonly: true }}}
+                    - { property: 'location', label: 'admin.equipment.location', type_options: { attr: { readonly: true }}, type: 'ItemBundle\Form\Type\LocationSelectType'}
                     - { property: 'defensePoints', label: 'admin.shield.defense_points', sortable: true }
                     - { property: 'penality', label: 'admin.shield.penality' }
                     - { property: 'dodgeValue', label: 'admin.shield.dodge_value', sortable: true }
@@ -82,7 +82,7 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
-                    - { property: 'location', label: 'admin.equipment.location', type: choice, type_options: { choices: {"Chaussures": "Shoes", "Capes": "Capes", "Bâton": "Staff", "Chapeau": "Hats", "Accessoires": "Accessories"}}}
+                    - { property: 'location', label: 'admin.equipment.location', type: 'ItemBundle\Form\Type\LocationSelectType' }
                     - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
 
         Carrier:

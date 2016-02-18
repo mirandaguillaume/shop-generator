@@ -1,0 +1,9 @@
+parameters:
+    locations:
+        location.one_hand: location.one_hand
+        location.two_hands: location.two_hands
+        location.chest: location.chest
+        location.shoes: location.shoes
+        location.staff: location.staff
+        location.hats: location.hats
+        location.accessories: location.accessories
