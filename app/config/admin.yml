@@ -1,6 +1,8 @@
 easy_admin:
     site_name: 'Ryuutama Compendium'
     design:
+        templates:
+            field_string: ':easy_admin:field_string.html.twig'
         menu:
             - label: 'admin.menu.equipment'
               children: [ 'Weapon', 'Armor', 'Shield', 'Clothing' ]
