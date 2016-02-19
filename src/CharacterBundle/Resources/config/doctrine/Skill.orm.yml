@@ -18,6 +18,7 @@ CharacterBundle\Entity\Skill:
             type: text
         usableCircumstances:
             type: text
+            nullable: true
         usedStats:
             type: string
             length: 255

@@ -265,6 +265,7 @@ easy_admin:
                     - { property: 'name', label: 'admin.skill.name' }
                     - { property: 'usedStats', label: 'admin.skill.used_stats' }
                     - { property: 'target', label: 'admin.skill.target' }
+                    - { property: 'usableCircumstances', label: 'admin.skill.usable_circumstances' }
                     - { property: 'effect', label: 'admin.skill.effect' }
                     - { property: 'description', label: 'admin.skill.description' }
                     - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}

@@ -60,6 +60,8 @@ admin:
         target: Cible
         job: Classe
         description: Description
+        usable_circumstances: Conditions
+
 
 Clothing: Vêtement
 Weapon: Arme
