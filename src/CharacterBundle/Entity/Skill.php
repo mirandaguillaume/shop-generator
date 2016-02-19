@@ -35,6 +35,11 @@ class Skill
     /**
      * @var string
      */
+    private $usableCircumstances;
+
+    /**
+     * @var string
+     */
     private $target;
 
 
@@ -195,5 +200,29 @@ class Skill
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set usableCircumstances
+     *
+     * @param string $usableCircumstances
+     *
+     * @return Skill
+     */
+    public function setUsableCircumstances($usableCircumstances)
+    {
+        $this->usableCircumstances = $usableCircumstances;
+
+        return $this;
+    }
+
+    /**
+     * Get usableCircumstances
+     *
+     * @return string
+     */
+    public function getUsableCircumstances()
+    {
+        return $this->usableCircumstances;
     }
 }

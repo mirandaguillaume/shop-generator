@@ -16,13 +16,17 @@ CharacterBundle\Entity\Skill:
             type: text
         description:
             type: text
+        usableCircumstances:
+            type: text
         usedStats:
             type: string
             length: 255
             column: used_stats
+            nullable: true
         target:
             type: string
             length: 255
+            nullable: true
     manyToOne:
         job:
             targetEntity: CharacterBundle\Entity\Job
