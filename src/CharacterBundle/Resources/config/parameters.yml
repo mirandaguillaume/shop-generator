@@ -7,7 +7,7 @@ parameters:
     reaches:
         reach.contact: reach.contact
         reach.one_self: reach.one_self
-        reach.close: reache.close
+        reach.close: reach.close
         reach.far: reach.far
         reach.in_sight: reach.in_sight
     spell_types:

@@ -25,7 +25,6 @@ ItemBundle\Entity\Spe:
         price_modifier:
             type: string
             length: 255
-            nullable: true
         bonus_modifiers:
             type: array
             nullable: true

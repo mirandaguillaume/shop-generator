@@ -13,8 +13,9 @@ CharacterBundle\Entity\Skill:
             type: string
             length: 255
         effect:
-            type: string
-            length: 255
+            type: text
+        description:
+            type: text
         usedStats:
             type: string
             length: 255

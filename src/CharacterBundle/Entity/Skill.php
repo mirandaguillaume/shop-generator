@@ -25,6 +25,11 @@ class Skill
     /**
      * @var string
      */
+    private $description;
+
+    /**
+     * @var string
+     */
     private $usedStats;
 
     /**
@@ -166,5 +171,29 @@ class Skill
     public function getJob()
     {
         return $this->job;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Skill
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
