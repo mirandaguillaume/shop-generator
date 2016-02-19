@@ -223,7 +223,7 @@ CREATE TABLE `fos_user` (
 
 LOCK TABLES `fos_user` WRITE;
 /*!40000 ALTER TABLE `fos_user` DISABLE KEYS */;
-INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$YxKDke173pwq99djnedyBeKMR5qvubdPuKwNm7TDAE3AAEDy3vnlq','2016-02-19 11:46:41',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-12 15:11:38',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
+INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$YxKDke173pwq99djnedyBeKMR5qvubdPuKwNm7TDAE3AAEDy3vnlq','2016-02-19 14:51:32',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-12 15:11:38',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
 /*!40000 ALTER TABLE `fos_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,6 +321,9 @@ CREATE TABLE `job` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_FBD8E0F85E237E06` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -332,7 +335,7 @@ CREATE TABLE `job` (
 
 LOCK TABLES `job` WRITE;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
-INSERT INTO `job` VALUES (1,'Ménéstrel','Un voyageur parmi les voyageurs, qui se déplace de ville en ville pour se représenter avec de la musique et des dances. Le Ménéstrel possède une large palette de possibilité qui permettent d\'aider le groupe dans de nombreuses situations.');
+INSERT INTO `job` VALUES (1,'Ménéstrel','Un voyageur parmi les voyageurs, qui se déplace de ville en ville pour se représenter avec de la musique et des dances. Le Ménéstrel possède une large palette de possibilité qui permettent d\'aider le groupe dans de nombreuses situations.','smiley.png','0000-00-00 00:00:00','2016-02-19 17:48:17');
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,7 +385,7 @@ CREATE TABLE `migration_versions` (
 
 LOCK TABLES `migration_versions` WRITE;
 /*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038');
+INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038'),('20160219162206'),('20160219164109'),('20160219164455'),('20160219165934'),('20160219174439');
 /*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -520,13 +523,16 @@ CREATE TABLE `skill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `job_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `effect` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `used_stats` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `target` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `effect` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `used_stats` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `target` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `usable_circumstances` longtext COLLATE utf8_unicode_ci,
+  `discr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_5E3DE477BE04EA9` (`job_id`),
   CONSTRAINT `FK_5E3DE477BE04EA9` FOREIGN KEY (`job_id`) REFERENCES `job` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -535,6 +541,7 @@ CREATE TABLE `skill` (
 
 LOCK TABLES `skill` WRITE;
 /*!40000 ALTER TABLE `skill` DISABLE KEYS */;
+INSERT INTO `skill` VALUES (1,1,'Voyageur confirmé','+1 à tous les tests de voyage (déplacement/orientation/campement)',NULL,NULL,'En tant que ménéstrel qui vit sur la route, vous avez appris à vous déplacer de façon plus efficace.',NULL,'passive'),(2,1,'Eloquence','+1 à tous les tests de négoce (INT+ESP)',NULL,NULL,'En tant que marchand qui gagne sa vie grâce au négoce, vos compétences de communications sont d\'un niveau supérieur',NULL,'passive');
 /*!40000 ALTER TABLE `skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -661,7 +668,7 @@ CREATE TABLE `spell` (
   `season` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `duration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -670,6 +677,7 @@ CREATE TABLE `spell` (
 
 LOCK TABLES `spell` WRITE;
 /*!40000 ALTER TABLE `spell` DISABLE KEYS */;
+INSERT INTO `spell` VALUES (1,'Lumière cristalline','spell.type.normal',2,'1 outil','reach.contact','Cristallise une partie de l\'objet touché. La partie cristallisée émet une faible lumière similaire à la lumière d\'une lanterne. Peut être activé ou désactivé en tapotant.','spell.level.low','incantation',NULL,'12 heures'),(2,'Cloche d\'alarme','spell.type.normal',4,'zone de 10 m','reach.contact','Fait apparaître une cloche magique. La cloche va retentir si un monstre entre dans un zone de 10m. La cloche ne peut pas être bougée. Ce sort est recommandé pour les joueurs débutants. Ajoute un bonus de +1 sur les tests de campement','spell.level.low','incantation',NULL,'12 heures'),(3,'Boussole-flèche','spell.type.normal',4,NULL,'reach.contact','Fait apparaître une boussole magique. Recommandé pour les nouveaux joueurs. Ajoute un bonus de +1 aux tests d\'orientations.','spell.level.low','incantation',NULL,'12 heures'),(4,'Main rouge','spell.type.normal',4,'1 personne','reache.close','La main de la cible se met à rougeoyer. Donne force et technique et guide l\'arme vers la cible. Ajoute +1 aux tests de toucher.','spell.level.low','incantation',NULL,'6 tours'),(5,'Imposition des mains','spell.type.normal',4,'1 personne','reach.contact','Soigne une blessure en un instant. Soigne des PV égaux à un dé ESP du mage.','spell.level.low','incantation',NULL,'Instantané'),(6,'Météore magique','spell.type.normal',4,'1 personne','reach.in_sight','Le mage invoque un météore depuis le ciel sur la cible. Dégâts égaux à un dé ESP du mage.','spell.level.low','incantation',NULL,'Instantané'),(7,'Dresseur','spell.type.ritual',10,'Jusqu\'à 7 animaux','reach.in_sight','Pour la durée du sort, le mage peut dresser un nombre d\'animaux qui sont dans la ligne de mire jusqu\'à la fin du rituel. Les animaux peuvent être utilisés comme montures ou bêtes de traits. Les animaux doivent être capturés ou en cage. Le nombre d\'animaux affectés par le sort est égal à un dé ESP du mage. Ne fonctionne pas sur les monstres.','spell.level.low','incantation',NULL,'12 heures'),(8,'Bouclier protecteur','spell.type.ritual',10,'1 personne','reach.contact','Une barrière sphérique apparaît autour de la cible et le protège. La cible reçoit un bonus de 3 points de défense.','spell.level.low','incantation',NULL,'12 heures'),(9,'Nourriture exquise','spell.type.ritual',10,'Rations','reach.contact','Le mage lance un dé d\'ESP. Un nombre de rations équivalent devient \"délicieuses\". Le magicien choisit le goût. Toutes les rations affectées qui n\'ont pas été mangées dans l\'heure pourrissent et sont détruites.','spell.level.low','incantation',NULL,'1 heure'),(10,'Dragonica Encyclopaedia','spell.type.normal',2,'1 personne','reach.in_sight','Invoque le compendium des monstres, la fameuse Dragonica Encyclopaedia. Le livre s\'ouvre directement à la page du monstre ciblé.','spell.level.mid','incantation',NULL,'Instantané'),(11,'Frappe télékinésique','spell.type.normal',4,'1 personne','reach.in_sight','Un objet sur le terrain frappe la cible pour 1d6 de dégâts. Tant que le test n\'est pas un échec critique, le sort réussit quelque soit la condition de la cible. L\'objet utilisé disparaît.','spell.level.mid','incantation',NULL,'Instantané'),(12,'Coeur de lion','spell.type.normal',4,'1 personne','reach.contact','Le coeur de la cible se met à scintiller. Si la cible reçoit des dégâts qui la font atteindre 0 PV ou inférieur alors il descend à 1 PV. Ce sort d\'arrête dès que la cible atteint ce palier. La cible doit avoir plus d\'1 PV pour pouvoir lancer le sort.','spell.level.mid','incantation',NULL,'6 tours'),(13,'Bouclier mathémagique','spell.type.normal',4,'1 personne','reach.contact','Un bouclier magique apparaît. Il se déplace automatiquement pour protéger la cible. Bonus d\'1 point de défense.','spell.level.mid','incantation',NULL,'10 minutes'),(14,'Lève-toi et marche !','spell.type.normal',2,'1 zone','reach.close','Toutes les personnes dans la zone s\'éveillent et se lèvent. Toutes les personnes réveillées mais couchées par terre se lève automatiquement. Affecte uniquement les créatures avec 2 jambes.','spell.level.low','seasonal','season.spring','Instantané'),(15,'Emina Nonno','spell.type.normal',2,'Zone touchée','reach.contact','La zone touchée devient couverte de petites fleurs. Le mage peut décider la variété de fleur. Si la fleur est bien appropriée pour la zone et que l\'on s\'en occupe bien, elle peut subsister plus longtemps.','spell.level.low','seasonal','season.spring','1 jour');
 /*!40000 ALTER TABLE `spell` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -734,4 +742,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-19 12:34:16
+-- Dump completed on 2016-02-19 17:53:48
