@@ -40,6 +40,7 @@ admin:
         animal: Animaux
         spe: Caractéristiques
         spell: Sorts
+        skill: Compétences
     spell:
         name: Nom
         level: Niveau
@@ -56,12 +57,12 @@ admin:
     skill:
         name: Nom
         effect: Effet
-        used_stats: Dés à lancer
-        target: Cible
         job: Classe
         description: Description
         usable_circumstances: Conditions
-
+        active:
+            used_stats: Dés à lancer
+            target: Cible
 
 Clothing: Vêtement
 Weapon: Arme
@@ -79,7 +80,9 @@ SpecifiedItem: Objets instanciés
 SeasonalSpell: Sort saisonnier
 IncantationSpell: Sort rituel
 Job: Classe
-Skill: Capacités
+Skill: Compétences
+ActiveSkill: Compétence active
+PassiveSkill: Compétence passive
 
 location:
     one_hand: Une main

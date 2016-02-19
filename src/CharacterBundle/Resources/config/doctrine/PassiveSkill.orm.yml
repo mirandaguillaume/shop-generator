@@ -1,0 +1,5 @@
+CharacterBundle\Entity\PassiveSkill:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\PassiveSkillRepository
+    lifecycleCallbacks: {  }

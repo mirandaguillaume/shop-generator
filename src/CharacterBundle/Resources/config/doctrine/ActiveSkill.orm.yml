@@ -1,0 +1,15 @@
+CharacterBundle\Entity\ActiveSkill:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\ActiveSkillRepository
+    fields:
+        usedStats:
+            type: string
+            length: 255
+            column: used_stats
+            nullable: true
+        target:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

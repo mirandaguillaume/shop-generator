@@ -5,7 +5,7 @@ namespace CharacterBundle\Entity;
 /**
  * Skill
  */
-class Skill
+abstract class Skill
 {
     /**
      * @var int
