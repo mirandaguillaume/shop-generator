@@ -59,6 +59,7 @@ admin:
         used_stats: Dés à lancer
         target: Cible
         job: Classe
+        description: Description
 
 Clothing: Vêtement
 Weapon: Arme
