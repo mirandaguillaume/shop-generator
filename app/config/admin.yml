@@ -250,9 +250,11 @@ easy_admin:
             list:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
+                    - { property: 'image', type: 'image', base_path: %app.path.job_images% }
             form:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
+                    - { property: 'imageFile', type: 'Vich\UploaderBundle\Form\Type\VichImageType' }
                     - { property: 'description', label: 'admin.job.description' }
         ActiveSkill:
             class: CharacterBundle\Entity\ActiveSkill

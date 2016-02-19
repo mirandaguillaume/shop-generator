@@ -15,6 +15,19 @@ CharacterBundle\Entity\Job:
             unique: true
         description:
             type: text
+        image:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmon:
+                timestampable:
+                    on: update
     oneToMany:
         skills:
             targetEntity: CharacterBundle\Entity\Skill

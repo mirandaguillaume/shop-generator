@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
             new ItemBundle\ItemBundle(),
             new UserBundle\UserBundle(),
             new CharacterBundle\CharacterBundle(),
