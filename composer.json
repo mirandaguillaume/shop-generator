@@ -33,7 +33,9 @@
         "doctrine/doctrine-migrations-bundle": "^1.1",
         "symfony/assetic-bundle": "^2.7",
         "egeloen/ckeditor-bundle": "^4.0",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "symfony/property-access": "^3.0",
+        "vich/uploader-bundle": "@dev"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"

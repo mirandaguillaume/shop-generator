@@ -1,6 +1,13 @@
 CharacterBundle\Entity\Skill:
     type: entity
     table: null
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: discr
+        type: string
+    discriminatorMap:
+        passive: CharacterBundle\Entity\PassiveSkill
+        active: CharacterBundle\Entity\ActiveSkill
     repositoryClass: CharacterBundle\Repository\SkillRepository
     id:
         id:
@@ -16,13 +23,9 @@ CharacterBundle\Entity\Skill:
             type: text
         description:
             type: text
-        usedStats:
-            type: string
-            length: 255
-            column: used_stats
-        target:
-            type: string
-            length: 255
+        usableCircumstances:
+            type: text
+            nullable: true
     manyToOne:
         job:
             targetEntity: CharacterBundle\Entity\Job

@@ -126,4 +126,11 @@ class Job
     {
         return $this->description;
     }
+
+    public function __toString(){
+        if ($this->name)
+            return $this->name;
+        else
+            return 'Nouveau job';
+    }
 }

@@ -5,7 +5,7 @@ namespace CharacterBundle\Entity;
 /**
  * Skill
  */
-class Skill
+abstract class Skill
 {
     /**
      * @var int
@@ -31,6 +31,11 @@ class Skill
      * @var string
      */
     private $usedStats;
+
+    /**
+     * @var string
+     */
+    private $usableCircumstances;
 
     /**
      * @var string
@@ -195,5 +200,29 @@ class Skill
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set usableCircumstances
+     *
+     * @param string $usableCircumstances
+     *
+     * @return Skill
+     */
+    public function setUsableCircumstances($usableCircumstances)
+    {
+        $this->usableCircumstances = $usableCircumstances;
+
+        return $this;
+    }
+
+    /**
+     * Get usableCircumstances
+     *
+     * @return string
+     */
+    public function getUsableCircumstances()
+    {
+        return $this->usableCircumstances;
     }
 }

@@ -12,12 +12,13 @@ easy_admin:
               children: ['SpeAnimal', 'SpeItem']
             - label: 'admin.menu.spell'
               children: ['SeasonalSpell', 'IncantationSpell']
+            - label: 'admin.menu.skill'
+              children: ['ActiveSkill', 'PassiveSkill']
             - Common
             - Container
             - Herb
             - SpecifiedItem
             - Job
-            - Skill
     list:
         actions:
             - { name: 'show', label: 'action.show' }
@@ -253,18 +254,34 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
                     - { property: 'description', label: 'admin.job.description' }
-        Skill:
-            class: CharacterBundle\Entity\Skill
+        ActiveSkill:
+            class: CharacterBundle\Entity\ActiveSkill
             list:
                 fields:
                     - { property: 'name', label: 'admin.skill.name' }
-                    - { property: 'usedStats', label: 'admin.skill.used_stats' }
-                    - { property: 'target', label: 'admin.skill.target' }
+                    - { property: 'usedStats', label: 'admin.skill.active.used_stats' }
+                    - { property: 'target', label: 'admin.skill.active.target' }
+                    - { property: 'job', label: 'admin.skill.job' }
             form:
                 fields:
                     - { property: 'name', label: 'admin.skill.name' }
-                    - { property: 'usedStats', label: 'admin.skill.used_stats' }
-                    - { property: 'target', label: 'admin.skill.target' }
+                    - { property: 'usedStats', label: 'admin.skill.active.used_stats' }
+                    - { property: 'target', label: 'admin.skill.active.target' }
+                    - { property: 'usableCircumstances', label: 'admin.skill.usable_circumstances' }
+                    - { property: 'effect', label: 'admin.skill.effect' }
+                    - { property: 'description', label: 'admin.skill.description' }
+                    - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}
+
+        PassiveSkill:
+            class: CharacterBundle\Entity\PassiveSkill
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.skill.name' }
+                    - { property: 'job', label: 'admin.skill.job' }
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.skill.name' }
+                    - { property: 'usableCircumstances', label: 'admin.skill.usable_circumstances' }
                     - { property: 'effect', label: 'admin.skill.effect' }
                     - { property: 'description', label: 'admin.skill.description' }
                     - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}
