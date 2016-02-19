@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `heroku_90344c289deb7e6`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `heroku_90344c289deb7e6` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `heroku_90344c289deb7e6`;
-
---
 -- Table structure for table `animal`
 --
 
@@ -190,8 +182,49 @@ CREATE TABLE `equipment` (
 
 LOCK TABLES `equipment` WRITE;
 /*!40000 ALTER TABLE `equipment` DISABLE KEYS */;
-INSERT INTO `equipment` VALUES (5,'Chest'),(6,'1 hand'),(7,'1 hand'),(8,'2 hands'),(9,'1 hand'),(10,'2 hands'),(11,'1 hand'),(12,'Chest'),(13,'Chest'),(14,'Chest'),(15,'1 hand'),(16,'Shoes'),(17,'Capes'),(18,'Shoes'),(19,'Shoes'),(20,'Shoes'),(21,'Shoes'),(22,'Shoes'),(23,'Capes'),(24,'Capes'),(25,'Capes'),(26,'Capes'),(27,'Capes'),(28,'Staff'),(29,'Staff'),(30,'Staff'),(31,'Hats'),(32,'Hats'),(33,'Hats'),(34,'Hats'),(35,'Accessories'),(36,'Accessories');
+INSERT INTO `equipment` VALUES (5,'location.chest'),(6,'location.one_hand'),(7,'location.one_hand'),(8,'location.two_hands'),(9,'location.one_hand'),(10,'location.two_hands'),(11,'location.one_hand'),(12,'location.chest'),(13,'location.chest'),(14,'location.chest'),(15,'location.one_hand'),(16,'location.shoes'),(17,'location.capes'),(18,'location.shoes'),(19,'location.shoes'),(20,'location.shoes'),(21,'location.shoes'),(22,'location.shoes'),(23,'location.capes'),(24,'location.capes'),(25,'location.capes'),(26,'location.capes'),(27,'location.capes'),(28,'location.staff'),(29,'location.staff'),(30,'location.staff'),(31,'location.hats'),(32,'location.hats'),(33,'location.hats'),(34,'location.hats'),(35,'location.accessories'),(36,'location.accessories');
 /*!40000 ALTER TABLE `equipment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fos_user`
+--
+
+DROP TABLE IF EXISTS `fos_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fos_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username_canonical` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email_canonical` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `expired` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  `confirmation_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
+  `credentials_expired` tinyint(1) NOT NULL,
+  `credentials_expire_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
+  UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fos_user`
+--
+
+LOCK TABLES `fos_user` WRITE;
+/*!40000 ALTER TABLE `fos_user` DISABLE KEYS */;
+INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$YxKDke173pwq99djnedyBeKMR5qvubdPuKwNm7TDAE3AAEDy3vnlq','2016-02-19 11:46:41',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-12 15:11:38',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
+/*!40000 ALTER TABLE `fos_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -246,6 +279,7 @@ CREATE TABLE `instance_features` (
 
 LOCK TABLES `instance_features` WRITE;
 /*!40000 ALTER TABLE `instance_features` DISABLE KEYS */;
+INSERT INTO `instance_features` VALUES (1,1),(1,2),(1,3);
 /*!40000 ALTER TABLE `instance_features` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,8 +306,61 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (5,'Vêtements',50,'Vêtements normaux. Résistants et favorisés par les voyageurs. Généralement en laine filée.','armor'),(6,'Epée courte',400,'Une épée qui peut être tenue dans la main. Peut être utile hors combat, dans la préparation de la nourriture, la récolte d\'herbes, etc...','weapon'),(7,'Epée longue',700,'Une arme avec une longue lame plate. Acclamée dans le monde entier, avec un tranchant c\'est un sabre et avec 2 tranchants, une épée.','weapon'),(8,'Lance',350,'Une arme constituée d\'un bout de bois avec une pointe à l\'extrémité. Peut être utilisée pour percer avec le bout pointu ou pour assommer avec le manche, ce qui en fait une arme polyvalente. Son prix en fait aussi une arme facile à se procurer.','weapon'),(9,'Hache',500,'Un outil utilisé pour couper les arbres. A cause de son poids, utilisable seulement avec de la force brute.','weapon'),(10,'Arc',750,'Arme à projectiles utilisée par les chasseurs et leurs pairs. Aussi populaire avec les nobles et les soldats pour sa capacité à attaquer à distance. (Note: Pas de gestion des flèches)','weapon'),(11,'Bouclier léger',400,'Un bouclier qui peut être tenu d\'une seule main. Fait de bois et de branchages, son poids léger lui évite de gêner durant le combat.','shield'),(12,'Armure légère',900,'Armure faite du cuir d\'animaux avec des plaques de métal qui protègent les points vitaux. Seul la poitrine est protégée, mais se porte facilement de par sa légèreté.','armor'),(13,'Armure moyenne',2000,'Armure constituée de plaques de métal. En plus de la poitrine les jambes et les bras sont protégés, mais le poids augmente en conséquence ...','armor'),(14,'Armure lourde',100000,'Une armure lourde constituée de plaque qui recouvre entièrement le corps. Les mouvements sont restreints lorsqu\'elle est equipée.','armor'),(15,'Bouclier lourd',1200,'Un bouclier assez large pour recouvrir la totalité du corps. La plupart d\'entre eux sont fait de métal. Leur poids les rends difficile à transporter.','shield'),(16,'Chaussures de pluie',300,'Ces bottes on été recouvertes d\'un enduit qui les rends résistantes à l\'eau. Elles sont efficaces pour garder vos pieds au sec.','clothing'),(17,'Coupe-vent',120,'Une cape avec une capuche qui recouvre le corps. Des poids sont cousus dans la cape pour l\'empêcher de balloter avec le vent','clothing'),(18,'Chaussures de marche',350,'Ces chaussures sont faites de cuir souple ce qui permet de marcher avec plus d\'aisance sur des pavements. Très légères, elles n\'encombrent absolument pas dans le déplacement.','clothing'),(19,'Chaussure de montagne',450,'Chaussures aux semelles épaisses, faites pour éviter de glisser et de se blesser dans les rocailles.','clothing'),(20,'Chaussures pour la jungle',600,'Bottes solides faites pour marcher dans les ronces. Elles protègent complètement les pieds.','clothing'),(21,'Chaussures pour les marais',500,'Chaussures très larges avec des semelles antidérapantes pour ne pas s\'enfoncer dans la boue.','clothing'),(22,'Raquettes de neiges',500,'Elles ont été spécialement modifiées pour éviter les engelures et les assauts du froid.','clothing'),(23,'Cape anti-feu',700,'Faite avec la dépouille d\'un monstre résistant au feu. Perd toutes ses propriétés si elle est mouillée.','clothing'),(24,'Cape de camouflage',400,'Recouvre tout le corps et permet de se fondre dans un paysage choisi à l\'achat.','clothing'),(25,'Cape de fourrure',160,'La fourrure permet de retenir la chaleur. Peut aussi servir de couverture.','clothing'),(26,'Djellaba',400,'Confectionnée à partir de matériaux légers. Bien aérée pour ne pas souffrir de la chaleur.','clothing'),(27,'Manteau de pluie',400,'Fait en cuir et imperméabilisé. Protège de la pluie, mais exige des soins fréquents.','clothing'),(28,'Bâton de marche',50,'Ne sert qu\'aux voyageurs avec 4 ou moins en VIG, ou subissant des malus dûs à l\'encombrement.','clothing'),(29,'Canne des neiges',280,'Utile pour avancer dans la neige. Sa pointe en métal est renforcée pour briser la glace.','clothing'),(30,'Dévale-pente',100,'Utilisé pour garder son allure sur les pentes. Sa longueur est réglable.','clothing'),(31,'Chapeau',120,'Chapeau particulièrement banal, dont les formes et les couleurs peuvent varier. Censé protéger du mal.','clothing'),(32,'Chapeau à large bords',180,'Protège de l\'éclat du soleil et de la chaleur. En coton, lin ou paille afin de laisser passer l\'air.','clothing'),(33,'Chèche',340,'Protège les yeux du vent et du sable. L\'étoffe est épaisse et lourde mais évite d\'être éblouie par le soleil.','clothing'),(34,'Toque en fourrure',200,'La fourrure permet de garder la tête bien au chaud. Recouvre aussi les oreilles afin qu\'elles ne gèlent pas.','clothing'),(35,'Accessoires',100,'Anneaux, boucles d\'oreilles, colliers, etc. Faits dans divers matériaux locaux.','clothing'),(36,'Lunettes de protection',4000,'Protègent les yeux de la pluie et du vent. Très difficiles à confectionner et donc extrêmement chères.','clothing'),(37,'Alcools',10,'Consommés avec une condition inférieure à 4, ils provoquent l\'état Surexcité (4)','common'),(38,'Aliments frais',5,'Légumes et viandes de première fraîcheur. Ne peuvent se conserver plus de 24h.','common'),(39,'Mauvaises rations',5,'Goût répugnant. Les consommer avec une condition inférieure à 4 coûte la moitié de ses PV actuels.','common'),(40,'Nourriture pour animaux',5,'Vivres pour animaux. Indispensable pour le désert ou la montagne.','common'),(41,'Rations',10,'Vivres dont on ne peut se passer en voyage. Goût quelconque.','common'),(42,'Rations de choix',70,'Vraiment succulentes. +1 au test de condition du lendemain.','common'),(43,'Boussole',1500,'Indique le nord. +1 aux tests d\'orientation.','common'),(44,'Briquet',20,'Fer, silex et amadou. Permet d\'allumer des feux de camp.','common'),(45,'Cahier en cuir',100,'Cahier renforcé dont la couverture en cuir permet un transport plus facile.','common'),(46,'Corde',50,'Peut être utilisée dans de nombreuses situations. Se vend par longueurs de 10 mètres.','common'),(47,'Couverts',10,'De la vaisselles dont les formes, tailles et couleurs varient.','common'),(48,'Instrument',300,'Tambourins, trompettes, lyres, violons, flûtes, cymbales, etc.','common'),(49,'Lanterne',80,'Éclaire comme une torche, mais est protégée du vent et ne s\'éteint pas facilement.','common'),(50,'Miroir',300,'Petit miroir qui se tiens dans la main.','common'),(51,'Nécessaire à lessive',15,'Savon et planche à laver le linge.','common'),(52,'Nécessaire de cuisine',100,'Ensemble d\'ustensiles permettant de faire à manger.','common'),(53,'Parapluie/Ombrelle',50,'Requiert une main libre. +1 aux tests de déplacement si le climat est Chaleur ou Pluie.','common'),(54,'Parchemin',2,'Papier confectionné à partir de cuir animal. Solide et ne se déchire pas facilement.','common'),(55,'Parfum',500,'Flacon de liquide à l\'odeur agréable. Cache la spécificité fétide pendant 12 heures.','common'),(56,'Plume',2,'Plume dont la pointe à été biseauté pour pouvoir écrire.','common'),(57,'Pointe de verre',120,'Pointe en verre de haute qualité permettant d\'écrire.','common'),(58,'Savon',5,'Indispensable aux soins du corps. Mousse au contact de l\'eau.','common'),(59,'Torche',5,'Bout de bois préparé de façon à être enflammé. Permet d\'éclairer les lieux obscurs.','common'),(60,'Baquet',450,'Baignoire transportable.','common'),(61,'Couvertures',40,'Couettes et couvertures légères et faciles à transporter.','common'),(62,'Oreiller',10,'Rend le sommeil plus agréable. Très personnel : certains ne peuvent pas dormir sans le leur.','common'),(63,'Peluche',100,'Jouet ayant généralement la forme d\'un animal et dont les formes et couleurs varient.','common'),(64,'Pierre de bain',20,'Pierre pouvant réchauffer un baquet d\'eau à 40 degrés. Une seule utilisation.','common'),(65,'Repousse-insecte',10,'Sorte d\'encens fait d\'herbes odorantes et éloignant les insectes pendant 12 heures.','common'),(66,'Sac de couchage',50,'Permet de dormir n\'importe où. Utilisable par une seule personne à la fois.','common'),(67,'Tente',120,'Jusqu\'à 3 personnes peuvent y passer la nuit.','common'),(68,'Tente d\'hiver',300,'Indispensable par temps de froid. +2 aux tests de campement si le climat est Froid.','common'),(69,'Yourte',500,'Tente pouvant abriter jusqu\'à 10 personnes. Plébiscitée par les peuples nomades.','common'),(70,'Bouteille d\'herboriste',100,'Bouteille ayant reçu un traitement spécial et qui peut contenir jusqu\'à 10 herbes de soins. Elle pert ses propriétés 7 jours après ouverture, mais son contenu peut être transversé.','container'),(71,'Outre',30,'Faite en cuir ou en écorce traitée, elle contient de l\'eau pour la journée.','container'),(72,'Thermos',2000,'Bouteille magique qui préserve la température de ce qu\'elle contient. +1 aux tests de déplacement en cas de Chaleur ou de Froid','container'),(73,'Sac',10,'Sac simple sans décoration. Requiert une main libre.','container'),(74,'Sac de ceinture',30,'On ne peut en porter qu\'un à la fois. Idéal pour les petits objets dont on veut pouvoir se servir immédiatement.','container'),(75,'Caisse',10,'Permet de transporter beaucoup de choses, mais n\'est vraiment pas pratique. -1 aux tests de déplacement si elle n\'est pas portée par un animal.','container'),(76,'Grand sac à dos',40,'Sa grande capacité permet d\'avoir toujours sur soi ce dont on a besoin.','container'),(77,'Sac à dos',20,'Sac à dos tout ce qu\'il y a de plus normal. Toujours utile pour les voyages.','container'),(78,'Tonneau',10,'Contient de l\'eau pour 15 jours. Sinon, c\'est un contenant de capacité 10.','container'),(79,'Pomme du couchant',100,'Arbre à feuillage persistant ressemblant à un pommier. Son fruit à la couleur du crépuscule. Il est tonique et nutritif.','herb'),(80,'Volubilis couronné',100,'Plante dont les fleurs forment une couronne très colorée dont la teinte vire selon la météo entre le rouge, le bleu, le blanc et le violet.','herb'),(81,'Laque de l\'ogre',300,'Arbre à feuilles caduques faisant entre 4 et 5 mètres de haut. Son écorce est gris cendré et une sève noire visqueuse en suinte si on perce cette dernière.','herb'),(82,'Paume du géant',300,'Plante vivace dont les grandes feuilles sont recouvertes d\'un liquide collant vert pâle. Prolifère dans les environnements humides.','herb'),(83,'Carthame de l\'aube',800,'Sorte de chardon aux fleurs d\'un rouge aussi vif que le sang. Ses tiges contiennent un puissant stupéfiant et il faut donc les manipuler avec précaution.','herb');
+INSERT INTO `item` VALUES (5,'Vêtements',50,'Vêtements normaux. Résistants et favorisés par les voyageurs. Généralement en laine filée.','armor'),(6,'Epée courte',400,'Une épée qui peut être tenue dans la main. Peut être utile hors combat, dans la préparation de la nourriture, la récolte d\'herbes, etc...','weapon'),(7,'Epée longue',700,'Une arme avec une longue lame plate. Acclamée dans le monde entier, avec un tranchant c\'est un sabre et avec 2 tranchants, une épée.','weapon'),(8,'Lance',350,'Une arme constituée d\'un bout de bois avec une pointe à l\'extrémité. Peut être utilisée pour percer avec le bout pointu ou pour assommer avec le manche, ce qui en fait une arme polyvalente. Son prix en fait aussi une arme facile à se procurer.','weapon'),(9,'Hache',500,'Un outil utilisé pour couper les arbres. A cause de son poids, utilisable seulement avec de la force brute.','weapon'),(10,'Arc',750,'<p>Arme &agrave; projectiles utilis&eacute;e par les chasseurs et leurs pairs. Aussi populaire avec les nobles et les soldats pour sa capacit&eacute; &agrave; attaquer &agrave; distance. (Note: Pas de gestion des fl&egrave;ches)</p>','weapon'),(11,'Bouclier léger',400,'Un bouclier qui peut être tenu d\'une seule main. Fait de bois et de branchages, son poids léger lui évite de gêner durant le combat.','shield'),(12,'Armure légère',900,'Armure faite du cuir d\'animaux avec des plaques de métal qui protègent les points vitaux. Seul la poitrine est protégée, mais se porte facilement de par sa légèreté.','armor'),(13,'Armure moyenne',2000,'Armure constituée de plaques de métal. En plus de la poitrine les jambes et les bras sont protégés, mais le poids augmente en conséquence ...','armor'),(14,'Armure lourde',100000,'Une armure lourde constituée de plaque qui recouvre entièrement le corps. Les mouvements sont restreints lorsqu\'elle est equipée.','armor'),(15,'Bouclier lourd',1200,'Un bouclier assez large pour recouvrir la totalité du corps. La plupart d\'entre eux sont fait de métal. Leur poids les rends difficile à transporter.','shield'),(16,'Chaussures de pluie',300,'Ces bottes on été recouvertes d\'un enduit qui les rends résistantes à l\'eau. Elles sont efficaces pour garder vos pieds au sec.','clothing'),(17,'Coupe-vent',120,'Une cape avec une capuche qui recouvre le corps. Des poids sont cousus dans la cape pour l\'empêcher de balloter avec le vent','clothing'),(18,'Chaussures de marche',350,'Ces chaussures sont faites de cuir souple ce qui permet de marcher avec plus d\'aisance sur des pavements. Très légères, elles n\'encombrent absolument pas dans le déplacement.','clothing'),(19,'Chaussure de montagne',450,'Chaussures aux semelles épaisses, faites pour éviter de glisser et de se blesser dans les rocailles.','clothing'),(20,'Chaussures pour la jungle',600,'Bottes solides faites pour marcher dans les ronces. Elles protègent complètement les pieds.','clothing'),(21,'Chaussures pour les marais',500,'Chaussures très larges avec des semelles antidérapantes pour ne pas s\'enfoncer dans la boue.','clothing'),(22,'Raquettes de neiges',500,'Elles ont été spécialement modifiées pour éviter les engelures et les assauts du froid.','clothing'),(23,'Cape anti-feu',700,'Faite avec la dépouille d\'un monstre résistant au feu. Perd toutes ses propriétés si elle est mouillée.','clothing'),(24,'Cape de camouflage',400,'Recouvre tout le corps et permet de se fondre dans un paysage choisi à l\'achat.','clothing'),(25,'Cape de fourrure',160,'La fourrure permet de retenir la chaleur. Peut aussi servir de couverture.','clothing'),(26,'Djellaba',400,'Confectionnée à partir de matériaux légers. Bien aérée pour ne pas souffrir de la chaleur.','clothing'),(27,'Manteau de pluie',400,'Fait en cuir et imperméabilisé. Protège de la pluie, mais exige des soins fréquents.','clothing'),(28,'Bâton de marche',50,'Ne sert qu\'aux voyageurs avec 4 ou moins en VIG, ou subissant des malus dûs à l\'encombrement.','clothing'),(29,'Canne des neiges',280,'Utile pour avancer dans la neige. Sa pointe en métal est renforcée pour briser la glace.','clothing'),(30,'Dévale-pente',100,'Utilisé pour garder son allure sur les pentes. Sa longueur est réglable.','clothing'),(31,'Chapeau',120,'Chapeau particulièrement banal, dont les formes et les couleurs peuvent varier. Censé protéger du mal.','clothing'),(32,'Chapeau à large bords',180,'Protège de l\'éclat du soleil et de la chaleur. En coton, lin ou paille afin de laisser passer l\'air.','clothing'),(33,'Chèche',340,'Protège les yeux du vent et du sable. L\'étoffe est épaisse et lourde mais évite d\'être éblouie par le soleil.','clothing'),(34,'Toque en fourrure',200,'La fourrure permet de garder la tête bien au chaud. Recouvre aussi les oreilles afin qu\'elles ne gèlent pas.','clothing'),(35,'Accessoires',100,'Anneaux, boucles d\'oreilles, colliers, etc. Faits dans divers matériaux locaux.','clothing'),(36,'Lunettes de protection',4000,'Protègent les yeux de la pluie et du vent. Très difficiles à confectionner et donc extrêmement chères.','clothing'),(37,'Alcools',10,'Consommés avec une condition inférieure à 4, ils provoquent l\'état Surexcité (4)','common'),(38,'Aliments frais',5,'Légumes et viandes de première fraîcheur. Ne peuvent se conserver plus de 24h.','common'),(39,'Mauvaises rations',5,'Goût répugnant. Les consommer avec une condition inférieure à 4 coûte la moitié de ses PV actuels.','common'),(40,'Nourriture pour animaux',5,'Vivres pour animaux. Indispensable pour le désert ou la montagne.','common'),(41,'Rations',10,'Vivres dont on ne peut se passer en voyage. Goût quelconque.','common'),(42,'Rations de choix',70,'Vraiment succulentes. +1 au test de condition du lendemain.','common'),(43,'Boussole',1500,'Indique le nord. +1 aux tests d\'orientation.','common'),(44,'Briquet',20,'Fer, silex et amadou. Permet d\'allumer des feux de camp.','common'),(45,'Cahier en cuir',100,'Cahier renforcé dont la couverture en cuir permet un transport plus facile.','common'),(46,'Corde',50,'Peut être utilisée dans de nombreuses situations. Se vend par longueurs de 10 mètres.','common'),(47,'Couverts',10,'De la vaisselles dont les formes, tailles et couleurs varient.','common'),(48,'Instrument',300,'Tambourins, trompettes, lyres, violons, flûtes, cymbales, etc.','common'),(49,'Lanterne',80,'Éclaire comme une torche, mais est protégée du vent et ne s\'éteint pas facilement.','common'),(50,'Miroir',300,'Petit miroir qui se tiens dans la main.','common'),(51,'Nécessaire à lessive',15,'Savon et planche à laver le linge.','common'),(52,'Nécessaire de cuisine',100,'Ensemble d\'ustensiles permettant de faire à manger.','common'),(53,'Parapluie/Ombrelle',50,'Requiert une main libre. +1 aux tests de déplacement si le climat est Chaleur ou Pluie.','common'),(54,'Parchemin',2,'Papier confectionné à partir de cuir animal. Solide et ne se déchire pas facilement.','common'),(55,'Parfum',500,'Flacon de liquide à l\'odeur agréable. Cache la spécificité fétide pendant 12 heures.','common'),(56,'Plume',2,'Plume dont la pointe à été biseauté pour pouvoir écrire.','common'),(57,'Pointe de verre',120,'Pointe en verre de haute qualité permettant d\'écrire.','common'),(58,'Savon',5,'Indispensable aux soins du corps. Mousse au contact de l\'eau.','common'),(59,'Torche',5,'Bout de bois préparé de façon à être enflammé. Permet d\'éclairer les lieux obscurs.','common'),(60,'Baquet',450,'Baignoire transportable.','common'),(61,'Couvertures',40,'Couettes et couvertures légères et faciles à transporter.','common'),(62,'Oreiller',10,'Rend le sommeil plus agréable. Très personnel : certains ne peuvent pas dormir sans le leur.','common'),(63,'Peluche',100,'Jouet ayant généralement la forme d\'un animal et dont les formes et couleurs varient.','common'),(64,'Pierre de bain',20,'Pierre pouvant réchauffer un baquet d\'eau à 40 degrés. Une seule utilisation.','common'),(65,'Repousse-insecte',10,'Sorte d\'encens fait d\'herbes odorantes et éloignant les insectes pendant 12 heures.','common'),(66,'Sac de couchage',50,'Permet de dormir n\'importe où. Utilisable par une seule personne à la fois.','common'),(67,'Tente',120,'Jusqu\'à 3 personnes peuvent y passer la nuit.','common'),(68,'Tente d\'hiver',300,'Indispensable par temps de froid. +2 aux tests de campement si le climat est Froid.','common'),(69,'Yourte',500,'Tente pouvant abriter jusqu\'à 10 personnes. Plébiscitée par les peuples nomades.','common'),(70,'Bouteille d\'herboriste',100,'Bouteille ayant reçu un traitement spécial et qui peut contenir jusqu\'à 10 herbes de soins. Elle pert ses propriétés 7 jours après ouverture, mais son contenu peut être transversé.','container'),(71,'Outre',30,'Faite en cuir ou en écorce traitée, elle contient de l\'eau pour la journée.','container'),(72,'Thermos',2000,'Bouteille magique qui préserve la température de ce qu\'elle contient. +1 aux tests de déplacement en cas de Chaleur ou de Froid','container'),(73,'Sac',10,'Sac simple sans décoration. Requiert une main libre.','container'),(74,'Sac de ceinture',30,'On ne peut en porter qu\'un à la fois. Idéal pour les petits objets dont on veut pouvoir se servir immédiatement.','container'),(75,'Caisse',10,'Permet de transporter beaucoup de choses, mais n\'est vraiment pas pratique. -1 aux tests de déplacement si elle n\'est pas portée par un animal.','container'),(76,'Grand sac à dos',40,'Sa grande capacité permet d\'avoir toujours sur soi ce dont on a besoin.','container'),(77,'Sac à dos',20,'Sac à dos tout ce qu\'il y a de plus normal. Toujours utile pour les voyages.','container'),(78,'Tonneau',10,'Contient de l\'eau pour 15 jours. Sinon, c\'est un contenant de capacité 10.','container'),(79,'Pomme du couchant',100,'Arbre à feuillage persistant ressemblant à un pommier. Son fruit à la couleur du crépuscule. Il est tonique et nutritif.','herb'),(80,'Volubilis couronné',100,'Plante dont les fleurs forment une couronne très colorée dont la teinte vire selon la météo entre le rouge, le bleu, le blanc et le violet.','herb'),(81,'Laque de l\'ogre',300,'Arbre à feuilles caduques faisant entre 4 et 5 mètres de haut. Son écorce est gris cendré et une sève noire visqueuse en suinte si on perce cette dernière.','herb'),(82,'Paume du géant',300,'Plante vivace dont les grandes feuilles sont recouvertes d\'un liquide collant vert pâle. Prolifère dans les environnements humides.','herb'),(83,'Carthame de l\'aube',800,'Sorte de chardon aux fleurs d\'un rouge aussi vif que le sang. Ses tiges contiennent un puissant stupéfiant et il faut donc les manipuler avec précaution.','herb');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `job`
+--
+
+DROP TABLE IF EXISTS `job`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `job` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_FBD8E0F85E237E06` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `job`
+--
+
+LOCK TABLES `job` WRITE;
+/*!40000 ALTER TABLE `job` DISABLE KEYS */;
+INSERT INTO `job` VALUES (1,'Ménéstrel','Un voyageur parmi les voyageurs, qui se déplace de ville en ville pour se représenter avec de la musique et des dances. Le Ménéstrel possède une large palette de possibilité qui permettent d\'aider le groupe dans de nombreuses situations.');
+/*!40000 ALTER TABLE `job` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `magicType_Spells`
+--
+
+DROP TABLE IF EXISTS `magicType_Spells`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `magicType_Spells` (
+  `spell_id` int(11) NOT NULL,
+  `magicType_id` int(11) NOT NULL,
+  PRIMARY KEY (`magicType_id`,`spell_id`),
+  KEY `IDX_59780E49567007AE` (`magicType_id`),
+  KEY `IDX_59780E49479EC90D` (`spell_id`),
+  CONSTRAINT `FK_59780E49479EC90D` FOREIGN KEY (`spell_id`) REFERENCES `spell` (`id`),
+  CONSTRAINT `FK_59780E49567007AE` FOREIGN KEY (`magicType_id`) REFERENCES `type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `magicType_Spells`
+--
+
+LOCK TABLES `magicType_Spells` WRITE;
+/*!40000 ALTER TABLE `magicType_Spells` DISABLE KEYS */;
+/*!40000 ALTER TABLE `magicType_Spells` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -295,7 +382,7 @@ CREATE TABLE `migration_versions` (
 
 LOCK TABLES `migration_versions` WRITE;
 /*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734');
+INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038');
 /*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -423,6 +510,35 @@ LOCK TABLES `shop_items` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `skill`
+--
+
+DROP TABLE IF EXISTS `skill`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `skill` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `effect` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `used_stats` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `target` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_5E3DE477BE04EA9` (`job_id`),
+  CONSTRAINT `FK_5E3DE477BE04EA9` FOREIGN KEY (`job_id`) REFERENCES `job` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `skill`
+--
+
+LOCK TABLES `skill` WRITE;
+/*!40000 ALTER TABLE `skill` DISABLE KEYS */;
+/*!40000 ALTER TABLE `skill` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `spe`
 --
 
@@ -432,12 +548,12 @@ DROP TABLE IF EXISTS `spe`;
 CREATE TABLE `spe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `feature` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `amount` double NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `operation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price_modifier` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bonus_modifiers` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:array)',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -446,7 +562,7 @@ CREATE TABLE `spe` (
 
 LOCK TABLES `spe` WRITE;
 /*!40000 ALTER TABLE `spe` DISABLE KEYS */;
-INSERT INTO `spe` VALUES (1,'Mignon',2,'Un objet mignon','Multiply','item');
+INSERT INTO `spe` VALUES (1,'Mignon','Un objet mignon','item','*0.8',NULL),(2,'Cool','Objet cool','item','+500',NULL),(3,'Cool2','Objet cool','item','+50','a:1:{i:0;a:2:{s:4:\"stat\";s:10:\"Resistance\";s:8:\"modifier\";s:2:\"+1\";}}'),(4,'Docile','erucgrbcgrei','animal','+5000','a:1:{i:0;a:2:{s:4:\"stat\";s:12:\"déplacement\";s:8:\"modifier\";s:2:\"+2\";}}');
 /*!40000 ALTER TABLE `spe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -470,6 +586,7 @@ CREATE TABLE `spe_animal` (
 
 LOCK TABLES `spe_animal` WRITE;
 /*!40000 ALTER TABLE `spe_animal` DISABLE KEYS */;
+INSERT INTO `spe_animal` VALUES (4);
 /*!40000 ALTER TABLE `spe_animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -493,7 +610,7 @@ CREATE TABLE `spe_item` (
 
 LOCK TABLES `spe_item` WRITE;
 /*!40000 ALTER TABLE `spe_item` DISABLE KEYS */;
-INSERT INTO `spe_item` VALUES (1);
+INSERT INTO `spe_item` VALUES (1),(2),(3);
 /*!40000 ALTER TABLE `spe_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -507,12 +624,11 @@ DROP TABLE IF EXISTS `specified_item`;
 CREATE TABLE `specified_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_875E98EE126F525E` (`item_id`),
   CONSTRAINT `FK_875E98EE126F525E` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -521,7 +637,66 @@ CREATE TABLE `specified_item` (
 
 LOCK TABLES `specified_item` WRITE;
 /*!40000 ALTER TABLE `specified_item` DISABLE KEYS */;
+INSERT INTO `specified_item` VALUES (1,11,NULL);
 /*!40000 ALTER TABLE `specified_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `spell`
+--
+
+DROP TABLE IF EXISTS `spell`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `spell` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cost` int(11) NOT NULL,
+  `target` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reach` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `effect` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `level` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `discr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `season` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `duration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `spell`
+--
+
+LOCK TABLES `spell` WRITE;
+/*!40000 ALTER TABLE `spell` DISABLE KEYS */;
+/*!40000 ALTER TABLE `spell` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bonuses` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `season` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `type`
+--
+
+LOCK TABLES `type` WRITE;
+/*!40000 ALTER TABLE `type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `type` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -559,4 +734,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-09 13:04:41
+-- Dump completed on 2016-02-19 12:34:16
