@@ -253,6 +253,12 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
                     - { property: 'icon', type: 'image', label: 'admin.job.icon', base_path: %app.path.job_icons% }
+            show:
+                title: 'admin.menu.job'
+                fields:
+                    - { property: 'name', label: 'admin.job.name' }
+                    - { property: 'description', label: 'admin.job.description' }
+                    - { property: 'icon', type: 'image', label: 'admin.job.icon' }
             form:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }

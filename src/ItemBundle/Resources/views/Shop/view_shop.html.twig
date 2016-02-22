@@ -14,7 +14,7 @@
     {% for key, category in items %}
         {% if category|length > 0 %}
             <table class="table table-bordered">
-                {% include 'ItemBundle:Item:view_item_shop_headers.html.twig' with { 'name' : key, 'item': category[0].item.item } %}
+                {% include 'ItemBundle:Item:view_item_shop_headers.html.twig' with { 'name' : key, 'item': (category|first).item.item } %}
                 <tbody>
                 {% for item in category %}
                     {% include 'ItemBundle:Item:view_item_shop.html.twig' with { 'item' : item.item, 'qte' : item.qte } %}

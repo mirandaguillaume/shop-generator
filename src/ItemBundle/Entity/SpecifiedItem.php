@@ -8,7 +8,6 @@ use ItemBundle\Traits\MetaTrait;
  */
 class SpecifiedItem
 {
-    use MetaTrait;
 
     /**
      * @var int
@@ -84,9 +83,17 @@ class SpecifiedItem
      */
     public function addFeature(\ItemBundle\Entity\Spe $feature)
     {
-        $this->features[] = $feature;
+        $this->features->add($feature);
 
         return $this;
+    }
+
+    /**
+     * @param Spe $feature
+     * @return bool
+     */
+    public function hasFeature(Spe $feature){
+        return $this->features->contains($feature);
     }
 
     /**

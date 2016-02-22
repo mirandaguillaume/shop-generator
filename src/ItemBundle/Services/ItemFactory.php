@@ -55,6 +55,12 @@ class ItemFactory
         return $this->list_categories;
     }
 
+    public function getFeature($feature_name){
+        return $this->entityManager->getRepository('ItemBundle:SpeItem')->findOneBy(array(
+            'feature' => $feature_name
+        ));
+    }
+
     /**
      * @return array
      */
@@ -114,26 +120,9 @@ class ItemFactory
         return $this->entityManager->getRepository('ItemBundle:SpeItem')->findAll();
     }
 
-    public function getRandomFeatures($items, $total_features, array $features){
-
-        $features = array();
+    public function getRandomFeatures($items, $total_features, $total_items, array $features){
 
         $features_amount = $total_features;
-
-        $unset_categories = array();
-
-        foreach($features as $key => $feature){
-            if (!isset($feature['category_name'])){
-                $unset_categories[$key] = $features[$key];
-                unset($features[$key]);
-            }
-        }
-
-        if (count($features) == 0){
-            $features = $unset_categories;
-        }
-
-        $i = 1;
 
         $unset_features = array();
 
@@ -148,33 +137,71 @@ class ItemFactory
             $features = $unset_features;
         }
 
-        $i = 1;
+        $total = 0;
 
         $rand_qtes = array();
 
         foreach($features as $key => $feature){
             if ($feature['qte'] != ""){
                 $amount = $feature['qte'];
-                $items[$key] = $this->getRandomItem($key,$amount);
+                for ($i = 0;$i<$amount;$i++) {
+                    $iteration = -1;
+                    do {
+                        $iteration++;
+                        do {
+                            $rand_category = array_rand($items);
+                        } while (count($items[$rand_category]) === 0);
+                        $rand_item = array_rand($items[$rand_category]);
+                        $item = $items[$rand_category][$rand_item]['item'];
+                    } while ($item->hasFeature($this->getFeature($key))||$iteration < $total_items);
+
+                    $items[$rand_category][$rand_item]['qte']--;
+                    if ($items[$rand_category][$rand_item]['qte'] === 0){
+                        unset($items[$rand_category][$rand_item]);
+                    }
+                    $item->addFeature($this->getFeature($key));
+                    $items[$rand_category][] = array(
+                        'item' => $item,
+                        'qte' => 1,
+                    );
+                }
+                $total++;
                 $features_amount = $features_amount - $amount;
-                $i++;
             } else {
                 $rand_qtes[] = $key;
             }
         }
 
         foreach ($rand_qtes as $rand_qte){
-            if ($i != count($features)){
+            if ($total != count($features)){
                 $amount = rand(0,$features_amount);
             } else {
                 $amount = $features_amount;
             }
-            $features[$rand_qte] = $this->getRandomFeature($rand_qte,$amount);
+            for ($i = 0;$i<$amount;$i++) {
+                $iteration = 0;
+                do {
+                    do {
+                        $rand_category = array_rand($items);
+                    } while (count($items[$rand_category]) === 0);
+                    $rand_item = array_rand($items[$rand_category]);
+                    $item = $items[$rand_category][$rand_item]['item'];
+                } while ($item->hasFeature($this->getFeature($rand_qte))||$iteration < $total_items);
+                $items[$rand_category][$rand_item]['qte']--;
+                if ($items[$rand_category][$rand_item]['qte'] === 0){
+                    unset($items[$rand_category][$rand_item]);
+                }
+                $item->addFeature($this->getFeature($rand_qte));
+                $items[$rand_category][] = array(
+                    'item' => $item,
+                    'qte' => 1,
+                );
+            }
+            $total++;
             $features_amount = $features_amount - $amount;
-            $i++;
         }
 
-        return ;
+        return $items;
     }
 
     private function getCategoryAllItems($category){

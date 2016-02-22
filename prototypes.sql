@@ -223,7 +223,7 @@ CREATE TABLE `fos_user` (
 
 LOCK TABLES `fos_user` WRITE;
 /*!40000 ALTER TABLE `fos_user` DISABLE KEYS */;
-INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$YxKDke173pwq99djnedyBeKMR5qvubdPuKwNm7TDAE3AAEDy3vnlq','2016-02-19 14:51:32',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-12 15:11:38',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
+INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$YxKDke173pwq99djnedyBeKMR5qvubdPuKwNm7TDAE3AAEDy3vnlq','2016-02-22 13:05:13',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-12 15:11:38',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
 /*!40000 ALTER TABLE `fos_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,7 +321,7 @@ CREATE TABLE `job` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -335,7 +335,7 @@ CREATE TABLE `job` (
 
 LOCK TABLES `job` WRITE;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
-INSERT INTO `job` VALUES (1,'Ménéstrel','Un voyageur parmi les voyageurs, qui se déplace de ville en ville pour se représenter avec de la musique et des dances. Le Ménéstrel possède une large palette de possibilité qui permettent d\'aider le groupe dans de nombreuses situations.','smiley.png','0000-00-00 00:00:00','2016-02-19 17:48:17');
+INSERT INTO `job` VALUES (1,'Ménéstrel','Un voyageur parmi les voyageurs, qui se déplace de ville en ville pour se représenter avec de la musique et des dances. Le Ménéstrel possède une large palette de possibilité qui permettent d\'aider le groupe dans de nombreuses situations.','noble_icon.png','0000-00-00 00:00:00','2016-02-22 14:36:25');
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +385,7 @@ CREATE TABLE `migration_versions` (
 
 LOCK TABLES `migration_versions` WRITE;
 /*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038'),('20160219162206'),('20160219164109'),('20160219164455'),('20160219165934'),('20160219174439');
+INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038'),('20160219162206'),('20160219164109'),('20160219164455'),('20160219165934'),('20160219174439'),('20160222135902');
 /*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -742,4 +742,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-19 17:53:48
+-- Dump completed on 2016-02-22 14:46:11

@@ -25,7 +25,7 @@ class DefaultController extends Controller
 
             $items = $item_factory->getRandomItems($parameters['total_items'], $parameters['category_list']);
 
-//            $items = $item_factory->getRandomFeatures($items, $parameters['total_features'], $parameters['feature_list']);
+            $items = $item_factory->getRandomFeatures($items, $parameters['total_features'], $parameters['total_items'], $parameters['feature_list']);
 
             if ($parameters['total_items']==null){
                 $response = $this->redirect($this->generateUrl('item_default_askshop'));
