@@ -4,6 +4,7 @@ namespace ItemBundle\Services;
 use Doctrine\ORM\EntityManager;
 use ItemBundle\Entity\SpecifiedItem;
 use ItemBundle\Form\Type\CategoryShopType;
+use Sortable\Fixture\Item;
 use Symfony\Component\Form\FormFactory;
 
 /**
@@ -127,13 +128,11 @@ class ItemFactory
         return $this->entityManager->getRepository('ItemBundle:SpeItem')->findAll();
     }
 
-    public function getRandomFeatures($items, $total_features, $total_items, array $features){
+    public function getRandomFeatures($items, $total_features, array $features){
 
         $features_amount = $total_features;
 
         $unset_features = array();
-
-        $features_names = array();
 
         foreach($features as $key => $feature){
             if (!isset($feature['feature_name'])){
@@ -163,20 +162,23 @@ class ItemFactory
                     $rand_item = array_rand($items[$rand_category]);
                     $item = $items[$rand_category][$rand_item]['item'];
                     $items[$rand_category][$rand_item]['qte']--;
+//                    var_dump($items[$rand_category][$rand_item]['qte']);
                     if ($items[$rand_category][$rand_item]['qte'] === 0){
                         unset($items[$rand_category][$rand_item]);
                     }
-                    $item->addFeature($features_data[$key]);
+                    $instance = new SpecifiedItem();
+                    $instance->addFeature($features_data[$key]);
+                    $instance->setItem($item->getItem());
                     if (!isset($new_items[$rand_category])){
                         $new_items[$rand_category] = array();
                     }
                     $new_items[$rand_category][] = array(
-                        'item' => $item,
+                        'item' => $instance,
                         'qte' => 1,
                     );
                 }
                 foreach(array_keys($new_items) as $key){
-                    array_merge($items[$key],$new_items[$key]);
+                    $items[$key] = array_merge($items[$key],$new_items[$key]);
                 }
                 $total++;
                 $features_amount = $features_amount - $amount;
@@ -204,18 +206,19 @@ class ItemFactory
                 if ($items[$rand_category][$rand_item]['qte'] === 0){
                     unset($items[$rand_category][$rand_item]);
                 }
-                $item->addFeature($features_data[$rand_qte]);
-
+                $instance = new SpecifiedItem();
+                $instance->addFeature($features_data[$rand_qte]);
+                $instance->setItem($item->getItem());
                 if (!isset($new_items[$rand_category])){
                     $new_items[$rand_category] = array();
                 }
                 $new_items[$rand_category][] = array(
-                    'item' => $item,
+                    'item' => $instance,
                     'qte' => 1,
                 );
             }
             foreach(array_keys($new_items) as $key){
-                array_merge($items[$key],$new_items[$key]);
+                $items[$key] = array_merge($items[$key],$new_items[$key]);
             }
             $total++;
             $features_amount = $features_amount - $amount;
