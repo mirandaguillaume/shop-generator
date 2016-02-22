@@ -56,9 +56,15 @@ class ItemFactory
     }
 
     public function getFeature($feature_name){
-        return $this->entityManager->getRepository('ItemBundle:SpeItem')->findOneBy(array(
-            'feature' => $feature_name
-        ));
+
+        if ()
+        else {
+            $feature = $this->entityManager->getRepository('ItemBundle:SpeItem')->findOneBy(array(
+                'feature' => $feature_name
+            ));
+        }
+
+        return $feature;
     }
 
     /**
