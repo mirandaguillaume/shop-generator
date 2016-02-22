@@ -25,7 +25,7 @@ CharacterBundle\Entity\Job:
                     on: create
         updatedAt:
             type: datetime
-            gedmon:
+            gedmo:
                 timestampable:
                     on: update
     oneToMany:

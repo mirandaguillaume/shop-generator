@@ -252,7 +252,7 @@ easy_admin:
             list:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
-                    - { property: 'icon', type: 'icon', label: 'admin.job.icon', base_path: %app.path.job_icons% }
+                    - { property: 'icon', type: 'image', label: 'admin.job.icon', base_path: %app.path.job_icons% }
             form:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
