@@ -55,16 +55,17 @@ class ItemFactory
         return $this->list_categories;
     }
 
-    public function getFeature($feature_name){
+    public function getFeaturesListByName(){
 
-        if ()
-        else {
-            $feature = $this->entityManager->getRepository('ItemBundle:SpeItem')->findOneBy(array(
-                'feature' => $feature_name
-            ));
+
+        $features = $this->entityManager->getRepository('ItemBundle:SpeItem')->findAll();
+
+        foreach($features as $key => $feature){
+            $features[$feature->getFeature()] = $feature;
+            unset($features[$key]);
         }
 
-        return $feature;
+        return $features;
     }
 
     /**
@@ -132,12 +133,16 @@ class ItemFactory
 
         $unset_features = array();
 
+        $features_names = array();
+
         foreach($features as $key => $feature){
             if (!isset($feature['feature_name'])){
                 $unset_features[$key] = $features[$key];
                 unset($features[$key]);
             }
         }
+
+        $features_data = $this->getFeaturesListByName();
 
         if (count($features) == 0){
             $features = $unset_features;
@@ -159,13 +164,13 @@ class ItemFactory
                         } while (count($items[$rand_category]) === 0);
                         $rand_item = array_rand($items[$rand_category]);
                         $item = $items[$rand_category][$rand_item]['item'];
-                    } while ($item->hasFeature($this->getFeature($key))||$iteration < $total_items);
+                    } while ($item->hasFeature($features_data[$key])||$iteration < $total_items);
 
                     $items[$rand_category][$rand_item]['qte']--;
                     if ($items[$rand_category][$rand_item]['qte'] === 0){
                         unset($items[$rand_category][$rand_item]);
                     }
-                    $item->addFeature($this->getFeature($key));
+                    $item->addFeature($features_data[$key]);
                     $items[$rand_category][] = array(
                         'item' => $item,
                         'qte' => 1,
@@ -192,12 +197,12 @@ class ItemFactory
                     } while (count($items[$rand_category]) === 0);
                     $rand_item = array_rand($items[$rand_category]);
                     $item = $items[$rand_category][$rand_item]['item'];
-                } while ($item->hasFeature($this->getFeature($rand_qte))||$iteration < $total_items);
+                } while ($item->hasFeature($features_data[$rand_qte])||$iteration < $total_items);
                 $items[$rand_category][$rand_item]['qte']--;
                 if ($items[$rand_category][$rand_item]['qte'] === 0){
                     unset($items[$rand_category][$rand_item]);
                 }
-                $item->addFeature($this->getFeature($rand_qte));
+                $item->addFeature($features_data[$rand_qte]);
                 $items[$rand_category][] = array(
                     'item' => $item,
                     'qte' => 1,
