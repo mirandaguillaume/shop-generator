@@ -36,7 +36,8 @@
         "friendsofsymfony/user-bundle": "dev-master",
         "symfony/property-access": "^3.0",
         "vich/uploader-bundle": "@dev",
-        "stof/doctrine-extensions-bundle": "^1.2"
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "ext-memcached": "*"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"

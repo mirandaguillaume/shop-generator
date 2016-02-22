@@ -226,6 +226,8 @@ php:
         php:
             - cli
             - intl
+            - memcached
+
         pear: {  }
         pecl: {  }
     ini:
