@@ -15,7 +15,7 @@ CharacterBundle\Entity\Job:
             unique: true
         description:
             type: text
-        image:
+        icon:
             type: string
             length: 255
         createdAt:

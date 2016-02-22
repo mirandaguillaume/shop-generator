@@ -31,13 +31,13 @@ class Job
     /**
      * @var string
      */
-    private $image;
+    private $icon;
 
     /**
-     * @Vich\UploadableField(mapping="job_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="job_icons", fileNameProperty="icon")
      * @var File
      */
-    private $imageFile;
+    private $iconFile;
 
     /**
      * @var \DateTime $createdAt
@@ -160,32 +160,32 @@ class Job
             return 'Nouveau job';
     }
 
-    public function setImageFile(File $image = null)
+    public function setIconFile(File $icon = null)
     {
-        $this->imageFile = $image;
+        $this->iconFile = $icon;
 
         // VERY IMPORTANT:
         // It is required that at least one field changes if you are using Doctrine,
         // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
+        if ($icon) {
             // if 'updatedAt' is not defined in your entity, use another property
             $this->updatedAt = new \DateTime('now');
         }
     }
 
-    public function getImageFile()
+    public function getIconFile()
     {
-        return $this->imageFile;
+        return $this->iconFile;
     }
 
-    public function setImage($image)
+    public function setIcon($icon)
     {
-        $this->image = $image;
+        $this->icon = $icon;
     }
 
-    public function getImage()
+    public function getIcon()
     {
-        return $this->image;
+        return $this->icon;
     }
 
     /**

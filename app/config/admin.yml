@@ -247,14 +247,16 @@ easy_admin:
                     - { property: 'type', label: 'admin.spell.type' }
         Job:
             class: CharacterBundle\Entity\Job
+            edit:
+                title: 'admin.menu.job'
             list:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
-                    - { property: 'image', type: 'image', base_path: %app.path.job_images% }
+                    - { property: 'icon', type: 'icon', label: 'admin.job.icon', base_path: %app.path.job_icons% }
             form:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
-                    - { property: 'imageFile', type: 'Vich\UploaderBundle\Form\Type\VichImageType' }
+                    - { property: 'iconFile', type: 'Vich\UploaderBundle\Form\Type\VichImageType', label: 'admin.job.icon' }
                     - { property: 'description', label: 'admin.job.description' }
         ActiveSkill:
             class: CharacterBundle\Entity\ActiveSkill

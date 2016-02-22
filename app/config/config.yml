@@ -10,7 +10,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    app.path.job_images: /uploads/images/job
+    app.path.job_icons: /uploads/images/job
 
 framework:
     #esi:             ~
@@ -92,6 +92,6 @@ fos_user:
 vich_uploader:
     db_driver: orm
     mappings:
-        job_images:
-            uri_prefix:         %app.path.job_images%
+        job_icons:
+            uri_prefix:         %app.path.job_icons%
             upload_destination: %kernel.root_dir%/../web/uploads/images/job

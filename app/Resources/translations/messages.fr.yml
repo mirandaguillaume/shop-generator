@@ -41,6 +41,7 @@ admin:
         spe: Caractéristiques
         spell: Sorts
         skill: Compétences
+        job: Classe
     spell:
         name: Nom
         level: Niveau
@@ -54,6 +55,7 @@ admin:
     job:
         name: Nom
         description: Description
+        icon: Icône
     skill:
         name: Nom
         effect: Effet
