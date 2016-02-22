@@ -154,27 +154,29 @@ class ItemFactory
 
         foreach($features as $key => $feature){
             if ($feature['qte'] != ""){
+                $new_items = array();
                 $amount = $feature['qte'];
                 for ($i = 0;$i<$amount;$i++) {
-                    $iteration = -1;
                     do {
-                        $iteration++;
-                        do {
-                            $rand_category = array_rand($items);
-                        } while (count($items[$rand_category]) === 0);
-                        $rand_item = array_rand($items[$rand_category]);
-                        $item = $items[$rand_category][$rand_item]['item'];
-                    } while ($item->hasFeature($features_data[$key])||$iteration < $total_items);
-
+                        $rand_category = array_rand($items);
+                    } while (count($items[$rand_category]) === 0);
+                    $rand_item = array_rand($items[$rand_category]);
+                    $item = $items[$rand_category][$rand_item]['item'];
                     $items[$rand_category][$rand_item]['qte']--;
                     if ($items[$rand_category][$rand_item]['qte'] === 0){
                         unset($items[$rand_category][$rand_item]);
                     }
                     $item->addFeature($features_data[$key]);
-                    $items[$rand_category][] = array(
+                    if (!isset($new_items[$rand_category])){
+                        $new_items[$rand_category] = array();
+                    }
+                    $new_items[$rand_category][] = array(
                         'item' => $item,
                         'qte' => 1,
                     );
+                }
+                foreach(array_keys($new_items) as $key){
+                    array_merge($items[$key],$new_items[$key]);
                 }
                 $total++;
                 $features_amount = $features_amount - $amount;
@@ -184,29 +186,36 @@ class ItemFactory
         }
 
         foreach ($rand_qtes as $rand_qte){
+
+            $new_items = array();
+
             if ($total != count($features)){
                 $amount = rand(0,$features_amount);
             } else {
                 $amount = $features_amount;
             }
             for ($i = 0;$i<$amount;$i++) {
-                $iteration = 0;
                 do {
-                    do {
-                        $rand_category = array_rand($items);
-                    } while (count($items[$rand_category]) === 0);
-                    $rand_item = array_rand($items[$rand_category]);
-                    $item = $items[$rand_category][$rand_item]['item'];
-                } while ($item->hasFeature($features_data[$rand_qte])||$iteration < $total_items);
+                    $rand_category = array_rand($items);
+                } while (count($items[$rand_category]) === 0);
+                $rand_item = array_rand($items[$rand_category]);
+                $item = $items[$rand_category][$rand_item]['item'];
                 $items[$rand_category][$rand_item]['qte']--;
                 if ($items[$rand_category][$rand_item]['qte'] === 0){
                     unset($items[$rand_category][$rand_item]);
                 }
                 $item->addFeature($features_data[$rand_qte]);
-                $items[$rand_category][] = array(
+
+                if (!isset($new_items[$rand_category])){
+                    $new_items[$rand_category] = array();
+                }
+                $new_items[$rand_category][] = array(
                     'item' => $item,
                     'qte' => 1,
                 );
+            }
+            foreach(array_keys($new_items) as $key){
+                array_merge($items[$key],$new_items[$key]);
             }
             $total++;
             $features_amount = $features_amount - $amount;
