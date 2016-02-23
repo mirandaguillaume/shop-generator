@@ -2,3 +2,4 @@ fos:
     login:
         header:
             sign_in: Veuillez vous connecter
+            sign_up: Création du compte
