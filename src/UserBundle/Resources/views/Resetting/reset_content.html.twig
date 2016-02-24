@@ -6,6 +6,10 @@
     <div class="login-form-1">
         {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
             {% include 'UserBundle::flash_messages.html.twig' %}
+        <div class="login-form-main-message {% if not form.vars.valid %}show error{% endif %}">
+            {{ form_errors(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.second) }}
+        </div>
             <div class="main-login-form">
                 <div class="login-group">
                     <div class="form-group">
