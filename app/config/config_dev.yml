@@ -1,6 +1,9 @@
 imports:
     - { resource: config.yml }
 
+parameters:
+    mailer_port: 2525
+
 framework:
     router:
         resource: "%kernel.root_dir%/config/routing_dev.yml"
@@ -32,7 +35,7 @@ monolog:
         #    level:  info
 
 swiftmailer:
-    delivery_address: guillaume11miranda@gmail.com
+    delivery_address: test_ryuutama@yopmail.com
 
 assetic:
     debug:          %kernel.debug%

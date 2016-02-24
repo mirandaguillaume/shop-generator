@@ -1,0 +1,4 @@
+services:
+    sendgrid.mailer:
+        class: UserBundle\Mailer\SendGridMailer
+        arguments: ["%sendgrid_user%","%sendgrid_password%"]
