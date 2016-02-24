@@ -1,5 +1,7 @@
 fos:
-    login:
-        header:
-            sign_in: Veuillez vous connecter
-            sign_up: Création du compte
+    header:
+        sign_in: Veuillez vous connecter
+        sign_up: Création du compte
+        resetting: Mot de passe oublié
+    link:
+        reset_to_login: Retour à la connexion

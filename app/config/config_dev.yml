@@ -31,8 +31,9 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
-#swiftmailer:
-#    delivery_address: me@example.com
+swiftmailer:
+    delivery_address: guillaume11miranda@gmail.com
+
 assetic:
     debug:          %kernel.debug%
     use_controller: false
