@@ -9,6 +9,7 @@
         <div class="login-form-1">
             <form id="login-form" class="text-left" action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% include 'UserBundle::flash_messages.html.twig' %}
                 <div class="login-form-main-message {% if error %}show error{% endif %}">
                     {% if error %}
                         {{ error.messageKey|trans(error.messageData, 'security') }}
