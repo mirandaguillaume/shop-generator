@@ -1,0 +1,18 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">{{ 'fos.header.resetting'|trans }}</div>
+        <div class="login-form-1">
+            {% include 'UserBundle::flash_messages.html.twig' %}
+            <div class="login-form-main-message show success">
+                {{ 'resetting.check_email'|trans({'%email%': email}) }}
+            </div>
+        </div>
+        <div class="etc-login-form">
+            <p><a href="{{ path('fos_user_security_login') }}">{{ 'fos.link.reset_to_login'|trans }}</a></p>
+        </div>
+    </div>
+{% endblock %}

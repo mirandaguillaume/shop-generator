@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\Router;
 
-class RegistrationListener implements EventSubscriberInterface
+class RedirectListener implements EventSubscriberInterface
 {
 
     /**
@@ -41,6 +41,7 @@ class RegistrationListener implements EventSubscriberInterface
     {
         return array(
             FOSUserEvents::REGISTRATION_SUCCESS => 'redirectSuccess',
+            FOSUserEvents::RESETTING_RESET_SUCCESS => 'resettingSuccess'
         );
     }
 
@@ -51,6 +52,12 @@ class RegistrationListener implements EventSubscriberInterface
     }
 
     public function redirectSuccess(FormEvent $event){
+        $url = $this->router->generate('fos_user_security_login');
+
+        $event->setResponse(new RedirectResponse($url));
+    }
+
+    public function resettingSuccess(FormEvent $event){
         $url = $this->router->generate('fos_user_security_login');
 
         $event->setResponse(new RedirectResponse($url));
