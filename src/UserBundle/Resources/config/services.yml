@@ -1,6 +1,6 @@
 services:
-    registration.listener:
-        class: UserBundle\EventListener\RegistrationListener
+    redirect.listener:
+        class: UserBundle\EventListener\RedirectListener
         arguments: ["@router"]
         tags:
             - { name: kernel.event_subscriber }
