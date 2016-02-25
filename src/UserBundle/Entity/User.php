@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -15,10 +16,15 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var ArrayCollection
+     */
+    protected $characters;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->characters = new ArrayCollection();
     }
 }
 

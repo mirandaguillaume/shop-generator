@@ -1,0 +1,50 @@
+CharacterBundle\Entity\Actor:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\ActorRepository
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discr
+        type: string
+    discriminatorMap:
+        character: CharacterBundle\Entity\Person
+        foe: CharacterBundle\Entity\Foe
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        level:
+            type: integer
+        maxHp:
+            type: integer
+            column: max_hp
+        hp:
+            type: integer
+        maxMp:
+            type: integer
+            column: max_mp
+        mp:
+            type: integer
+        str:
+            type: integer
+        dex:
+            type: string
+            length: 255
+        intelligence:
+            type: integer
+        spi:
+            type: integer
+        actorCondition:
+            type: integer
+            column: actor_condition
+            nullable: true
+        initiative:
+            type: integer
+            nullable: true
+    lifecycleCallbacks: {  }

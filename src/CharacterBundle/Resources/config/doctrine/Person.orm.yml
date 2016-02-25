@@ -1,0 +1,62 @@
+CharacterBundle\Entity\Person:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\PersonRepository
+    fields:
+        xp:
+            type: integer
+        gender:
+            type: string
+            length: '1'
+        age:
+            type: integer
+        personalItem:
+            type: string
+            length: 255
+            column: personal_item
+        appearance:
+            type: text
+            nullable: true
+        hometown:
+            type: text
+            nullable: true
+        notes:
+            type: text
+            nullable: true
+        fumblePoints:
+            type: integer
+            column: fumble_points
+    manyToOne:
+        user:
+            targetEntity: UserBundle\Entity\User
+            inversedBy: characters
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        first_class:
+            targetEntity: CharacterBundle\Entity\Job
+            joinColumn:
+                name: first_class_id
+                referencedColumnName: id
+        secondary_class:
+            targetEntity: CharacterBundle\Entity\Job
+            joinColumn:
+                name: secondary_class_id
+                referencedColumnName: id
+                nullable: true
+        first_type:
+            targetEntity: CharacterBundle\Entity\Type
+            joinColumn:
+                name: first_type_id
+                referencedColumnName: id
+        secondary_type:
+            targetEntity: CharacterBundle\Entity\Type
+            joinColumn:
+                name: secondary_type_id
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks:
+        prePersist: [setDefaultValues]
+    properties:
+        name:
+            - NotBlank: ~

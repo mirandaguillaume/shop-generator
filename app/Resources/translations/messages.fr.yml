@@ -7,6 +7,29 @@ form:
         total_features: Nombres de caractéristiques au total
     submit:
         generate: Générer
+        create: Créer
+    actor:
+        name: Nom
+        str: STR
+        dex: AGI
+        int: INT
+        spi: ESP
+        condition: Condition
+        initiative: Initiative
+        mp: PE
+        hp: PS
+
+    character:
+        name: Nom
+        gender: Sexe
+        first_class: Classe
+        first_type: Type
+        age: Age
+        personal_item: Objet personnel
+        appearance: Apparence
+        hometown: Ville de départ/Raison du départ
+        notes: Notes
+
 admin:
     spe:
         feature: Caractéristique

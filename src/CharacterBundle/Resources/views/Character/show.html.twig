@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter='compass'
+    '@CharacterBundle/Resources/public/css/character.scss'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="col-md-12 character show">
+        <div class="col-md-4 avatar">
+            &nbsp;
+        </div>
+        <div class="col-md-8 basic">
+            <div class="col-md-12 name">
+                {{ character.name }}
+            </div>
+            <div class="col-md-12 specs">
+                <div class="col-md-6 classes">
+                    {{ character.firstClass }}
+                    {% if character.secondaryClass.id != 0 %}
+                        /
+                        {{ character.secondaryClass }}
+                    {% endif %}
+                </div>
+                <div class="col-md-6 types">
+                    {{ character.firstType }}
+                    {% if character.secondaryType is not null %}
+                        /
+                        {{ character.secondaryType }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 stats">
+            <div class="col-md-4 calculated-stats">
+                <div class="col-md-4 headers">
+                    {{ 'form.actor.hp'|trans }}
+                </div>
+                <div class="col-md-8 progress inversed">
+                    <div class="progress-bar-success" role="progressbar" aria-valuenow="{{ character.hp }}"
+                         aria-valuemin="0" aria-valuemax="{{ character.maxHp }}" style="width: {{ (100*character.hp)/character.maxHp }}%;">
+                        {{ character.hp }}/{{ character.maxHp }}
+                    </div>
+                </div>
+                <div class="col-md-4 headers">
+                    {{ 'form.actor.mp'|trans }}
+                </div>
+                <div class="col-md-8 progress inversed">
+                    <div class="progress-bar-danger" role="progressbar" aria-valuenow="{{ character.mp }}"
+                         aria-valuemin="0" aria-valuemax="{{ character.maxMp }}" style="width: {{ (100*character.mp)/character.maxMp }}%;">
+                        {{ character.mp }}/{{ character.maxMp }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 basic-stats">
+                <div class="col-md-12 headers">
+                    <div class="col-md-3 header str">{{ 'form.actor.str'|trans }}</div>
+                    <div class="col-md-3 header dex">{{ 'form.actor.dex'|trans }}</div>
+                    <div class="col-md-3 header int">{{ 'form.actor.int'|trans }}</div>
+                    <div class="col-md-3 header spi">{{ 'form.actor.spi'|trans }}</div>
+                </div>
+                <div class="col-md-12 values">
+                    <div class="col-md-3 value str">{{ character.str }}</div>
+                    <div class="col-md-3 value dex">{{ character.dex }}</div>
+                    <div class="col-md-3 value int">{{ character.int }}</div>
+                    <div class="col-md-3 value spi">{{ character.spi }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

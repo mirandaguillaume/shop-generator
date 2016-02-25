@@ -1,0 +1,25 @@
+CharacterBundle\Entity\Foe:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\FoeRepository
+    fields:
+        habitat:
+            type: string
+            length: 255
+        season:
+            type: string
+            length: 255
+            nullable: true
+        loot:
+            type: array
+            nullable: true
+        dragonicaNumber:
+            type: integer
+            nullable: true
+            column: dragonica_number
+        description:
+            type: text
+        speAbility:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

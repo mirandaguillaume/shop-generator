@@ -8,4 +8,8 @@ UserBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+    oneToMany:
+        characters:
+            targetEntity: CharacterBundle\Entity\Person
+            mappedBy: user
     lifecycleCallbacks: {  }

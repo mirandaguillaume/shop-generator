@@ -1,0 +1,107 @@
+/* line 1, assetic_compassBsrNMu.scss */
+.character.show {
+  border: 1px solid black;
+  margin-top: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 7, assetic_compassBsrNMu.scss */
+.character.show .avatar {
+  height: 300px;
+  border: 1px solid red;
+}
+/* line 12, assetic_compassBsrNMu.scss */
+.character.show .basic {
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 300px;
+}
+/* line 17, assetic_compassBsrNMu.scss */
+.character.show .basic .name {
+  border: 1px solid green;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4em;
+}
+/* line 24, assetic_compassBsrNMu.scss */
+.character.show .basic .specs {
+  border: 1px solid greenyellow;
+  height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 30, assetic_compassBsrNMu.scss */
+.character.show .basic .specs .classes {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 35, assetic_compassBsrNMu.scss */
+.character.show .basic .specs .types {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 41, assetic_compassBsrNMu.scss */
+.character.show .basic .stats {
+  height: 30px;
+}
+/* line 50, assetic_compassBsrNMu.scss */
+.character.show .stats {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 53, assetic_compassBsrNMu.scss */
+.character.show .stats .calculated-stats {
+  padding-top: 20px;
+  border: 1px solid yellow;
+}
+/* line 57, assetic_compassBsrNMu.scss */
+.character.show .stats .calculated-stats .headers {
+  font-weight: bold;
+}
+/* line 61, assetic_compassBsrNMu.scss */
+.character.show .stats .calculated-stats .inversed {
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  -webkit-animation-direction: reverse;
+  -moz-animation-direction: reverse;
+  -ms-animation-direction: reverse;
+  -o-animation-direction: reverse;
+  animation-direction: reverse;
+}
+/* line 73, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 78, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats .headers {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 82, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats .headers .header {
+  font-weight: bold;
+  padding-bottom: 20px;
+  border-right: 1px darkslategray solid;
+  border-top: 1px darkslategray solid;
+}
+/* line 87, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats .headers .header:first-of-type {
+  border-left: 1px darkslategrey solid;
+}
+/* line 93, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats .values {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 97, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats .values .value {
+  border-right: 1px darkslategray solid;
+  border-bottom: 1px darkslategray solid;
+}
+/* line 100, assetic_compassBsrNMu.scss */
+.character.show .stats .basic-stats .values .value:first-of-type {
+  border-left: 1px darkslategrey solid;
+}
