@@ -1,6 +1,7 @@
 <?php
 
 namespace CharacterBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use UserBundle\Entity\User;
 
 /**
@@ -392,5 +393,46 @@ class Person extends Actor
     public function getSecondaryType()
     {
         return $this->secondary_type;
+    }
+
+    public function getSkills()
+    {
+        $result = $this->first_class->getSkills();
+
+        if ($this->secondary_class) {
+            $secondary_skills = $this->secondary_class->getSkills();
+            $result = new ArrayCollection(array_merge((array)$result,(array)$secondary_skills));
+        }
+
+        return $result;
+    }
+    /**
+     * @var \ItemBundle\Entity\Weapon
+     */
+    private $specializedWeapon;
+
+
+    /**
+     * Set specializedWeapon
+     *
+     * @param \ItemBundle\Entity\Weapon $specializedWeapon
+     *
+     * @return Person
+     */
+    public function setSpecializedWeapon(\ItemBundle\Entity\Weapon $specializedWeapon = null)
+    {
+        $this->specializedWeapon = $specializedWeapon;
+
+        return $this;
+    }
+
+    /**
+     * Get specializedWeapon
+     *
+     * @return \ItemBundle\Entity\Weapon
+     */
+    public function getSpecializedWeapon()
+    {
+        return $this->specializedWeapon;
     }
 }

@@ -21,7 +21,7 @@
             <div class="col-md-12 specs">
                 <div class="col-md-6 classes">
                     {{ character.firstClass }}
-                    {% if character.secondaryClass.id != 0 %}
+                    {% if character.secondaryClass is not null %}
                         /
                         {{ character.secondaryClass }}
                     {% endif %}
@@ -70,6 +70,26 @@
                     <div class="col-md-3 value spi">{{ character.spi }}</div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12 skills">
+            {% for skill in character.skills %}
+                <div class="col-md-12 skill">
+                    <div class="col-md-2 column name">
+                        {{ skill.name }}
+                    </div>
+                    <div class="col-md-2 column used-stat">
+                        {% if skill.usedStats is not null %}
+                            {{ skill.usedStats }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8 column desc">
+                        {{ skill.description }}
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

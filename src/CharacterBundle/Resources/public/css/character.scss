@@ -22,6 +22,7 @@
     }
 
     .specs {
+      text-align: center;
       border: 1px solid greenyellow;
       height: 100%;
       padding-left: 0;
@@ -101,6 +102,32 @@
             border-left: 1px darkslategrey solid;
           }
         }
+      }
+    }
+  }
+
+  .skills {
+    border: 1px solid lightcoral;
+    text-align: center;
+    padding-top: 10px;
+    .skill {
+      padding-top: 10px;
+      &:first-of-type {
+        padding-top: 0;
+      }
+      .name {
+        border: 1px solid lightcoral;
+        float: left;
+      }
+      .used-stat {
+        border: 1px solid lightcoral;
+        border-left: 0;
+        float: left;
+      }
+      .desc {
+        border: 1px solid lightcoral;
+        border-left: 0;
+        float: left;
       }
     }
   }

@@ -55,6 +55,11 @@ CharacterBundle\Entity\Person:
                 name: secondary_type_id
                 referencedColumnName: id
                 nullable: true
+        specializedWeapon:
+            targetEntity: ItemBundle\Entity\Weapon
+            joinColumn:
+                name: weapon_id
+                referencedColumnName: id
     lifecycleCallbacks:
         prePersist: [setDefaultValues]
     properties:
