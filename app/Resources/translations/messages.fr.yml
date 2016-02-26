@@ -29,6 +29,7 @@ form:
         appearance: Apparence
         hometown: Ville de départ/Raison du départ
         notes: Notes
+        weapon: Arme préférée
 
 admin:
     spe:

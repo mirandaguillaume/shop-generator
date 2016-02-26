@@ -38,6 +38,11 @@ class PersonType extends AbstractType
             ->add('age', IntegerType::class, array(
                 'label' => 'form.character.age'
             ))
+            ->add('specializedWeapon', EntityType::class, array(
+                'class' => 'ItemBundle\Entity\Weapon',
+                'choice_label' => 'name',
+                'label' => 'form.character.weapon'
+            ))
             ->add('personalItem', TextType::class, array(
                 'label' => 'form.character.personal_item'
             ))
