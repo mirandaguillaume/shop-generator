@@ -40,12 +40,13 @@ class HerokuEnvironment
 
         if ($url) {
             $url = parse_url($url);
-            putenv("SYMFONY__PUSHER_APP_ID={$url['path']}");
+            $app_id = substr($url['path'],6);
+            putenv("SYMFONY__PUSHER_APP_ID={$app_id}");
             putenv("SYMFONY__PUSHER_HOST={$url['host']}");
             putenv("SYMFONY__PUSHER_KEY={$url['user']}");
             putenv("SYMFONY__PUSHER_SECRET={$url['pass']}");
         }
         $io = $event->getIO();
-        $io->write('PUSHER_PATH=' . $url['path']);
+        $io->write('PUSHER_URL=' . getenv('PUSHER_URL'));
     }
 }
