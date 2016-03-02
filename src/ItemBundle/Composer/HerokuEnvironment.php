@@ -46,6 +46,6 @@ class HerokuEnvironment
             putenv("SYMFONY__PUSHER_SECRET={$url['pass']}");
         }
         $io = $event->getIO();
-        $io->write('PUSHER_URL=' . getenv('PUSHER_URL'));
+        $io->write('PUSHER_PATH=' . $url['path']);
     }
 }

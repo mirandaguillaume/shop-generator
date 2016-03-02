@@ -92,9 +92,9 @@
                 "mailer_password": "SENDGRID_PASSWORD",
                 "mailer_port": "SENDGRID_PORT",
                 "mailer_host": "SENDGRID_HOST",
-                "pusher.app_id": "SYMFONY__PUSHER_API_ID",
-                "pusher.key": "SYMFONY__PUSHER_KEY",
-                "pusher.secret": "SYMFONY__PUSHER_SECRET"
+                "pusher_app_id": "SYMFONY__PUSHER_API_ID",
+                "pusher_key": "SYMFONY__PUSHER_KEY",
+                "pusher_secret": "SYMFONY__PUSHER_SECRET"
             }
         }
     }
