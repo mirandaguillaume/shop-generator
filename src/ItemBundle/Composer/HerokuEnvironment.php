@@ -12,6 +12,12 @@ class HerokuEnvironment
      */
     public static function populateEnvironment(Event $event)
     {
+        self::populateDatabase($event);
+        self::populatePusher($event);
+    }
+
+    private static function populateDatabase (Event $event)
+    {
         $url = getenv('CLEARDB_DATABASE_URL'); // If MySQL is chosen
         // $url = getenv('HEROKU_POSTGRESQL_IVORY_URL'); If PostgreSQL is chosen
 
@@ -26,5 +32,20 @@ class HerokuEnvironment
         }
         $io = $event->getIO();
         $io->write('CLEARDB_DATABASE_URL=' . getenv('CLEARDB_DATABASE_URL'));
+    }
+
+    private static function populatePusher(Event $event)
+    {
+        $url = getenv('PUSHER_URL');
+
+        if ($url) {
+            $url = parse_url($url);
+            putenv("SYMFONY__PUSHER_APP_ID={$url['path']}");
+            putenv("SYMFONY__PUSHER_HOST={$url['host']}");
+            putenv("SYMFONY__PUSHER_KEY={$url['user']}");
+            putenv("SYMFONY__PUSHER_SECRET={$url['pass']}");
+        }
+        $io = $event->getIO();
+        $io->write('PUSHER_URL=' . getenv('PUSHER_URL'));
     }
 }

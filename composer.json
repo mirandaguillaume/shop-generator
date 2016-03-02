@@ -36,7 +36,8 @@
         "friendsofsymfony/user-bundle": "dev-master",
         "symfony/property-access": "^3.0",
         "vich/uploader-bundle": "@dev",
-        "stof/doctrine-extensions-bundle": "^1.2"
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "laupifrpar/pusher-bundle": "^1.2"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"
@@ -88,7 +89,10 @@
                 "mailer_user": "SENDGRID_USERNAME",
                 "mailer_password": "SENDGRID_PASSWORD",
                 "mailer_port": "SENDGRID_PORT",
-                "mailer_host": "SENDGRID_HOST"
+                "mailer_host": "SENDGRID_HOST",
+                "pusher.app_id": "SYMFONY__PUSHER_API_ID",
+                "pusher.key": "SYMFONY__PUSHER_KEY",
+                "pusher.secret": "SYMFONY__PUSHER_SECRET"
             }
         }
     }
