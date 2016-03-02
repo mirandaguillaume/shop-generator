@@ -37,7 +37,8 @@
         "symfony/property-access": "^3.0",
         "vich/uploader-bundle": "@dev",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "laupifrpar/pusher-bundle": "^1.2"
+        "laupifrpar/pusher-bundle": "^1.2",
+        "coresphere/console-bundle": "dev-master"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"
@@ -48,7 +49,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache"
         ],
         "pre-install-cmd": [
-            "ItemBundle\\Composer\\HerokuEnvironment::populateEnvironment"
+            "ItemBundle\\Composer\\HerokuEnvironment::populateEnvironment",
+            "mv web/app_dev.php web/943489347721.php"
         ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
