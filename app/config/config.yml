@@ -12,9 +12,6 @@ imports:
 parameters:
     locale: fr
     app.path.job_icons: /uploads/images/job
-    pusher.app_id: 184607
-    pusher.key: 9c90616c762de695c865
-    pusher.secret: 00119282b40fa79e3626
 
 framework:
     #esi:             ~
