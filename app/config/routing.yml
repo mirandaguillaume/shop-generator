@@ -20,3 +20,7 @@ easy_admin_bundle:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+coresphere_console:
+    resource: .
+    type: extra
