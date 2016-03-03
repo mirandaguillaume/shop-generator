@@ -23,12 +23,12 @@ class HerokuEnvironment
 
         if ($url) {
             $url = parse_url($url);
-            putenv("SYMFONY__DATABASE_HOST={$url['host']}");
-            putenv("SYMFONY__DATABASE_USER={$url['user']}");
-            putenv("SYMFONY__DATABASE_PASSWORD={$url['pass']}");
+            putenv("SYMFONY__DATABASE__HOST={$url['host']}");
+            putenv("SYMFONY__DATABASE__USER={$url['user']}");
+            putenv("SYMFONY__DATABASE__PASSWORD={$url['pass']}");
 
             $db = substr($url['path'], 1);
-            putenv("SYMFONY__DATABASE_NAME={$db}");
+            putenv("SYMFONY__DATABASE__NAME={$db}");
         }
         $io = $event->getIO();
         $io->write('CLEARDB_DATABASE_URL=' . getenv('CLEARDB_DATABASE_URL'));
@@ -41,10 +41,10 @@ class HerokuEnvironment
         if ($url) {
             $url = parse_url($url);
             $app_id = substr($url['path'],6);
-            putenv("PUSHER_APP_ID={$app_id}");
-            putenv("PUSHER_HOST={$url['host']}");
-            putenv("PUSHER_KEY={$url['user']}");
-            putenv("PUSHER_SECRET={$url['pass']}");
+            putenv("SYMFONY__PUSHER__APPID={$app_id}");
+            putenv("SYMFONY__PUSHER__HOST={$url['host']}");
+            putenv("SYMFONY__PUSHER__KEY={$url['user']}");
+            putenv("SYMFONY__PUSHER__SECRET={$url['pass']}");
         }
         $io = $event->getIO();
         $io->write('PUSHER_URL=' . getenv('PUSHER_URL'));

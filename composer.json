@@ -84,17 +84,18 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
             "env-map": {
-                "database_name": "SYMFONY__DATABASE_NAME",
-                "database_user": "SYMFONY__DATABASE_USER",
-                "database_host": "SYMFONY__DATABASE_HOST",
-                "database_password": "SYMFONY__DATABASE_PASSWORD",
-                "mailer_user": "SENDGRID_USERNAME",
-                "mailer_password": "SENDGRID_PASSWORD",
-                "mailer_port": "SENDGRID_PORT",
-                "mailer_host": "SENDGRID_HOST",
-                "pusher_app_id": "PUSHER_APP_ID",
-                "pusher_key": "PUSHER_KEY",
-                "pusher_secret": "PUSHER_SECRET"
+                "database.name": "SYMFONY__DATABASE__NAME",
+                "database.user": "SYMFONY__DATABASE__USER",
+                "database.host": "SYMFONY__DATABASE__HOST",
+                "database.password": "SYMFONY__DATABASE__PASSWORD",
+                "mailer.user": "SYMFONY__SENDGRID__USERNAME",
+                "mailer.password": "SYMFONY__SENDGRID__PASSWORD",
+                "mailer.port": "SYMFONY__SENDGRID__PORT",
+                "mailer.host": "SYMFONY__SENDGRID__HOST",
+                "pusher.app_id": "SYMFONY__PUSHER__APPID",
+                "pusher.key": "SYMFONY__PUSHER__KEY",
+                "pusher.secret": "SYMFONY__PUSHER__SECRET",
+                "mailer.transport": "smtp"
             }
         }
     }

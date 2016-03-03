@@ -1,7 +1,7 @@
 lopi_pusher:
-    app_id: %pusher_app_id%
-    key: %pusher_key%
-    secret: %pusher_secret%
+    app_id: %pusher.app_id%
+    key: %pusher.key%
+    secret: %pusher.secret%
 
     # Default configuration
     debug: false # true if you want use the debug of all requests

@@ -2,10 +2,10 @@ imports:
     - { resource: config.yml }
 
 parameters:
-    mailer_port: 25
-    pusher_app_id: 184607
-    pusher_key: 9c90616c762de695c865
-    pusher_secret: 00119282b40fa79e3626
+    mailer.port: 25
+    pusher.app_id: 184607
+    pusher.key: 9c90616c762de695c865
+    pusher.secret: 00119282b40fa79e3626
 
 framework:
     router:
