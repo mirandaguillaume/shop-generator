@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new \Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Lopi\Bundle\PusherBundle\LopiPusherBundle(),
             new ItemBundle\ItemBundle(),
             new UserBundle\UserBundle(),
             new CharacterBundle\CharacterBundle(),

@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: admin.yml }
     - { resource: fos_user.yml }
+    - { resource: pusher.yml }
     - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@CharacterBundle/Resources/config/services.yml" }
 
@@ -54,6 +55,8 @@ assetic:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        pusher_key: %pusher_key%
 
 # Doctrine Configuration
 doctrine:

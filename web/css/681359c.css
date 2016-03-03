@@ -1,29 +1,29 @@
-/* line 1, assetic_compasslf1T5e.scss */
+/* line 1, assetic_compassrT8xq1.scss */
 .character.show {
   border: 1px solid black;
   margin-top: 20px;
   padding-left: 0;
   padding-right: 0;
 }
-/* line 7, assetic_compasslf1T5e.scss */
+/* line 7, assetic_compassrT8xq1.scss */
 .character.show .avatar {
   height: 300px;
   border: 1px solid red;
 }
-/* line 12, assetic_compasslf1T5e.scss */
+/* line 12, assetic_compassrT8xq1.scss */
 .character.show .basic {
   padding-left: 0;
   padding-right: 0;
   min-height: 300px;
 }
-/* line 17, assetic_compasslf1T5e.scss */
+/* line 17, assetic_compassrT8xq1.scss */
 .character.show .basic .name {
   border: 1px solid green;
   text-align: center;
   font-weight: bold;
   font-size: 4em;
 }
-/* line 24, assetic_compasslf1T5e.scss */
+/* line 24, assetic_compassrT8xq1.scss */
 .character.show .basic .specs {
   text-align: center;
   border: 1px solid greenyellow;
@@ -31,35 +31,35 @@
   padding-left: 0;
   padding-right: 0;
 }
-/* line 31, assetic_compasslf1T5e.scss */
+/* line 31, assetic_compassrT8xq1.scss */
 .character.show .basic .specs .classes {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 36, assetic_compasslf1T5e.scss */
+/* line 36, assetic_compassrT8xq1.scss */
 .character.show .basic .specs .types {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 42, assetic_compasslf1T5e.scss */
+/* line 42, assetic_compassrT8xq1.scss */
 .character.show .basic .stats {
   height: 30px;
 }
-/* line 51, assetic_compasslf1T5e.scss */
+/* line 51, assetic_compassrT8xq1.scss */
 .character.show .stats {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 54, assetic_compasslf1T5e.scss */
+/* line 54, assetic_compassrT8xq1.scss */
 .character.show .stats .calculated-stats {
   padding-top: 20px;
   border: 1px solid yellow;
 }
-/* line 58, assetic_compasslf1T5e.scss */
+/* line 58, assetic_compassrT8xq1.scss */
 .character.show .stats .calculated-stats .headers {
   font-weight: bold;
 }
-/* line 62, assetic_compasslf1T5e.scss */
+/* line 62, assetic_compassrT8xq1.scss */
 .character.show .stats .calculated-stats .inversed {
   padding-right: 0;
   padding-left: 0;
@@ -70,68 +70,68 @@
   -o-animation-direction: reverse;
   animation-direction: reverse;
 }
-/* line 74, assetic_compasslf1T5e.scss */
+/* line 74, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats {
   text-align: center;
   padding-left: 0;
   padding-right: 0;
 }
-/* line 79, assetic_compasslf1T5e.scss */
+/* line 79, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats .headers {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 83, assetic_compasslf1T5e.scss */
+/* line 83, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats .headers .header {
   font-weight: bold;
   padding-bottom: 20px;
   border-right: 1px darkslategray solid;
   border-top: 1px darkslategray solid;
 }
-/* line 88, assetic_compasslf1T5e.scss */
+/* line 88, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats .headers .header:first-of-type {
   border-left: 1px darkslategrey solid;
 }
-/* line 94, assetic_compasslf1T5e.scss */
+/* line 94, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats .values {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 98, assetic_compasslf1T5e.scss */
+/* line 98, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats .values .value {
   border-right: 1px darkslategray solid;
   border-bottom: 1px darkslategray solid;
 }
-/* line 101, assetic_compasslf1T5e.scss */
+/* line 101, assetic_compassrT8xq1.scss */
 .character.show .stats .basic-stats .values .value:first-of-type {
   border-left: 1px darkslategrey solid;
 }
-/* line 109, assetic_compasslf1T5e.scss */
+/* line 109, assetic_compassrT8xq1.scss */
 .character.show .skills {
   border: 1px solid lightcoral;
   text-align: center;
   padding-top: 10px;
 }
-/* line 113, assetic_compasslf1T5e.scss */
+/* line 113, assetic_compassrT8xq1.scss */
 .character.show .skills .skill {
   padding-top: 10px;
 }
-/* line 115, assetic_compasslf1T5e.scss */
+/* line 115, assetic_compassrT8xq1.scss */
 .character.show .skills .skill:first-of-type {
   padding-top: 0;
 }
-/* line 118, assetic_compasslf1T5e.scss */
+/* line 118, assetic_compassrT8xq1.scss */
 .character.show .skills .skill .name {
   border: 1px solid lightcoral;
   float: left;
 }
-/* line 122, assetic_compasslf1T5e.scss */
+/* line 122, assetic_compassrT8xq1.scss */
 .character.show .skills .skill .used-stat {
   border: 1px solid lightcoral;
   border-left: 0;
   float: left;
 }
-/* line 127, assetic_compasslf1T5e.scss */
+/* line 127, assetic_compassrT8xq1.scss */
 .character.show .skills .skill .desc {
   border: 1px solid lightcoral;
   border-left: 0;

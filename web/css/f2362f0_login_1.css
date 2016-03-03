@@ -21,7 +21,7 @@ Last change	: 2015/03/27
 -------------------------------------------------------------------*/
 /*=== 1. General Structure ===*/
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
-/* line 25, assetic_compassN1qHby.scss */
+/* line 25, assetic_compassF6SwZb.scss */
 html,
 body {
   background: #efefef;
@@ -30,36 +30,36 @@ body {
 }
 
 /*=== 2. Anchor Link ===*/
-/* line 32, assetic_compassN1qHby.scss */
+/* line 32, assetic_compassF6SwZb.scss */
 a {
   color: #aaaaaa;
   transition: all ease-in-out 200ms;
 }
-/* line 35, assetic_compassN1qHby.scss */
+/* line 35, assetic_compassF6SwZb.scss */
 a:hover {
   color: #333333;
   text-decoration: none;
 }
 
 /*=== 3. Text Outside the Box ===*/
-/* line 42, assetic_compassN1qHby.scss */
+/* line 42, assetic_compassF6SwZb.scss */
 .etc-login-form {
   color: #919191;
   padding: 10px 20px;
 }
-/* line 45, assetic_compassN1qHby.scss */
+/* line 45, assetic_compassF6SwZb.scss */
 .etc-login-form p {
   margin-bottom: 5px;
 }
 
 /*=== 4. Main Form ===*/
-/* line 51, assetic_compassN1qHby.scss */
+/* line 51, assetic_compassF6SwZb.scss */
 .login-form-1 {
   max-width: 300px;
   border-radius: 5px;
   display: inline-block;
 }
-/* line 56, assetic_compassN1qHby.scss */
+/* line 56, assetic_compassF6SwZb.scss */
 .login-form-1 .form-control {
   border: 0;
   box-shadow: 0 0 0;
@@ -70,26 +70,26 @@ a:hover {
   font-weight: bold;
   height: auto;
 }
-/* line 66, assetic_compassN1qHby.scss */
+/* line 66, assetic_compassF6SwZb.scss */
 .login-form-1 .form-control::-webkit-input-placeholder {
   color: #999999;
 }
-/* line 70, assetic_compassN1qHby.scss */
+/* line 70, assetic_compassF6SwZb.scss */
 .login-form-1 .form-control:-moz-placeholder, .login-form-1 .form-control::-moz-placeholder, .login-form-1 .form-control:-ms-input-placeholder {
   color: #999999;
 }
-/* line 77, assetic_compassN1qHby.scss */
+/* line 77, assetic_compassF6SwZb.scss */
 .login-form-1 .form-group {
   margin-bottom: 0;
   border-bottom: 2px solid #efefef;
   padding-right: 20px;
   position: relative;
 }
-/* line 83, assetic_compassN1qHby.scss */
+/* line 83, assetic_compassF6SwZb.scss */
 .login-form-1 .form-group:last-child {
   border-bottom: 0;
 }
-/* line 88, assetic_compassN1qHby.scss */
+/* line 88, assetic_compassF6SwZb.scss */
 .login-form-1 .login-button {
   position: absolute;
   right: -25px;
@@ -104,34 +104,34 @@ a:hover {
   border-radius: 50%;
   transition: all ease-in-out 500ms;
 }
-/* line 102, assetic_compassN1qHby.scss */
+/* line 102, assetic_compassF6SwZb.scss */
 .login-form-1 .login-button:hover {
   color: #555555;
   transform: rotate(450deg);
 }
-/* line 107, assetic_compassN1qHby.scss */
+/* line 107, assetic_compassF6SwZb.scss */
 .login-form-1 .login-button.clicked {
   color: #555555;
 }
-/* line 110, assetic_compassN1qHby.scss */
+/* line 110, assetic_compassF6SwZb.scss */
 .login-form-1 .login-button.clicked:hover {
   transform: none;
 }
-/* line 114, assetic_compassN1qHby.scss */
+/* line 114, assetic_compassF6SwZb.scss */
 .login-form-1 .login-button.clicked.success {
   color: #2ecc71;
 }
-/* line 118, assetic_compassN1qHby.scss */
+/* line 118, assetic_compassF6SwZb.scss */
 .login-form-1 .login-button.clicked.error {
   color: #e74c3c;
 }
 
-/* line 125, assetic_compassN1qHby.scss */
+/* line 125, assetic_compassF6SwZb.scss */
 .main-login-form {
   position: relative;
 }
 
-/* line 129, assetic_compassN1qHby.scss */
+/* line 129, assetic_compassF6SwZb.scss */
 .login-group {
   background: #ffffff;
   color: #999999;
@@ -139,13 +139,13 @@ a:hover {
   padding: 10px 20px;
 }
 
-/* line 135, assetic_compassN1qHby.scss */
+/* line 135, assetic_compassF6SwZb.scss */
 .login-group-checkbox {
   padding: 5px 0;
 }
 
 /*=== 6. Form Invalid ===*/
-/* line 140, assetic_compassN1qHby.scss */
+/* line 140, assetic_compassF6SwZb.scss */
 label.form-invalid {
   position: absolute;
   top: 0;
@@ -160,7 +160,7 @@ label.form-invalid {
   font-weight: bold;
   font-size: 11px;
 }
-/* line 154, assetic_compassN1qHby.scss */
+/* line 154, assetic_compassF6SwZb.scss */
 label.form-invalid:after {
   top: 100%;
   right: 10px;
@@ -176,7 +176,7 @@ label.form-invalid:after {
 }
 
 /*=== 7. Form - Main Message ===*/
-/* line 170, assetic_compassN1qHby.scss */
+/* line 170, assetic_compassF6SwZb.scss */
 .login-form-main-message {
   background: #ffffff;
   color: #999999;
@@ -189,24 +189,24 @@ label.form-invalid:after {
   opacity: 0;
   transition: all ease-in-out 200ms;
 }
-/* line 182, assetic_compassN1qHby.scss */
+/* line 182, assetic_compassF6SwZb.scss */
 .login-form-main-message.show {
   height: auto;
   opacity: 1;
   padding: 10px 20px 10px 17px;
 }
-/* line 188, assetic_compassN1qHby.scss */
+/* line 188, assetic_compassF6SwZb.scss */
 .login-form-main-message.success {
   border-left-color: #2ecc71;
 }
-/* line 192, assetic_compassN1qHby.scss */
+/* line 192, assetic_compassF6SwZb.scss */
 .login-form-main-message.error {
   border-left-color: #e74c3c;
 }
 
 /*=== 8. Custom Checkbox & Radio ===*/
 /* Base for label styling */
-/* line 199, assetic_compassN1qHby.scss */
+/* line 199, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked,
 [type="radio"]:not(:checked),
@@ -215,7 +215,7 @@ label.form-invalid:after {
   left: -9999px;
 }
 
-/* line 206, assetic_compassN1qHby.scss */
+/* line 206, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label,
 [type="radio"]:not(:checked) + label,
@@ -227,7 +227,7 @@ label.form-invalid:after {
 }
 
 /* checkbox aspect */
-/* line 216, assetic_compassN1qHby.scss */
+/* line 216, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before,
@@ -245,7 +245,7 @@ label.form-invalid:after {
 }
 
 /* checked mark aspect */
-/* line 232, assetic_compassN1qHby.scss */
+/* line 232, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after,
@@ -256,14 +256,14 @@ label.form-invalid:after {
 }
 
 /* checked mark aspect changes */
-/* line 241, assetic_compassN1qHby.scss */
+/* line 241, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="radio"]:not(:checked) + label:after {
   opacity: 0;
   transform: scale(0);
 }
 
-/* line 246, assetic_compassN1qHby.scss */
+/* line 246, assetic_compassF6SwZb.scss */
 [type="checkbox"]:checked + label:after,
 [type="radio"]:checked + label:after {
   opacity: 1;
@@ -271,7 +271,7 @@ label.form-invalid:after {
 }
 
 /* disabled checkbox */
-/* line 252, assetic_compassN1qHby.scss */
+/* line 252, assetic_compassF6SwZb.scss */
 [type="checkbox"]:disabled:not(:checked) + label:before,
 [type="checkbox"]:disabled:checked + label:before,
 [type="radio"]:disabled:not(:checked) + label:before,
@@ -281,20 +281,20 @@ label.form-invalid:after {
   background-color: #878787;
 }
 
-/* line 260, assetic_compassN1qHby.scss */
+/* line 260, assetic_compassF6SwZb.scss */
 [type="checkbox"]:disabled:checked + label:after,
 [type="radio"]:disabled:checked + label:after {
   color: #555555;
 }
 
-/* line 264, assetic_compassN1qHby.scss */
+/* line 264, assetic_compassF6SwZb.scss */
 [type="checkbox"]:disabled + label,
 [type="radio"]:disabled + label {
   color: #8c8c8c;
 }
 
 /* accessibility */
-/* line 269, assetic_compassN1qHby.scss */
+/* line 269, assetic_compassF6SwZb.scss */
 [type="checkbox"]:checked:focus + label:before,
 [type="checkbox"]:not(:checked):focus + label:before,
 [type="checkbox"]:checked:focus + label:before,
@@ -303,27 +303,27 @@ label.form-invalid:after {
 }
 
 /* hover style just for information */
-/* line 276, assetic_compassN1qHby.scss */
+/* line 276, assetic_compassF6SwZb.scss */
 label:hover:before {
   border: 1px solid #f6f6f6 !important;
 }
 
 /*=== Customization ===*/
 /* radio aspect */
-/* line 281, assetic_compassN1qHby.scss */
+/* line 281, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   border-radius: 3px;
 }
 
-/* line 285, assetic_compassN1qHby.scss */
+/* line 285, assetic_compassF6SwZb.scss */
 [type="radio"]:not(:checked) + label:before,
 [type="radio"]:checked + label:before {
   border-radius: 35px;
 }
 
 /* selected mark aspect */
-/* line 290, assetic_compassN1qHby.scss */
+/* line 290, assetic_compassF6SwZb.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: '✔';
@@ -332,7 +332,7 @@ label:hover:before {
   font-size: 14px;
 }
 
-/* line 297, assetic_compassN1qHby.scss */
+/* line 297, assetic_compassF6SwZb.scss */
 [type="radio"]:not(:checked) + label:after,
 [type="radio"]:checked + label:after {
   content: '\2022';
@@ -343,7 +343,7 @@ label:hover:before {
 }
 
 /*=== 9. Misc ===*/
-/* line 306, assetic_compassN1qHby.scss */
+/* line 306, assetic_compassF6SwZb.scss */
 .logo {
   padding: 15px 0;
   font-size: 25px;

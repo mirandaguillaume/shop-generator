@@ -1,0 +1,6 @@
+<script src="{{ asset('assets/vendor/pusher/dist/pusher.min.js') }}"></script>
+<script>
+    var socket = new Pusher("{{ pusher_key }}", {
+        encrypted: true
+    });
+</script>

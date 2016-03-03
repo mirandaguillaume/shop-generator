@@ -27,6 +27,11 @@ class DefaultController extends Controller
 
         $character = new Person();
 
+        $pusher = $this->container->get('lopi_pusher.pusher');
+
+        $data['message'] = 'hello world';
+        $pusher->trigger('test_channel', 'my_event', $data);
+
         $form = $this->createForm(PersonType::class, $character, array(
             'action' => $this->generateUrl('character_default_createcharacter'),
             'method' => 'POST',

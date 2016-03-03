@@ -93,3 +93,17 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    {% include '::pusher_init.html.twig' %}
+
+    {% javascripts
+        '@CharacterBundle/Resources/public/js/client_creation.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
