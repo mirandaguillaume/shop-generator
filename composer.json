@@ -45,6 +45,7 @@
     },
     "scripts": {
         "warmup": [
+            "ItemBundle\\Composer\\HerokuEnvironment::populateEnvironment",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache"
         ],
