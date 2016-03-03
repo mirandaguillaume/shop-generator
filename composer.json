@@ -47,6 +47,7 @@
         "warmup": [
             "ItemBundle\\Composer\\HerokuEnvironment::populateEnvironment",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "bin/console doctrine:migrations:migrate",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache"
         ],
         "pre-install-cmd": [
