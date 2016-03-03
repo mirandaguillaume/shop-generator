@@ -12,8 +12,8 @@ class HerokuEnvironment
      */
     public static function populateEnvironment(Event $event)
     {
-        self::populateDatabase($event);
         self::populatePusher($event);
+        self::populateDatabase($event);
     }
 
     private static function populateDatabase (Event $event)
@@ -41,12 +41,13 @@ class HerokuEnvironment
         if ($url) {
             $url = parse_url($url);
             $app_id = substr($url['path'],6);
-            putenv("SYMFONY__PUSHER_APP_ID={$app_id}");
-            putenv("SYMFONY__PUSHER_HOST={$url['host']}");
-            putenv("SYMFONY__PUSHER_KEY={$url['user']}");
-            putenv("SYMFONY__PUSHER_SECRET={$url['pass']}");
+            putenv("PUSHER_APP_ID={$app_id}");
+            putenv("PUSHER_HOST={$url['host']}");
+            putenv("PUSHER_KEY={$url['user']}");
+            putenv("PUSHER_SECRET={$url['pass']}");
         }
         $io = $event->getIO();
         $io->write('PUSHER_URL=' . getenv('PUSHER_URL'));
+        $io->write('PUSHER_APP_ID=' . getenv('PUSHER_APP_ID'));
     }
 }
