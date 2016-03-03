@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets filter='compass'
+    {% stylesheets filter="scssphp"
     '@UserBundle/Resources/public/css/login.scss'
     %}
     <link rel="stylesheet" href="{{ asset_url }}"/>

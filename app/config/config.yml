@@ -7,6 +7,7 @@ imports:
     - { resource: pusher.yml }
     - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@CharacterBundle/Resources/config/services.yml" }
+    - { resource: "@GameMasterBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -42,14 +43,11 @@ framework:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['ItemBundle','UserBundle','FOSUserBundle','CharacterBundle']
-    ruby: /usr/local/rvm/rubies/ruby-2.0.0-p481/bin/ruby
+    bundles:        ['ItemBundle','UserBundle','FOSUserBundle','CharacterBundle','GameMasterBundle']
     filters:
         cssrewrite: ~
-        sass:
-            bin: /usr/local/rvm/gems/ruby-2.0.0-p481/bin/sass
-        compass:
-            bin: /usr/local/rvm/gems/ruby-2.0.0-p481/bin/compass
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
 
 # Twig Configuration
 twig:
@@ -96,3 +94,9 @@ vich_uploader:
         job_icons:
             uri_prefix:         %app.path.job_icons%
             upload_destination: %kernel.root_dir%/../web/uploads/images/job
+
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            sluggable: true

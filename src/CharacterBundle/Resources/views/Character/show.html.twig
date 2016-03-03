@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets filter='compass'
+    {% stylesheets filter="scssphp"
     '@CharacterBundle/Resources/public/css/character.scss'
     %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
@@ -100,8 +100,13 @@
 
     {% include '::pusher_init.html.twig' %}
 
+    <script>
+        var private_channel = socket.subscribe('private-{{ character.nameSlug }}');
+        var public_channel = socket.subscribe('characters-channel');
+    </script>
+
     {% javascripts
-        '@CharacterBundle/Resources/public/js/client_creation.js'
+        '@CharacterBundle/Resources/public/js/client_show.js'
     %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}

@@ -278,14 +278,13 @@ drush:
     install: '0'
     version: 6.3.0
 ruby:
-    install: '1'
+    install: '0'
     versions:
         rv_epydnd24cn52:
             default: '1'
             bundler: '1'
             version: 2.0.0-p481
-            gems:
-                - compass
+            gems: { }
 python:
     install: '1'
     packages: {  }

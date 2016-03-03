@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: heroku_90344c289deb7e6
+-- Host: localhost    Database: shop-generator
 -- ------------------------------------------------------
 -- Server version	5.5.47-0ubuntu0.14.04.1
 
@@ -14,6 +14,43 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `actor`
+--
+
+DROP TABLE IF EXISTS `actor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `level` int(11) NOT NULL,
+  `max_hp` int(11) NOT NULL,
+  `hp` int(11) NOT NULL,
+  `max_mp` int(11) NOT NULL,
+  `mp` int(11) NOT NULL,
+  `str` int(11) NOT NULL,
+  `dex` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `intelligence` int(11) NOT NULL,
+  `spi` int(11) NOT NULL,
+  `actor_condition` int(11) DEFAULT NULL,
+  `initiative` int(11) DEFAULT NULL,
+  `discr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name_slug` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actor`
+--
+
+LOCK TABLES `actor` WRITE;
+/*!40000 ALTER TABLE `actor` DISABLE KEYS */;
+INSERT INTO `actor` VALUES (7,'test42',1,20,20,20,20,4,'4',6,6,NULL,NULL,'character','');
+/*!40000 ALTER TABLE `actor` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `animal`
@@ -187,6 +224,35 @@ INSERT INTO `equipment` VALUES (5,'location.chest'),(6,'location.one_hand'),(7,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `foe`
+--
+
+DROP TABLE IF EXISTS `foe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `foe` (
+  `id` int(11) NOT NULL,
+  `habitat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `season` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `loot` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:array)',
+  `dragonica_number` int(11) DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `spe_ability` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `FK_6CA68C3FBF396750` FOREIGN KEY (`id`) REFERENCES `actor` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `foe`
+--
+
+LOCK TABLES `foe` WRITE;
+/*!40000 ALTER TABLE `foe` DISABLE KEYS */;
+/*!40000 ALTER TABLE `foe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `fos_user`
 --
 
@@ -214,7 +280,7 @@ CREATE TABLE `fos_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +289,7 @@ CREATE TABLE `fos_user` (
 
 LOCK TABLES `fos_user` WRITE;
 /*!40000 ALTER TABLE `fos_user` DISABLE KEYS */;
-INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$YxKDke173pwq99djnedyBeKMR5qvubdPuKwNm7TDAE3AAEDy3vnlq','2016-02-22 13:05:13',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-12 15:11:38',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
+INSERT INTO `fos_user` VALUES (1,'admin','admin','guillaume11miranda@gmail.com','guillaume11miranda@gmail.com',1,'bimvlpaszrc4kkg480gskw8ww8800o0','$2y$13$clxqFrqBDwg1C40ZOV0Z7OmUIN4kDofMv3b/gnZ.AjbIP7gF5n09i','2016-03-03 11:30:20',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',0,NULL),(2,'test_user','test_user','test_user@gmail.com','test_user@gmail.com',1,'47y8ssprk6iokwgo8k8gk8ccwg0c048','$2y$13$ohx0Ur1xgcZl6c9i71.hieHqKnbhECs9InkI8Vbd.gOSlCHSVHBcm','2016-02-23 17:18:35',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL),(3,'1212121','1212121','tt@t.com','tt@t.com',1,'frudh5sdw68kcs8o4wc8gwsosks8c0g','$2y$13$ngAvveZpzc9Mgxjp9RbPzuuxpjfToEhuVhNgvvapXrksghcPQfDAK','2016-02-23 18:21:31',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL),(4,'test','test','test@test.com','test@test.com',1,'7wrh2ygf1ukg0w4ccswkws84ko8sg8w','$2y$13$/VfaHlTzgsRebnpSk6Maz.1wFL.lsINLwJtBjWmahtOXn1qU1QodC','2016-02-24 11:23:56',0,0,NULL,'xcl344bc5rKgjXJakX3qifyAjXleIuT3NrBv5NVFl2I',NULL,'a:0:{}',0,NULL),(5,'test2','test2','test2@test.com','test2@test.com',1,'eziczcrpnq0c0okwc0okg4o8444kkws','$2y$13$b.cWkJObFWI7r3zv5w0Ukuf/b951BQYR5lL2FUdDJSn96Z6yDrnSu',NULL,0,0,NULL,'hURLcty4dRJ3wfpnYkmTvGuR5QYWrTs0gORESMQlnTs',NULL,'a:0:{}',0,NULL),(6,'test3','test3','test3@test.com','test3@test.com',1,'qj646rhh4jk44ksss8gwo84cwoos8so','$2y$13$xVH7LyMBueYIjQdhXE5.MOkxqrd3omETALC0rvb94ST.s4WlePNKu','2016-02-24 11:45:05',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL);
 /*!40000 ALTER TABLE `fos_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +451,7 @@ CREATE TABLE `migration_versions` (
 
 LOCK TABLES `migration_versions` WRITE;
 /*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038'),('20160219162206'),('20160219164109'),('20160219164455'),('20160219165934'),('20160219174439'),('20160222135902');
+INSERT INTO `migration_versions` VALUES ('20160204122058'),('20160204142729'),('20160204143134'),('20160204143334'),('20160204145420'),('20160204165143'),('20160204165259'),('20160208225530'),('20160208225706'),('20160208225734'),('20160209154907'),('20160211123457'),('20160212163003'),('20160212164051'),('20160212171110'),('20160215112204'),('20160215122542'),('20160215123523'),('20160215124200'),('20160215180704'),('20160218105253'),('20160218113038'),('20160219162206'),('20160219164109'),('20160219164455'),('20160219165934'),('20160219174439'),('20160222135902'),('20160225131940'),('20160225150624'),('20160225151741'),('20160225171056'),('20160226171241');
 /*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,6 +477,53 @@ CREATE TABLE `mount` (
 LOCK TABLES `mount` WRITE;
 /*!40000 ALTER TABLE `mount` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mount` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `person`
+--
+
+DROP TABLE IF EXISTS `person`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `person` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `xp` int(11) NOT NULL,
+  `gender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `personal_item` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `appearance` longtext COLLATE utf8_unicode_ci,
+  `hometown` longtext COLLATE utf8_unicode_ci,
+  `notes` longtext COLLATE utf8_unicode_ci,
+  `fumble_points` int(11) NOT NULL,
+  `first_class_id` int(11) DEFAULT NULL,
+  `secondary_class_id` int(11) DEFAULT NULL,
+  `first_type_id` int(11) DEFAULT NULL,
+  `secondary_type_id` int(11) DEFAULT NULL,
+  `weapon_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_34DCD176A76ED395` (`user_id`),
+  KEY `IDX_34DCD17673533547` (`first_class_id`),
+  KEY `IDX_34DCD176107AE070` (`secondary_class_id`),
+  KEY `IDX_34DCD176D6C0E06F` (`first_type_id`),
+  KEY `IDX_34DCD176527A53` (`secondary_type_id`),
+  KEY `IDX_34DCD17695B82273` (`weapon_id`),
+  CONSTRAINT `FK_34DCD176527A53` FOREIGN KEY (`secondary_type_id`) REFERENCES `type` (`id`),
+  CONSTRAINT `FK_34DCD17695B82273` FOREIGN KEY (`weapon_id`) REFERENCES `weapon` (`id`),
+  CONSTRAINT `FK_34DCD176A76ED395` FOREIGN KEY (`user_id`) REFERENCES `fos_user` (`id`),
+  CONSTRAINT `FK_34DCD176D6C0E06F` FOREIGN KEY (`first_type_id`) REFERENCES `type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `person`
+--
+
+LOCK TABLES `person` WRITE;
+/*!40000 ALTER TABLE `person` DISABLE KEYS */;
+INSERT INTO `person` VALUES (1,NULL,0,'G',12,'pot','efhnoreh','gruenohcrgnohngoch','ghcoegnreozhnrh',0,0,NULL,NULL,NULL,NULL),(2,NULL,0,'G',12,'pot','efhnoreh','gruenohcrgnohngoch','ghcoegnreozhnrh',0,0,NULL,NULL,NULL,NULL),(3,NULL,0,'G',12,'pot','efhnoreh','gruenohcrgnohngoch','ghcoegnreozhnrh',0,0,NULL,NULL,NULL,NULL),(4,NULL,0,'G',12,'pot','efhnoreh','gruenohcrgnohngoch','ghcoegnreozhnrh',0,0,NULL,NULL,NULL,NULL),(5,NULL,0,'G',12,'pot','efhnoreh','gruenohcrgnohngoch','ghcoegnreozhnrh',0,0,NULL,NULL,NULL,NULL),(6,NULL,0,'G',12,'pot','efhnoreh','gruenohcrgnohngoch','ghcoegnreozhnrh',0,0,NULL,NULL,NULL,NULL),(7,1,0,'G',12,'rrvnhreo','reuznogrozh','rughuoncreo','reuighrno',0,1,NULL,1,NULL,NULL);
+/*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -695,7 +808,7 @@ CREATE TABLE `type` (
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `season` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -704,6 +817,7 @@ CREATE TABLE `type` (
 
 LOCK TABLES `type` WRITE;
 /*!40000 ALTER TABLE `type` DISABLE KEYS */;
+INSERT INTO `type` VALUES (1,'Attaque','+1 en baratin','normal_type',NULL),(2,'Attaque','+1 en baratin','normal_type',NULL),(3,'Attaque','+1 en baratin','magic_type','season.summer');
 /*!40000 ALTER TABLE `type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -742,4 +856,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-22 14:46:11
+-- Dump completed on 2016-03-03 15:11:49

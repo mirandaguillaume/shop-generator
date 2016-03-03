@@ -1,3 +1,8 @@
+game_master:
+    resource: "@GameMasterBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 character:
     resource: "@CharacterBundle/Controller/"
     type:     annotation

@@ -3,7 +3,7 @@
 {% block stylesheets %}
 
     {{ parent() }}
-    {% stylesheets filter="compass" output="css/all.css"
+    {% stylesheets filter="scssphp"
     "@ItemBundle/Resources/css/style.scss" %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}

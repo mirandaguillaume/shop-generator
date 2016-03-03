@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0faa2460d68525399fb57249856b46d5",
-    "content-hash": "471e436ac470de989caa11c655774167",
+    "hash": "f5d796246baea41ab4d965c590315821",
+    "content-hash": "4b3345ec8cebbea9af965a8a8fcab57b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1624,6 +1624,59 @@
             "time": "2016-01-25 14:10:07"
         },
         {
+            "name": "leafo/scssphp",
+            "version": "v0.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leafo/scssphp.git",
+                "reference": "a27edad3d16635a222d7204706572e24c338aa17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leafo/scssphp/zipball/a27edad3d16635a222d7204706572e24c338aa17",
+                "reference": "a27edad3d16635a222d7204706572e24c338aa17",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "kherge/box": "~2.5",
+                "phpunit/phpunit": "~3.7",
+                "squizlabs/php_codesniffer": "~2.5"
+            },
+            "bin": [
+                "bin/pscss"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Leafo\\ScssPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                }
+            ],
+            "description": "scssphp is a compiler for SCSS written in PHP.",
+            "homepage": "http://leafo.github.io/scssphp/",
+            "keywords": [
+                "css",
+                "less",
+                "sass",
+                "scss",
+                "stylesheet"
+            ],
+            "time": "2016-01-15 02:50:06"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.18.0",
             "source": {
@@ -1878,6 +1931,50 @@
                 "random"
             ],
             "time": "2016-02-29 17:25:04"
+        },
+        {
+            "name": "pinano/select2-bundle",
+            "version": "dev-master",
+            "target-dir": "Pinano/Select2Bundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pinano/select2-bundle.git",
+                "reference": "08d51e026182d99d357d79de74cee46959bc8ae7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pinano/select2-bundle/zipball/08d51e026182d99d357d79de74cee46959bc8ae7",
+                "reference": "08d51e026182d99d357d79de74cee46959bc8ae7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2.3|~3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Pinano\\Select2Bundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fernando Arroyo",
+                    "email": "farroyo@gmail.com"
+                }
+            ],
+            "description": "Symfony2 bundle for wrapping the famous select2 jquery plugin by @ivaynberg",
+            "homepage": "http://github.com/pinano/select2-bundle",
+            "keywords": [
+                "bundle",
+                "jquery",
+                "select2"
+            ],
+            "time": "2016-02-03 15:28:44"
         },
         {
             "name": "psr/log",
@@ -3234,7 +3331,8 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "vich/uploader-bundle": 20,
-        "coresphere/console-bundle": 20
+        "coresphere/console-bundle": 20,
+        "pinano/select2-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

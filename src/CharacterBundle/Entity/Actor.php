@@ -72,6 +72,10 @@ abstract class Actor
      */
     private $initiative;
 
+    /**
+     * @var string
+     */
+    private $name_slug;
 
     /**
      * Get id
@@ -417,5 +421,29 @@ abstract class Actor
     public function getActorCondition()
     {
         return $this->actorCondition;
+    }
+
+    /**
+     * Set nameSlug
+     *
+     * @param string $nameSlug
+     *
+     * @return Actor
+     */
+    public function setNameSlug($nameSlug)
+    {
+        $this->name_slug = $nameSlug;
+
+        return $this;
+    }
+
+    /**
+     * Get nameSlug
+     *
+     * @return string
+     */
+    public function getNameSlug()
+    {
+        return $this->name_slug;
     }
 }

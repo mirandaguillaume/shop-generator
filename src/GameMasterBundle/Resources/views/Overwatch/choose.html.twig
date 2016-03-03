@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    {% stylesheets filter='cssrewrite,scssphp'
+    '@PinanoSelect2Bundle/Resources/public/css/select2.css'
+    'assets/vendor/select2-bootstrap-css/select2-bootstrap.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'action': path('gamemaster_overwatch_showgroup'), 'method': 'POST', 'attr': {'class': 'form'}}) }}
+    <div class="col-md-12 form-group">
+        {{ form_widget(form.players, {'attr': { 'class': 'select2 form-control', 'data-placeholder': 'overwatch.choose.players'|trans }}) }}
+    </div>
+    <div class="col-md-12 form-group">
+        <button type="submit" class="btn btn-default">{{ 'overwatch.choose.submit'|trans }}</button>
+    </div>
+    {{ form_rest(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    {% javascripts
+    '@PinanoSelect2Bundle/Resources/public/js/select2.min.js'
+    '@PinanoSelect2Bundle/Resources/public/js/i18n/fr.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script>
+        $('.select2').select2();
+    </script>
+{% endblock %}

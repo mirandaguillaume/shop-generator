@@ -138,3 +138,8 @@ spell:
         low: Débutant
         mid: Intermédiaire
         high: Avancé
+
+overwatch:
+    choose:
+        players: Veuillez choisir un ou plusieurs joueurs à monitorer
+        submit: Passer au monitoring

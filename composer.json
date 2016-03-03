@@ -38,7 +38,9 @@
         "vich/uploader-bundle": "@dev",
         "stof/doctrine-extensions-bundle": "^1.2",
         "laupifrpar/pusher-bundle": "^1.2",
-        "coresphere/console-bundle": "dev-master"
+        "coresphere/console-bundle": "dev-master",
+        "pinano/select2-bundle": "dev-master",
+        "leafo/scssphp": "^0.6.3"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"

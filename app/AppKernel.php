@@ -22,9 +22,12 @@ class AppKernel extends Kernel
             new \FOS\UserBundle\FOSUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Lopi\Bundle\PusherBundle\LopiPusherBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new \Pinano\Select2Bundle\PinanoSelect2Bundle(),
             new ItemBundle\ItemBundle(),
             new UserBundle\UserBundle(),
             new CharacterBundle\CharacterBundle(),
+            new GameMasterBundle\GameMasterBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
