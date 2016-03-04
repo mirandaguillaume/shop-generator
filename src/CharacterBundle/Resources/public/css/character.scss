@@ -1,3 +1,5 @@
+$avatar-height: 300px;
+
 .character.show {
   border: 1px solid black;
   margin-top: 20px;
@@ -5,14 +7,14 @@
   padding-right: 0;
 
   .avatar {
-    height: 300px;
+    height: $avatar-height;
     border: 1px solid red;
   }
 
   .basic {
     padding-left: 0;
     padding-right: 0;
-    min-height: 300px;
+    min-height: $avatar-height;
 
     .name {
       border: 1px solid green;
@@ -131,12 +133,46 @@
 
 .small-show {
   .character.show {
+
     font-size: 0.75em;
+    margin-top: 10px;
+
     .avatar {
-      height: 150px;
+      height: $avatar-height/2;
     }
+
     .basic {
-      min-height: 150px;
+      min-height: $avatar-height/2;
+    }
+
+    .stats {
+      .calculated-stats {
+        padding-top: 10px;
+        .progress {
+          height: 15px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .basic-stats {
+        .headers {
+          .header {
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    .skills {
+      border: 1px solid lightcoral;
+      text-align: center;
+      padding-top: 5px;
+      .skill {
+        padding-top: 5px;
+        //.column {
+        //  min-height: 32px;
+        //}
+      }
     }
   }
 }
