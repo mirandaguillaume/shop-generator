@@ -146,6 +146,10 @@ abstract class Actor
     {
         $this->maxHp = $maxHp;
 
+        if ($this->getMaxHp() < $this->getHp()){
+            $this->setHp($this->getMaxHp());
+        }
+
         return $this;
     }
 
@@ -194,6 +198,10 @@ abstract class Actor
     {
         $this->maxMp = $maxMp;
 
+        if ($this->getMaxMp() < $this->getMp()){
+            $this->setMp($this->getMaxMp());
+        }
+
         return $this;
     }
 
@@ -241,6 +249,8 @@ abstract class Actor
     public function setStr($str)
     {
         $this->str = $str;
+
+        $this->setMaxHp($this->str*2);
 
         return $this;
     }
@@ -313,6 +323,8 @@ abstract class Actor
     public function setSpi($spi)
     {
         $this->spi = $spi;
+
+        $this->setMaxMp($this->str*2);
 
         return $this;
     }

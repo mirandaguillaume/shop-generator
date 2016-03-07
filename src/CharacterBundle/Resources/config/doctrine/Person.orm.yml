@@ -3,6 +3,12 @@ CharacterBundle\Entity\Person:
     table: null
     repositoryClass: CharacterBundle\Repository\PersonRepository
     fields:
+        added_hp:
+            type: integer
+            nullable: false
+        added_mp:
+            type: integer
+            nullable: false
         xp:
             type: integer
         gender:

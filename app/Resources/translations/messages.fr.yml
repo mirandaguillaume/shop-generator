@@ -143,3 +143,7 @@ overwatch:
     choose:
         players: Veuillez choisir un ou plusieurs joueurs à monitorer
         submit: Passer au monitoring
+
+character:
+    level: Niveau
+    xp: EXP

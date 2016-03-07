@@ -17,6 +17,19 @@ class Type
      */
     private $name;
 
+    /**
+     * @var string
+     */
+    private $bonuses;
+
+    /**
+     * @var array
+     */
+    private $stats_bonuses;
+
+    public function __construct(){
+        $this->stats_bonuses = array();
+    }
 
     /**
      * Get id
@@ -51,11 +64,6 @@ class Type
     {
         return $this->name;
     }
-    /**
-     * @var string
-     */
-    private $bonuses;
-
 
     /**
      * Set bonuses
@@ -86,5 +94,39 @@ class Type
             return $this->name;
         else
             return 'Nouveau type';
+    }
+
+//    /**
+//     * Set statsBonuses
+//     *
+//     * @param array $statsBonuses
+//     *
+//     * @return Type
+//     */
+//    public function setStatsBonuses($statsBonuses)
+//    {
+//        var_dump('Using set');
+//
+//        $this->stats_bonuses = $statsBonuses;
+//
+//        return $this;
+//    }
+
+    /**
+     * Get statsBonuses
+     *
+     * @return array
+     */
+    public function getStatsBonuses()
+    {
+        return $this->stats_bonuses;
+    }
+
+    public function addStatsBonus($stat_bonus){
+        $this->stats_bonuses[$stat_bonus['stat']] = $stat_bonus;
+    }
+
+    public function removeStatsBonus($stat_bonus){
+        unset($this->stats_bonuses[$stat_bonus['stat']]);
     }
 }

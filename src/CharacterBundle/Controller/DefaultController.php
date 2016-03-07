@@ -49,6 +49,8 @@ class DefaultController extends Controller
 
                 $character->setUser($this->getUser());
 
+                $character->setDefaultValues();
+
                 $em->persist($character);
                 $em->flush();
 

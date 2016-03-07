@@ -19,6 +19,7 @@ easy_admin:
             - Herb
             - SpecifiedItem
             - Job
+            - Type
     list:
         actions:
             - { name: 'show', label: 'action.show' }
@@ -295,4 +296,16 @@ easy_admin:
                     - { property: 'effect', label: 'admin.skill.effect' }
                     - { property: 'description', label: 'admin.skill.description' }
                     - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}
-
+        Type:
+            class: CharacterBundle\Entity\Type
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.type.name' }
+            edit:
+                fields:
+                    - { property: 'name', label: 'admin.type.name' }
+                    - { property: 'statsBonuses', label: 'admin.type.bonuses', type: 'collection', type_options: { entry_type: 'CharacterBundle\Form\StatBonusType', 'allow_add': true }}
+            form:
+                fields:
+                    - { property: 'name', label: 'admin.type.name' }
+                    - { property: 'statsBonuses', label: 'admin.type.bonuses', type: 'collection', type_options: { entry_type: 'CharacterBundle\Form\StatBonusType', 'allow_add': true }}

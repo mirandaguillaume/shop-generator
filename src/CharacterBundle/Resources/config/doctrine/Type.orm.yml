@@ -19,6 +19,10 @@ CharacterBundle\Entity\Type:
         name:
             type: string
             length: 255
+        stats_bonuses:
+            type: array
+            nullable: true
         bonuses:
             type: text
+            nullable: true
     lifecycleCallbacks: {  }

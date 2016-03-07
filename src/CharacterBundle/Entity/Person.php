@@ -273,6 +273,14 @@ class Person extends Actor
         $this->setLevel(1);
         $this->setMaxHp($this->getStr()*2);
         $this->setMaxMp($this->getSpi()*2);
+        $this->added_hp = 0;
+        $this->added_mp = 0;
+        $this->scenarioStartValues();
+    }
+
+    public function scenarioStartValues(){
+        $this->setHp($this->getMaxHp());
+        $this->setMp($this->getMaxMp());
     }
 
     /**
@@ -435,4 +443,50 @@ class Person extends Actor
     {
         return $this->specializedWeapon;
     }
+
+    public function addAddedHp($addedHp){
+        $this->addedHp+=$addedHp;
+    }
+
+    public function addAddedMp($addedMp){
+        $this->addedMp+=$addedMp;
+    }
+
+    public function getMaxHp(){
+        $max_hp = parent::getMaxHp()+$this->added_hp;
+
+        if ($this->first_type != null && isset($this->first_type->getStatsBonuses()['max_hp'])){
+            $max_hp+=$this->first_type->getStatsBonuses()['max_hp']['value'];
+        }
+
+        if ($this->secondary_type != null && isset($this->secondary_type->getStatsBonuses()['max_hp'])){
+            $max_hp+=$this->secondary_type->getStatsBonuses()['max_hp']['value'];
+        }
+
+        return $max_hp;
+    }
+
+    public function getMaxMp(){
+        $max_mp = parent::getMaxMp()+$this->added_mp;
+
+        if (isset($this->first_type->getStatsBonuses()['max_mp'])){
+            $max_mp+=$this->first_type->getStatsBonuses()['max_mp']['value'];
+        }
+
+        if ($this->secondary_type != null && isset($this->secondary_type->getStatsBonuses()['max_mp'])){
+            $max_mp+=$this->secondary_type->getStatsBonuses()['max_mp']['value'];
+        }
+
+        return $max_mp;
+    }
+
+    /**
+     * @var integer
+     */
+    private $added_hp;
+
+    /**
+     * @var integer
+     */
+    private $added_mp;
 }

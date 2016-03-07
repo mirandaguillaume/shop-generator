@@ -55,4 +55,21 @@ class OverwatchController extends Controller
         ));
     }
 
+    /** @Route("/lower_str/{player_id}") */
+    public function testLowerOneStr($player_id){
+        $em = $this->get('doctrine.orm.entity_manager');
+
+        $player = $em->getRepository('CharacterBundle:Person')->find($player_id);
+
+        $player->setStr($player->getStr()-2);
+
+        $em->persist($player);
+
+        $em->flush();
+
+        return $this->render('GameMasterBundle:Overwatch:group.html.twig', array(
+            'players' => array($player)
+        ));
+    }
+
 }
