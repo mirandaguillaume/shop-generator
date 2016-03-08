@@ -12,4 +12,8 @@ CharacterBundle\Entity\ActiveSkill:
             type: string
             length: 255
             nullable: true
+        macro:
+            type: string
+            length: 255
+            nullable: true
     lifecycleCallbacks: {  }

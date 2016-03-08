@@ -69,7 +69,11 @@
         {% for skill in character.skills %}
             <div class="col-md-12 skill">
                 <div class="col-md-2 column name">
-                    {{ skill.name }}
+                    {% if skill.macro is defined %}
+                        <a data-toggle="popover" title="Popover title" data-content="{{ skill.macro }}">{{ skill.name }}</a>
+                    {% else %}
+                        {{ skill.name }}
+                    {% endif %}
                 </div>
                 <div class="col-md-2 column used-stat">
                     {% if skill.usedStats is not null %}
