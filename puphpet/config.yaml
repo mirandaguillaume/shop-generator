@@ -285,11 +285,12 @@ ruby:
         rv_lgxkvk1pv0rw:
             default: '1'
             bundler: '1'
-            version: 1.9.3
+            version: 2.0.0-p481
             gems:
                 - deep_merge
                 - activesupport
                 - vine
+                - compass
 python:
     install: '1'
     packages: {  }

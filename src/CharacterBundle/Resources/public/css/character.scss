@@ -173,6 +173,8 @@ $avatar-height: 300px;
         flex-wrap: wrap;
         .column {
           display: flex;
+          justify-content: center;
+          align-items: center;
           flex-direction: column;
         }
       }
