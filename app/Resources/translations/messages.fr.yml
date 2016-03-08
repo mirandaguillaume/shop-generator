@@ -147,3 +147,4 @@ overwatch:
 character:
     level: Niveau
     xp: EXP
+    capacity_max: Encombrement Max

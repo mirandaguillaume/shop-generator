@@ -76,6 +76,16 @@ class Person extends Actor
     private $secondary_type;
 
     /**
+     * @var integer
+     */
+    private $addedHp;
+
+    /**
+     * @var integer
+     */
+    private $addedMp;
+
+    /**
      * Set xp
      *
      * @param integer $xp
@@ -273,8 +283,9 @@ class Person extends Actor
         $this->setLevel(1);
         $this->setMaxHp($this->getStr()*2);
         $this->setMaxMp($this->getSpi()*2);
-        $this->added_hp = 0;
-        $this->added_mp = 0;
+        $this->addedHp = 0;
+        $this->addedMp = 0;
+        $this->capacity = $this->getStr()*2;
         $this->scenarioStartValues();
     }
 
@@ -453,7 +464,7 @@ class Person extends Actor
     }
 
     public function getMaxHp(){
-        $max_hp = parent::getMaxHp()+$this->added_hp;
+        $max_hp = $this->maxHp+$this->addedHp;
 
         if ($this->first_type != null && isset($this->first_type->getStatsBonuses()['max_hp'])){
             $max_hp+=$this->first_type->getStatsBonuses()['max_hp']['value'];
@@ -467,7 +478,7 @@ class Person extends Actor
     }
 
     public function getMaxMp(){
-        $max_mp = parent::getMaxMp()+$this->added_mp;
+        $max_mp = $this->maxMp+$this->addedMp;
 
         if (isset($this->first_type->getStatsBonuses()['max_mp'])){
             $max_mp+=$this->first_type->getStatsBonuses()['max_mp']['value'];
@@ -481,12 +492,86 @@ class Person extends Actor
     }
 
     /**
-     * @var integer
+     * @return int
      */
-    private $added_hp;
-
+    public function getCapacityMax(){
+        return $this->getStr()*2;
+    }
     /**
      * @var integer
      */
-    private $added_mp;
+    private $capacity;
+
+
+    /**
+     * Set capacity
+     *
+     * @param integer $capacity
+     *
+     * @return Person
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * Get capacity
+     *
+     * @return integer
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * Set addedHp
+     *
+     * @param integer $addedHp
+     *
+     * @return Person
+     */
+    public function setAddedHp($addedHp)
+    {
+        $this->addedHp = $addedHp;
+
+        return $this;
+    }
+
+    /**
+     * Get addedHp
+     *
+     * @return integer
+     */
+    public function getAddedHp()
+    {
+        return $this->addedHp;
+    }
+
+    /**
+     * Set addedMp
+     *
+     * @param integer $addedMp
+     *
+     * @return Person
+     */
+    public function setAddedMp($addedMp)
+    {
+        $this->addedMp = $addedMp;
+
+        return $this;
+    }
+
+    /**
+     * Get addedMp
+     *
+     * @return integer
+     */
+    public function getAddedMp()
+    {
+        return $this->addedMp;
+    }
 }

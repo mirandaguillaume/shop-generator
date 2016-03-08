@@ -25,7 +25,7 @@ abstract class Actor
     /**
      * @var int
      */
-    private $maxHp;
+    protected $maxHp;
 
     /**
      * @var int
@@ -35,7 +35,7 @@ abstract class Actor
     /**
      * @var int
      */
-    private $maxMp;
+    protected $maxMp;
 
     /**
      * @var int
@@ -158,10 +158,7 @@ abstract class Actor
      *
      * @return int
      */
-    public function getMaxHp()
-    {
-        return $this->maxHp;
-    }
+    public abstract function getMaxHp();
 
     /**
      * Set hp
@@ -210,10 +207,7 @@ abstract class Actor
      *
      * @return int
      */
-    public function getMaxMp()
-    {
-        return $this->maxMp;
-    }
+    public abstract function getMaxMp();
 
     /**
      * Set mp
@@ -324,7 +318,7 @@ abstract class Actor
     {
         $this->spi = $spi;
 
-        $this->setMaxMp($this->str*2);
+        $this->setMaxMp($this->spi*2);
 
         return $this;
     }
@@ -457,5 +451,12 @@ abstract class Actor
     public function getNameSlug()
     {
         return $this->name_slug;
+    }
+
+    public function reevaluate(){
+        if ($this->getHp()>$this->getMaxHp())
+            $this->setHp($this->getMaxHp());
+        if ($this->getMp()>$this->getMaxMp())
+            $this->setMp($this->getMaxMp());
     }
 }

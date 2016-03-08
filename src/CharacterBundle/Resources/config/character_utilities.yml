@@ -1,3 +1,4 @@
 services:
     character.utilities:
         class: CharacterBundle\Services\CharacterUtilities
+        arguments: [%basic_stats%]

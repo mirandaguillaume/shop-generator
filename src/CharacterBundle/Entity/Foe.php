@@ -180,4 +180,24 @@ class Foe extends Actor
     {
         return $this->speAbility;
     }
+
+    /**
+     * Get maxHp
+     *
+     * @return int
+     */
+    public function getMaxHp()
+    {
+       return $this->getMaxHp();
+    }
+
+    /**
+     * Get maxMp
+     *
+     * @return int
+     */
+    public function getMaxMp()
+    {
+        return $this->getMaxMp();
+    }
 }

@@ -129,4 +129,18 @@ class Type
     public function removeStatsBonus($stat_bonus){
         unset($this->stats_bonuses[$stat_bonus['stat']]);
     }
+
+    /**
+     * Set statsBonuses
+     *
+     * @param array $statsBonuses
+     *
+     * @return Type
+     */
+    public function setStatsBonuses($statsBonuses)
+    {
+        $this->stats_bonuses = $statsBonuses;
+
+        return $this;
+    }
 }

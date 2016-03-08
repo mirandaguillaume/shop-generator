@@ -169,9 +169,12 @@ $avatar-height: 300px;
       padding-top: 5px;
       .skill {
         padding-top: 5px;
-        //.column {
-        //  min-height: 32px;
-        //}
+        display: flex;
+        flex-wrap: wrap;
+        .column {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
   }

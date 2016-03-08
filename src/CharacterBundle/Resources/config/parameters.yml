@@ -17,3 +17,8 @@ parameters:
         spell.level.low: spell.level.low
         spell.level.mid: spell.level.mid
         spell.level.high: spell.level.high
+    basic_stats:
+        str: str
+        dex: dex
+        int: int
+        spi: spi

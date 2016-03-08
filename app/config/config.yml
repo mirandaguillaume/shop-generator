@@ -14,6 +14,7 @@ imports:
 parameters:
     locale: fr
     app.path.job_icons: /uploads/images/job
+    assetic.filter.autoprefixer.bin: /usr/bin/autoprefixer-cli
 
 framework:
     #esi:             ~

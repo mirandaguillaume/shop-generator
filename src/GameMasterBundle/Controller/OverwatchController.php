@@ -56,14 +56,16 @@ class OverwatchController extends Controller
     }
 
     /** @Route("/lower_str/{player_id}") */
-    public function testLowerOneStr($player_id){
+    public function lowerOneStr($player_id){
         $em = $this->get('doctrine.orm.entity_manager');
 
         $character_utilities = $this->get('character.utilities');
 
         $player = $em->getRepository('CharacterBundle:Person')->find($player_id);
 
-        $character_utilities->upperStr($player,1);
+//        $character_utilities->lowerStr($player,1);
+
+        $player->setDefaultValues();
 
         $em->persist($player);
 

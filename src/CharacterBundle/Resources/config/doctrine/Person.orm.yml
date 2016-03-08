@@ -3,10 +3,13 @@ CharacterBundle\Entity\Person:
     table: null
     repositoryClass: CharacterBundle\Repository\PersonRepository
     fields:
-        added_hp:
+        capacity:
             type: integer
             nullable: false
-        added_mp:
+        addedHp:
+            type: integer
+            nullable: false
+        addedMp:
             type: integer
             nullable: false
         xp:
