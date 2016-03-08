@@ -285,7 +285,7 @@ ruby:
         rv_lgxkvk1pv0rw:
             default: '1'
             bundler: '1'
-            version: 2.1.2
+            version: 1.9.3
             gems:
                 - deep_merge
                 - activesupport

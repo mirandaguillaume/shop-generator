@@ -59,9 +59,11 @@ class OverwatchController extends Controller
     public function testLowerOneStr($player_id){
         $em = $this->get('doctrine.orm.entity_manager');
 
+        $character_utilities = $this->get('character.utilities');
+
         $player = $em->getRepository('CharacterBundle:Person')->find($player_id);
 
-        $player->setStr($player->getStr()-2);
+        $character_utilities->upperStr($player,1);
 
         $em->persist($player);
 

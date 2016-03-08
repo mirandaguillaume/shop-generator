@@ -1,5 +1,6 @@
 imports:
     - { resource: form_services.yml }
+    - { resource: character_utilities.yml }
 
 services:
 #    character.example:
