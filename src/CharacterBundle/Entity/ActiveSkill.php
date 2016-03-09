@@ -45,4 +45,42 @@ class ActiveSkill extends Skill
     {
         return $this->macro;
     }
+
+    /**
+     * @return string
+     */
+    public function getUsedStats()
+    {
+        return $this->usedStats;
+    }
+
+    /**
+     * @param string $usedStats
+     * @return Skill
+     */
+    public function setUsedStats($usedStats)
+    {
+        $this->usedStats = $usedStats;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTarget()
+    {
+        return $this->target;
+    }
+
+    /**
+     * @param string $target
+     * @return Skill
+     */
+    public function setTarget($target)
+    {
+        $this->target = $target;
+
+        return $this;
+    }
 }

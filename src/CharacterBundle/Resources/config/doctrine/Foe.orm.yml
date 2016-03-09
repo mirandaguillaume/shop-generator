@@ -22,4 +22,20 @@ CharacterBundle\Entity\Foe:
         speAbility:
             type: text
             nullable: true
+        armor:
+            type: integer
+            options:
+                default: 0
+        accuracy:
+            type: string
+            length: 255
+        damage:
+            type: string
+            length: 255
+    manyToOne:
+        species:
+            targetEntity: CharacterBundle\Entity\Species
+            joinColumn:
+                name: species_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }

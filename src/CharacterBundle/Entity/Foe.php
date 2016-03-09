@@ -38,6 +38,26 @@ class Foe extends Actor
     private $speAbility;
 
     /**
+     * @var Species
+     */
+    private $species;
+
+    /**
+     * @var integer
+     */
+    private $armor;
+
+    /**
+     * @var string
+     */
+    private $accuracy;
+
+    /**
+     * @var string
+     */
+    private $damage;
+
+    /**
      * Set habitat
      *
      * @param string $habitat
@@ -199,5 +219,101 @@ class Foe extends Actor
     public function getMaxMp()
     {
         return $this->getMaxMp();
+    }
+
+    /**
+     * Set armor
+     *
+     * @param integer $armor
+     *
+     * @return Foe
+     */
+    public function setArmor($armor)
+    {
+        $this->armor = $armor;
+
+        return $this;
+    }
+
+    /**
+     * Get armor
+     *
+     * @return integer
+     */
+    public function getArmor()
+    {
+        return $this->armor;
+    }
+
+    /**
+     * Set accuracy
+     *
+     * @param string $accuracy
+     *
+     * @return Foe
+     */
+    public function setAccuracy($accuracy)
+    {
+        $this->accuracy = $accuracy;
+
+        return $this;
+    }
+
+    /**
+     * Get accuracy
+     *
+     * @return string
+     */
+    public function getAccuracy()
+    {
+        return $this->accuracy;
+    }
+
+    /**
+     * Set damage
+     *
+     * @param string $damage
+     *
+     * @return Foe
+     */
+    public function setDamage($damage)
+    {
+        $this->damage = $damage;
+
+        return $this;
+    }
+
+    /**
+     * Get damage
+     *
+     * @return string
+     */
+    public function getDamage()
+    {
+        return $this->damage;
+    }
+
+    /**
+     * Set species
+     *
+     * @param \CharacterBundle\Entity\Species $species
+     *
+     * @return Foe
+     */
+    public function setSpecies(Species $species)
+    {
+        $this->species = $species;
+
+        return $this;
+    }
+
+    /**
+     * Get species
+     *
+     * @return \CharacterBundle\Entity\Species
+     */
+    public function getSpecies()
+    {
+        return $this->species;
     }
 }

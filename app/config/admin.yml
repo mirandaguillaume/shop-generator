@@ -17,9 +17,12 @@ easy_admin:
             - Common
             - Container
             - Herb
-            - SpecifiedItem
+#            - SpecifiedItem
             - Job
             - Type
+            - Character
+            - label: 'admin.menu.foe'
+              children: ['Foe', 'Species']
     list:
         actions:
             - { name: 'show', label: 'action.show' }
@@ -309,3 +312,52 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.type.name' }
                     - { property: 'statsBonuses', label: 'admin.type.bonuses', type: 'collection', type_options: { entry_type: 'CharacterBundle\Form\StatBonusType', 'allow_add': true }}
+        Character:
+            class: CharacterBundle\Entity\Person
+            list:
+                fields:
+                    - { property: 'name', label: 'admin.actor.name' }
+                    - { property: 'level', label: 'admin.actor.level' }
+        Foe:
+            class: CharacterBundle\Entity\Foe
+            list:
+                fields:
+                    - { property: 'dragonicaNumber', label: 'admin.foe.dragonicaNumber' }
+                    - { property: 'name', label: 'admin.actor.name' }
+                    - { property: 'level', label: 'admin.actor.level' }
+                    - { property: 'hp', label: 'admin.actor.hp' }
+                    - { property: 'mp', label: 'admin.actor.mp' }
+                    - { property: 'habitat', label: 'admin.foe.habitat' }
+                    - { property: 'season', label : 'admin.foe.season' }
+                    - { property: 'species', label: 'admin.foe.species' }
+            form:
+                fields:
+                    - {property: 'dragonicaNumber', label: 'admin.foe.dragonicaNumber' }
+                    - {property: 'name', label: 'admin.actor.name' }
+                    - {property: 'level', label: 'admin.actor.level' }
+                    - {property: 'hp', label: 'admin.actor.hp' }
+                    - {property: 'mp', label: 'admin.actor.mp' }
+                    - {property: 'str', label: 'admin.actor.str' }
+                    - {property: 'dex', label: 'admin.actor.dex' }
+                    - {property: 'intelligence', label: 'admin.actor.int' }
+                    - {property: 'spi', label: 'admin.actor.spi' }
+                    - {property: 'actorCondition', label: 'admin.actor.condition' }
+                    - {property: 'initiative', label: 'admin.actor.initiative' }
+                    - {property: 'armor', label: 'admin.foe.armor' }
+                    - {property: 'accuracy', label: 'admin.foe.accuracy' }
+                    - {property: 'damage', label: 'admin.foe.damage' }
+                    - {property: 'habitat', label: 'admin.foe.habitat' }
+                    - {property: 'season', label : 'admin.foe.season', type: 'CharacterBundle\Form\Type\SeasonSelectType' }
+                    - {property: 'species', label: 'admin.foe.species', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Species' }}
+                    - {property: 'loot', label: 'admin.foe.loot' }
+                    - {property: 'speAbility', label: 'admin.foe.speAbility' }
+                    - {property: 'description', label: 'admin.foe.description' }
+        Species:
+            class: CharacterBundle\Entity\Species
+            list:
+                fields:
+                    - {property: 'name', label: 'admin.species.name' }
+            form:
+                fields:
+                    - {property: 'name', label: 'admin.species.name' }
+                    - {property: 'description', label: 'admin.species.description' }

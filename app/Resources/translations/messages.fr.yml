@@ -32,6 +32,25 @@ form:
         weapon: Arme préférée
 
 admin:
+    actor:
+        name: Nom
+        level: Niveau
+        hp: PS
+        mp: PM
+        str: STR
+        dex: AGI
+        int: INT
+        spi: ESP
+        condition: Condition
+        initiative: Initiative
+    foe:
+        dragonicaNumber: Index Dragonica
+        habitat: Habitat
+        season: Saison
+        species: Espèce
+        loot: Dépouille
+        speAbility: Capacité spéciales
+        description: Description
     spe:
         feature: Caractéristique
         price_modifier: Modificateur de prix
@@ -148,3 +167,18 @@ character:
     level: Niveau
     xp: EXP
     capacity_max: Encombrement Max
+
+foe:
+    species:
+        eggs: Oeufs
+        phantom_beasts: Bêtes
+        phantom_plants: Plantes
+        nekogoblins: Gobelin-chats
+        demonstones: Pierres
+        undeads: Morts-vivants
+        gobroaches: Gobelin-cafards
+        demons: Démons
+        magical_creations: Créations magiques
+        npc: PNJ
+        animals: Animaux
+        wild_dragons: Dragons corrompus

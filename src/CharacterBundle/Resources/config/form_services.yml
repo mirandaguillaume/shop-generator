@@ -2,25 +2,25 @@ imports:
   - { resource: parameters.yml }
 
 services:
-    character.seasons:
+    actor.seasons:
         class: CharacterBundle\Form\Type\SeasonSelectType
         arguments:
             - '%seasons%'
         tags:
             - { name: form.type }
-    character.reach:
+    spell.reach:
         class: CharacterBundle\Form\Type\ReachSelectType
         arguments:
             - '%reaches%'
         tags:
             - { name: form.type }
-    character.spell.type:
+    spell.type:
         class: CharacterBundle\Form\Type\SpellTypeSelectType
         arguments:
             - '%spell_types%'
         tags:
             - { name: form.type }
-    character.spell.level:
+    spell.level:
         class: CharacterBundle\Form\Type\SpellLevelSelectType
         arguments:
             - '%spell_levels%'

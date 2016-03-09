@@ -20,7 +20,7 @@ class Version20160215123523 extends AbstractMigration
 
         $this->addSql('ALTER TABLE skill DROP FOREIGN KEY FK_5E3DE477EA000B10');
         $this->addSql('DROP INDEX IDX_5E3DE477EA000B10 ON skill');
-        $this->addSql('ALTER TABLE skill CHANGE class_id job_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE skill CHANGE class_id job_id INT NOT NULL');
         $this->addSql('ALTER TABLE skill ADD CONSTRAINT FK_5E3DE477BE04EA9 FOREIGN KEY (job_id) REFERENCES job (id)');
         $this->addSql('CREATE INDEX IDX_5E3DE477BE04EA9 ON skill (job_id)');
     }
