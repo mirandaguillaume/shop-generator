@@ -26,9 +26,7 @@ class AdminController extends BaseAdminController
     public function indexAction(Request $request)
     {
         $action = $request->query->get('action', 'list');
-
-        var_dump($request->request->all());
-
+        
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_'.strtoupper($action))) {
             $request->query->replace(array('action' => 'list'));
         }
