@@ -212,7 +212,7 @@ class Foe extends Actor
      */
     public function getMaxHp()
     {
-        return $this->getMaxHp();
+        return $this->maxHp;
     }
 
     /**
@@ -222,7 +222,7 @@ class Foe extends Actor
      */
     public function getMaxMp()
     {
-        return $this->getMaxMp();
+        return $this->maxMp;
     }
 
     /**
