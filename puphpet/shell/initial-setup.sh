@@ -115,7 +115,6 @@ elif [[ "${OS}" == 'centos' ]]; then
 
     echo 'Installing git'
     yum -y install git
-    git config --global url."https://".insteadOf git://
     echo 'Finished installing git'
 
     echo 'Installing Development Tools'
