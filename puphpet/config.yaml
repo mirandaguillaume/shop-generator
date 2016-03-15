@@ -106,22 +106,20 @@ cron:
     install: '1'
     jobs: {  }
 nginx:
-    install: '0'
+    install: '1'
     settings:
         default_vhost: 1
-        proxy_buffer_size: 128k
-        proxy_buffers: '4 256k'
+        proxy_buffer_size: 500k
+        proxy_buffers: '10 256k'
         proxy_connect_timeout: 600s
         proxy_send_timeout: 600s
         proxy_read_timeout: 600s
         names_hash_bucket_size: 128
     upstreams: {  }
     vhosts:
-        nxv_58z31t8dlyof:
-            server_name: awesome.dev
-            server_aliases:
-                - www.awesome.dev
-            www_root: /var/www/awesome
+        nxv_bbegkpqshvry:
+            server_name: shop-generator.dev
+            www_root: /var/www/shop-generator/web
             listen_port: '80'
             index_files:
                 - index.html
@@ -137,7 +135,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_adupd3l9who9:
+                nxvl_vj46hrvzqpk4:
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -150,8 +148,8 @@ nginx:
                     fastcgi_split_path: ''
                     proxy: ''
                     proxy_redirect: ''
-                nxvl_hskf8h0kxde6:
-                    location: '~ \.php$'
+                nxvl_st8iryabvmtg:
+                    location: '~ ^/(app|app_dev)\.php(/|$)'
                     autoindex: 'off'
                     internal: 'false'
                     try_files:
@@ -170,7 +168,7 @@ nginx:
                     proxy_redirect: ''
     proxies: {  }
 apache:
-    install: '1'
+    install: '0'
     settings:
         version: 2.4
         user: www-data
@@ -183,11 +181,11 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_w86suecui908:
-            servername: shop-generator.dev
+        av_pkdwmm8yjqdv:
+            servername: awesome.dev
             serveraliases:
-                - www.shop-generator.dev
-            docroot: /var/www/shop-generator/web
+                - www.awesome.dev
+            docroot: /var/www/awesome
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -202,8 +200,8 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_jrzft65z5zgs:
-                    path: /var/www/shop-generator/web
+                avd_bq7x9z1dd8vt:
+                    path: /var/www/awesome
                     options:
                         - Indexes
                         - FollowSymlinks
@@ -214,7 +212,7 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_183hnmz6vnc9:
+                        avdfm_r5t0q2s9e2ld:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
@@ -252,7 +250,7 @@ xdebug:
     install: '0'
     settings:
         xdebug.default_enable: '1'
-        xdebug.remote_autostart: '0'
+        xdebug.remote_autostart: '1'
         xdebug.remote_connect_back: '1'
         xdebug.remote_enable: '1'
         xdebug.remote_handler: dbgp

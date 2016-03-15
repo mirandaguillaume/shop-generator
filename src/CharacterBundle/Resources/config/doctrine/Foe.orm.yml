@@ -24,8 +24,6 @@ CharacterBundle\Entity\Foe:
             nullable: true
         armor:
             type: integer
-            options:
-                default: 0
         accuracy:
             type: string
             length: 255

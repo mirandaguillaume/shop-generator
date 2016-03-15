@@ -57,6 +57,10 @@ class Foe extends Actor
      */
     private $damage;
 
+    public function __construct(){
+        $this->loot = array();
+    }
+
     /**
      * Set habitat
      *
@@ -88,7 +92,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setSeason($season)
+    public function setSeason($season = '')
     {
         $this->season = $season;
 
@@ -112,7 +116,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setLoot($loot)
+    public function setLoot($loot = '')
     {
         $this->loot = $loot;
 
@@ -184,7 +188,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setSpeAbility($speAbility)
+    public function setSpeAbility($speAbility = '')
     {
         $this->speAbility = $speAbility;
 
@@ -208,7 +212,7 @@ class Foe extends Actor
      */
     public function getMaxHp()
     {
-       return $this->getMaxHp();
+        return $this->getMaxHp();
     }
 
     /**
@@ -228,7 +232,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setArmor($armor)
+    public function setArmor($armor = 0)
     {
         $this->armor = $armor;
 
@@ -252,7 +256,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setAccuracy($accuracy)
+    public function setAccuracy($accuracy = '')
     {
         $this->accuracy = $accuracy;
 
@@ -276,7 +280,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setDamage($damage)
+    public function setDamage($damage = '')
     {
         $this->damage = $damage;
 
@@ -300,7 +304,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setSpecies(Species $species)
+    public function setSpecies(Species $species = null)
     {
         $this->species = $species;
 
