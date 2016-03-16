@@ -19,9 +19,6 @@ CharacterBundle\Entity\Foe:
             column: dragonica_number
         description:
             type: text
-        speAbility:
-            type: text
-            nullable: true
         armor:
             type: integer
         accuracy:
@@ -36,4 +33,15 @@ CharacterBundle\Entity\Foe:
             joinColumn:
                 name: species_id
                 referencedColumnName: id
+    manyToMany:
+        speAbilities:
+            targetEntity: CharacterBundle\Entity\SpeAbility
+            joinTable:
+                name: foe_speAbilities
+                joinColumns:
+                    foe_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    speAbility_id:
+                        referencedColumnName: id
     lifecycleCallbacks: {  }

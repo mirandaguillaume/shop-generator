@@ -361,3 +361,12 @@ easy_admin:
                 fields:
                     - {property: 'name', label: 'admin.species.name' }
                     - {property: 'description', label: 'admin.species.description' }
+        SpeAbilities:
+            class: CharacterBundle\Entity\SpeAbility
+            list:
+                fields:
+                    - {property: 'name', label: 'admin.spe_ability.name'}
+            form:
+                fields:
+                    - {property: 'name', label: 'admin.species.name' }
+                    - {property: 'effect', label: 'admin.species.effect' }

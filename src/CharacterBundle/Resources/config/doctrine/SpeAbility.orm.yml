@@ -1,0 +1,17 @@
+CharacterBundle\Entity\SpeAbility:
+    type: entity
+    table: null
+    repositoryClass: CharacterBundle\Repository\SpeAbilityRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        effect:
+            type: text
+    lifecycleCallbacks: {  }

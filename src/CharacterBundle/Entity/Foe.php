@@ -1,6 +1,7 @@
 <?php
 
 namespace CharacterBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Foe
@@ -33,9 +34,9 @@ class Foe extends Actor
     private $description;
 
     /**
-     * @var string
+     * @var ArrayCollection
      */
-    private $speAbility;
+    private $speAbilities;
 
     /**
      * @var Species
@@ -59,6 +60,7 @@ class Foe extends Actor
 
     public function __construct(){
         $this->loot = array();
+        $this->speAbilities = new ArrayCollection();
     }
 
     /**
@@ -92,7 +94,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setSeason($season = '')
+    public function setSeason($season)
     {
         $this->season = $season;
 
@@ -116,7 +118,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setLoot($loot = '')
+    public function setLoot($loot)
     {
         $this->loot = $loot;
 
@@ -181,18 +183,12 @@ class Foe extends Actor
         return $this->description;
     }
 
-    /**
-     * Set speAbility
-     *
-     * @param string $speAbility
-     *
-     * @return Foe
-     */
-    public function setSpeAbility($speAbility = '')
-    {
-        $this->speAbility = $speAbility;
+    public function addSpeAbility(SpeAbility $ability) {
+        $this->speAbilities->add($ability);
+    }
 
-        return $this;
+    public function removeSpeAbility(SpeAbility $ability) {
+        $this->speAbilities->removeElement($ability);
     }
 
     /**
@@ -200,9 +196,9 @@ class Foe extends Actor
      *
      * @return string
      */
-    public function getSpeAbility()
+    public function getSpeAbilities()
     {
-        return $this->speAbility;
+        return $this->speAbilities;
     }
 
     /**
@@ -232,7 +228,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setArmor($armor = 0)
+    public function setArmor($armor)
     {
         $this->armor = $armor;
 
@@ -256,7 +252,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setAccuracy($accuracy = '')
+    public function setAccuracy($accuracy)
     {
         $this->accuracy = $accuracy;
 
@@ -280,7 +276,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setDamage($damage = '')
+    public function setDamage($damage)
     {
         $this->damage = $damage;
 
@@ -304,7 +300,7 @@ class Foe extends Actor
      *
      * @return Foe
      */
-    public function setSpecies(Species $species = null)
+    public function setSpecies(Species $species)
     {
         $this->species = $species;
 
