@@ -22,7 +22,7 @@ easy_admin:
             - Type
             - Character
             - label: 'admin.menu.foe'
-              children: ['Foe', 'Species']
+              children: ['Foe', 'Species', 'SpeAbilities']
     list:
         actions:
             - { name: 'show', label: 'action.show' }
@@ -350,7 +350,7 @@ easy_admin:
                     - {property: 'season', label : 'admin.foe.season', type: 'CharacterBundle\Form\Type\SeasonSelectType' }
                     - {property: 'species', label: 'admin.foe.species', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Species' }}
                     - {property: 'loot', label: 'admin.foe.loot' }
-                    - {property: 'speAbility', label: 'admin.foe.speAbility' }
+                    - {property: 'speAbilities', label: 'admin.foe.speAbility', type: 'entity', type_options: { class: 'CharacterBundle\Entity\SpeAbility', 'multiple': true }}
                     - {property: 'description', label: 'admin.foe.description' }
         Species:
             class: CharacterBundle\Entity\Species

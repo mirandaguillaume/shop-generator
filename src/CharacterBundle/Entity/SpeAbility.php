@@ -80,5 +80,10 @@ class SpeAbility
     {
         return $this->effect;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
 
