@@ -14,13 +14,10 @@ easy_admin:
               children: ['SeasonalSpell', 'IncantationSpell']
             - label: 'admin.menu.skill'
               children: ['ActiveSkill', 'PassiveSkill']
-            - Common
-            - Container
-            - Herb
-#            - SpecifiedItem
-            - Job
-            - Type
-            - Character
+            - label: 'admin.menu.other_items'
+              children: ['Common', 'Container', 'Herb']
+            - label: 'admin.menu.character'
+              children: ['Job', 'Type', 'Character', 'StatusEffect']
             - label: 'admin.menu.foe'
               children: ['Foe', 'Species', 'SpeAbilities']
     list:
@@ -368,5 +365,14 @@ easy_admin:
                     - {property: 'name', label: 'admin.spe_ability.name'}
             form:
                 fields:
-                    - {property: 'name', label: 'admin.species.name' }
-                    - {property: 'effect', label: 'admin.species.effect' }
+                    - {property: 'name', label: 'admin.spe_ability.name' }
+                    - {property: 'effect', label: 'admin.spe_ability.effect' }
+        StatusEffect:
+            class: CharacterBundle\Entity\StatusEffect
+            list:
+                fields:
+                    - {property: 'name', label: 'admin.status_effect.name' }
+            form:
+                fields:
+                    - {property: 'name', label: 'admin.status_effect.name' }
+                    - {property: 'stats', label: 'admin.status_effect.stat', type: 'choice', type_options: { choices: %basic_stats%, multiple: true }}

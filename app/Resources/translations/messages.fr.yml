@@ -85,6 +85,9 @@ admin:
         spell: Sorts
         skill: Compétences
         job: Classe
+        character: Personnages
+        foe: Monstres
+        other_items: Autres objets
     spell:
         name: Nom
         level: Niveau
