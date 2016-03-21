@@ -372,7 +372,9 @@ easy_admin:
             list:
                 fields:
                     - {property: 'name', label: 'admin.status_effect.name' }
+                    - {property: 'type', label: 'admin.status_effect.type' }
             form:
                 fields:
                     - {property: 'name', label: 'admin.status_effect.name' }
+                    - {property: 'type', label: 'admin.status_effect.type', type: 'CharacterBundle\Form\StatusTypeChoiceType' }
                     - {property: 'stats', label: 'admin.status_effect.stat', type: 'choice', type_options: { choices: %basic_stats%, multiple: true }}

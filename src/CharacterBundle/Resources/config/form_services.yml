@@ -32,3 +32,9 @@ services:
             - '%basic_stats%'
         tags:
             - { name: form.type }
+    status.type:
+        class: CharacterBundle\Form\StatusTypeChoiceType
+        arguments:
+            - '%status.types%'
+        tags:
+            - { name: form.type }

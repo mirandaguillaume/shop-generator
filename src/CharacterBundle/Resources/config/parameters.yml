@@ -22,3 +22,6 @@ parameters:
         dex: dex
         int: int
         spi: spi
+    status.types:
+        status.type.body: status.type.body
+        status.type.mind: status.type.mind
