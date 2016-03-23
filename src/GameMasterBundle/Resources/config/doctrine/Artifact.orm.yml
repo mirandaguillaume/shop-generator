@@ -1,0 +1,19 @@
+GameMasterBundle\Entity\Artifact:
+    type: entity
+    table: null
+    repositoryClass: GameMasterBundle\Repository\ArtifactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        effect:
+            type: text
+    lifecycleCallbacks: {  }

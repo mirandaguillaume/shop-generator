@@ -1,0 +1,49 @@
+GameMasterBundle\Entity\Ryuujin:
+    type: entity
+    table: null
+    repositoryClass: GameMasterBundle\Repository\RyuujinRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        level:
+            type: integer
+        alternativeShape:
+            type: string
+            length: 255
+            column: alternative_shape
+        artifact:
+            type: string
+            length: 255
+        artifactInscription:
+            type: string
+            length: 255
+            column: artifact_inscription
+        maxLp:
+            type: integer
+            column: max_lp
+        lp:
+            type: integer
+        looks:
+            type: text
+        personality:
+            type: text
+        goal:
+            type: text
+        livingQuarters:
+            type: string
+            length: 255
+            column: living_quarters
+    manyToOne:
+        race:
+            targetEntity: GameMasterBundle\Entity\Race
+            joinColumn:
+                name: race_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

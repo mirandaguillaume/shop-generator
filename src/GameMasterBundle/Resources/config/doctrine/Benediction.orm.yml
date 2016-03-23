@@ -1,0 +1,21 @@
+GameMasterBundle\Entity\Benediction:
+    type: entity
+    table: null
+    repositoryClass: GameMasterBundle\Repository\BenedictionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        effect:
+            type: text
+        description:
+            type: text
+        cost:
+            type: integer
+    lifecycleCallbacks: {  }

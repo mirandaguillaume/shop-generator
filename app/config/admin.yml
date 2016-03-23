@@ -20,6 +20,8 @@ easy_admin:
               children: ['Job', 'Type', 'Character', 'StatusEffect']
             - label: 'admin.menu.foe'
               children: ['Foe', 'Species', 'SpeAbilities']
+            - label: 'admin.menu.ryuujin'
+              children: ['Race', 'Benediction', 'Artifact']
     list:
         actions:
             - { name: 'show', label: 'action.show' }
@@ -110,7 +112,7 @@ easy_admin:
                     - { property: 'feature', label: 'admin.spe.feature' }
                     - { property: 'priceModifier', label: 'admin.spe.price_modifier', type: 'ItemBundle\Form\Type\ModifierType' }
                     - { property: 'bonusModifiers', label: 'admin.spe.bonus_modifiers', type: 'collection', type_options: { entry_type: 'ItemBundle\Form\Type\BonusModifierType' } }
-                    - { property: 'description', label: 'admin.item.description' }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         SpeItem:
             class: ItemBundle\Entity\SpeItem
             list:
@@ -122,7 +124,7 @@ easy_admin:
                     - { property: 'feature', label: 'admin.spe.feature' }
                     - { property: 'priceModifier', label: 'admin.spe.price_modifier', type: 'ItemBundle\Form\Type\ModifierType' }
                     - { property: 'bonusModifiers', label: 'admin.spe.bonus_modifiers', type: 'collection', type_options: { entry_type: 'ItemBundle\Form\Type\BonusModifierType' } }
-                    - { property: 'description', label: 'admin.item.description' }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         Herb:
             class: ItemBundle\Entity\Herb
             list:
@@ -179,7 +181,7 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.item.name' }
                     - { property: 'price', label: 'admin.item.price' }
-                    - { property: 'description', label: 'admin.item.description' }
+                    - { property: 'description', label: 'admin.item.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
             disabled_actions: ['new', 'edit']
         SeasonalSpell:
             class: CharacterBundle\Entity\SeasonalSpell
@@ -201,7 +203,7 @@ easy_admin:
                     - { property: 'duration', label: 'admin.spell.duration' }
                     - { property: 'target', label: 'admin.spell.target' }
                     - { property: 'reach', label: 'admin.spell.reach', type: 'CharacterBundle\Form\Type\ReachSelectType' }
-                    - { property: 'effect', label: 'admin.spell.effect' }
+                    - { property: 'effect', label: 'admin.spell.effect', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'type', label: 'admin.spell.type', type: 'CharacterBundle\Form\Type\SpellTypeSelectType' }
                     - { property: 'season', label: 'admin.spell.season', type: 'CharacterBundle\Form\Type\SeasonSelectType' }
             show:
@@ -233,7 +235,7 @@ easy_admin:
                     - { property: 'duration', label: 'admin.spell.duration' }
                     - { property: 'target', label: 'admin.spell.target' }
                     - { property: 'reach', label: 'admin.spell.reach', type: 'CharacterBundle\Form\Type\ReachSelectType' }
-                    - { property: 'effect', label: 'admin.spell.effect' }
+                    - { property: 'effect', label: 'admin.spell.effect', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'type', label: 'admin.spell.type', type: 'CharacterBundle\Form\Type\SpellTypeSelectType' }
 
             show:
@@ -264,7 +266,7 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.job.name' }
                     - { property: 'iconFile', type: 'Vich\UploaderBundle\Form\Type\VichImageType', label: 'admin.job.icon' }
-                    - { property: 'description', label: 'admin.job.description' }
+                    - { property: 'description', label: 'admin.job.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         ActiveSkill:
             class: CharacterBundle\Entity\ActiveSkill
             list:
@@ -280,7 +282,7 @@ easy_admin:
                     - { property: 'target', label: 'admin.skill.active.target' }
                     - { property: 'usableCircumstances', label: 'admin.skill.usable_circumstances' }
                     - { property: 'effect', label: 'admin.skill.effect' }
-                    - { property: 'description', label: 'admin.skill.description' }
+                    - { property: 'description', label: 'admin.skill.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}
 
         PassiveSkill:
@@ -293,8 +295,8 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'admin.skill.name' }
                     - { property: 'usableCircumstances', label: 'admin.skill.usable_circumstances' }
-                    - { property: 'effect', label: 'admin.skill.effect' }
-                    - { property: 'description', label: 'admin.skill.description' }
+                    - { property: 'effect', label: 'admin.skill.effect', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'description', label: 'admin.skill.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'job', label: 'admin.skill.job', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Job', 'choice_label': 'name' }}
         Type:
             class: CharacterBundle\Entity\Type
@@ -348,7 +350,7 @@ easy_admin:
                     - {property: 'species', label: 'admin.foe.species', type: 'entity', type_options: { class: 'CharacterBundle\Entity\Species' }}
                     - {property: 'loot', label: 'admin.foe.loot' }
                     - {property: 'speAbilities', label: 'admin.foe.speAbility', type: 'entity', type_options: { class: 'CharacterBundle\Entity\SpeAbility', 'multiple': true }}
-                    - {property: 'description', label: 'admin.foe.description' }
+                    - {property: 'description', label: 'admin.foe.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         Species:
             class: CharacterBundle\Entity\Species
             list:
@@ -357,7 +359,7 @@ easy_admin:
             form:
                 fields:
                     - {property: 'name', label: 'admin.species.name' }
-                    - {property: 'description', label: 'admin.species.description' }
+                    - {property: 'description', label: 'admin.species.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         SpeAbilities:
             class: CharacterBundle\Entity\SpeAbility
             list:
@@ -366,7 +368,7 @@ easy_admin:
             form:
                 fields:
                     - {property: 'name', label: 'admin.spe_ability.name' }
-                    - {property: 'effect', label: 'admin.spe_ability.effect' }
+                    - {property: 'effect', label: 'admin.spe_ability.effect', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
         StatusEffect:
             class: CharacterBundle\Entity\StatusEffect
             list:
@@ -378,3 +380,38 @@ easy_admin:
                     - {property: 'name', label: 'admin.status_effect.name' }
                     - {property: 'type', label: 'admin.status_effect.type', type: 'CharacterBundle\Form\StatusTypeChoiceType' }
                     - {property: 'stats', label: 'admin.status_effect.stat', type: 'choice', type_options: { choices: %basic_stats%, multiple: true }}
+        Race:
+            class: GameMasterBundle\Entity\Race
+            list:
+                fields:
+                    - {property: 'name', label: 'admin.race.name' }
+            form:
+                fields:
+                    - {property: 'name', label: 'admin.race.name' }
+                    - {property: 'artifacts', label: 'admin.race.artifacts'}
+                    - {property: 'benedictions', label: 'admin.race.benedictions'}
+        Benediction:
+            class: GameMasterBundle\Entity\Benediction
+            list:
+                fields:
+                    - {property: 'name', label: 'admin.benediction.name' }
+                    - {property: 'cost', label: 'admin.benediction.cost' }
+            form:
+                fields:
+                    - {property: 'name', label: 'admin.benediction.name' }
+                    - {property: 'cost', label: 'admin.benediction.cost' }
+                    - {property: 'effect', label: 'admin.benediction.effect', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+                    - {property: 'description', label: 'admin.benediction.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+        Artifact:
+            class: GameMasterBundle\Entity\Artifact
+            list:
+                fields:
+                    - {property: 'name', label: 'admin.artifact.name' }
+            form:
+                fields:
+                    - {property: 'name', label: 'admin.artifact.name' }
+                    - {property: 'effect', label: 'admin.artifact.effect', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+                    - {property: 'description', label: 'admin.artifact.description', type: 'Ivory\CKEditorBundle\Form\Type\CKEditorType' }
+
+
+

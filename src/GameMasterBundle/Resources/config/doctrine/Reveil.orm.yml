@@ -1,0 +1,22 @@
+GameMasterBundle\Entity\Reveil:
+    type: entity
+    table: null
+    repositoryClass: GameMasterBundle\Repository\ReveilRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        cost:
+            type: integer
+        effect:
+            type: text
+    lifecycleCallbacks: {  }

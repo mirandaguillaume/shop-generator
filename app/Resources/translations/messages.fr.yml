@@ -32,6 +32,29 @@ form:
         weapon: Arme préférée
 
 admin:
+    artifact:
+        name: Nom
+        effect: Effet
+        description: Description
+    benediction:
+        name: Nom
+        effect: Effet
+        cost: Coût
+        description: Description
+    race:
+        name: Nom
+        artifacts: Artéfacts
+        benedictions: Souffles
+    species:
+        name: Nom
+        description: Description
+    spe_ability:
+        name: Nom
+        effect: Effet
+    status_effect:
+        name: Nom
+        type: Type
+        stat: Statistique associée
     actor:
         name: Nom
         level: Niveau
@@ -88,6 +111,7 @@ admin:
         character: Personnages
         foe: Monstres
         other_items: Autres objets
+        ryuujin: Homme-dragon
     spell:
         name: Nom
         level: Niveau
@@ -131,6 +155,15 @@ Job: Classe
 Skill: Compétences
 ActiveSkill: Compétence active
 PassiveSkill: Compétence passive
+StatusEffect: Effets négatifs
+Character: Personnage
+Foe: Monstre
+Species: Espèce
+SpeAbilities: Capacité spéciales
+Type: Type
+Race: Couleur
+Benediction: Souffle
+Artifact: Artéfact
 
 location:
     one_hand: Une main
@@ -185,3 +218,13 @@ foe:
         npc: PNJ
         animals: Animaux
         wild_dragons: Dragons corrompus
+
+status:
+    type:
+        mind: Psychologique
+        body: Physique
+
+str: Vigueur
+dex: Agilité
+spi: Esprit
+int: Intelligence

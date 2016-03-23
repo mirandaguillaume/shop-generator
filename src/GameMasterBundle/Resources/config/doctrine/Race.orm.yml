@@ -1,0 +1,19 @@
+GameMasterBundle\Entity\Race:
+    type: entity
+    table: null
+    repositoryClass: GameMasterBundle\Repository\RaceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        artifacts:
+            type: array
+        benedictions:
+            type: array
+    lifecycleCallbacks: {  }
