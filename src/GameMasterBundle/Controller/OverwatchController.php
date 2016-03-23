@@ -55,15 +55,45 @@ class OverwatchController extends Controller
         ));
     }
 
-    /** @Route("/lower_str/{player_id}") */
-    public function lowerOneStr($player_id){
+    /**
+     * @Route("/lower_stat/{stat}/{player_id}/{scale}")
+     * @param $stat
+     * @param $player_id
+     * @param $scale
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function lowerStat($stat, $player_id, $scale){
+        return $this->modifyStat('lower',$stat,$player_id,$scale);
+    }
+
+    /**
+     * @Route("/upper_stat/{stat}/{player_id}/{scale}")
+     * @param $stat
+     * @param $player_id
+     * @param $scale
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function upperStat($stat, $player_id, $scale){
+       return $this->modifyStat('upper',$stat,$player_id,$scale);
+    }
+
+    /**
+     * @param $direction
+     * @param $stat
+     * @param $player_id
+     * @param $scale
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function modifyStat($direction, $stat, $player_id, $scale){
         $em = $this->get('doctrine.orm.entity_manager');
 
         $character_utilities = $this->get('character.utilities');
 
         $player = $em->getRepository('CharacterBundle:Person')->find($player_id);
 
-//        $character_utilities->lowerStr($player,1);
+        $modify = $direction.strtoupper(substr($stat,0,1)).substr($stat,1);
+
+        $character_utilities->$modify($player,$scale);
 
         $player->setDefaultValues();
 
