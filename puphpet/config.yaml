@@ -142,7 +142,7 @@ nginx:
                     try_files:
                         - $uri
                         - $uri/
-                        - /index.php$is_args$args
+                        - /app_dev.php$is_args$args
                     fastcgi: ''
                     fastcgi_index: ''
                     fastcgi_split_path: ''

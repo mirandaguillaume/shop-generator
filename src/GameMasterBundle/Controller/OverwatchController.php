@@ -42,7 +42,9 @@ class OverwatchController extends Controller
 
         $players_id = $request->request->all()['overwatch_choose']['players'];
 
-        $player_repository = $this->get('doctrine.orm.entity_manager')->getRepository('CharacterBundle:Person');
+        $em = $this->get('doctrine.orm.entity_manager');
+
+        $player_repository = $em->getRepository('CharacterBundle:Person');
 
         $players = array();
 
@@ -50,8 +52,11 @@ class OverwatchController extends Controller
             $players[] = $player_repository->find($player_id);
         }
 
+        $effects = $em->getRepository('CharacterBundle:StatusEffect')->findAll();
+
         return $this->render('GameMasterBundle:Overwatch:group.html.twig', array(
-            'players' => $players
+            'players' => $players,
+            'effects' => $effects,
         ));
     }
 

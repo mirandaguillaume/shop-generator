@@ -11,10 +11,55 @@
 
 {% block body %}
 
+    {% block group_menu %}
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                {% for effect in effects %}
+                                    <li><a href='#' draggable="true" drag-function="effect:{{ effect.id }}">{{ effect.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+
     {% for player in players %}
-        <div class="col-md-6 small-show">
-        {% include 'CharacterBundle:Character:show_content.html.twig' with {'character': player} %}
+        <div class="col-md-6 small-show dropper" id="player_{{ player.id }}" data-player-id="{{ player.id }}">
+            {% include 'CharacterBundle:Character:show_content.html.twig' with {'character': player} %}
         </div>
     {% endfor %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script type="text/javascript">
+
+        var draggable = document.querySelector('[draggable=true]');
+
+        draggable.addEventListener('dragstart',function(e){
+            e.dataTransfer.setData('text/plain', $(this).attr('drag-function'));
+        });
+
+        var dropper = document.querySelector('.dropper');
+
+        dropper.addEventListener('dragover', function(e){
+            e.preventDefault();
+        });
+
+        dropper.addEventListener('drop', function(e) {
+            e.preventDefault(); // Cette méthode est toujours nécessaire pour éviter une éventuelle redirection inattendue
+            alert(e.dataTransfer.getData('text/plain'));
+        });
+    </script>
 
 {% endblock %}
