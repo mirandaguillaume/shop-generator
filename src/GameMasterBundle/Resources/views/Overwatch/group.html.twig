@@ -59,6 +59,7 @@
         dropper.addEventListener('drop', function(e) {
             e.preventDefault(); // Cette méthode est toujours nécessaire pour éviter une éventuelle redirection inattendue
             alert(e.dataTransfer.getData('text/plain'));
+
         });
     </script>
 

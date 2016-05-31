@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Lopi\Bundle\PusherBundle\LopiPusherBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \Pinano\Select2Bundle\PinanoSelect2Bundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new ItemBundle\ItemBundle(),
             new UserBundle\UserBundle(),
             new CharacterBundle\CharacterBundle(),

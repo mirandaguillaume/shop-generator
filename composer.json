@@ -40,7 +40,8 @@
         "laupifrpar/pusher-bundle": "^1.2",
         "coresphere/console-bundle": "dev-master",
         "pinano/select2-bundle": "dev-master",
-        "leafo/scssphp": "^0.6.3"
+        "leafo/scssphp": "^0.6.3",
+        "friendsofsymfony/jsrouting-bundle": "dev-master"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.7"
